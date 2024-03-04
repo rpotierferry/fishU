@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  tank_id: one
+  plant_type: MyString
+  life_expectancy: 1
+
+two:
+  tank_id: two
+  plant_type: MyString
+  life_expectancy: 1

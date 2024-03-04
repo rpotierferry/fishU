@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  liters: 1
+  nitrate: 1
+  has_lamp: false
+  user_id: one
+
+two:
+  liters: 1
+  nitrate: 1
+  has_lamp: false
+  user_id: two
