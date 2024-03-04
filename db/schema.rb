@@ -11,11 +11,14 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema[7.1].define(version: 2024_03_04_131101) do
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "fish", force: :cascade do |t|
     t.string "name"
     t.boolean "sick"
     t.boolean "alive"
-    t.integer "tank_id", null: false
+    t.bigint "tank_id", null: false
     t.string "species"
     t.integer "size"
     t.datetime "created_at", null: false
@@ -24,7 +27,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_04_131101) do
   end
 
   create_table "plants", force: :cascade do |t|
-    t.integer "tank_id", null: false
+    t.bigint "tank_id", null: false
     t.string "plant_type"
     t.integer "life_expectancy"
     t.datetime "created_at", null: false
@@ -36,7 +39,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_04_131101) do
     t.integer "liters"
     t.integer "nitrate"
     t.boolean "has_lamp"
-    t.integer "user_id", null: false
+    t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_tanks_on_user_id"
