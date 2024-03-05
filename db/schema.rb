@@ -10,17 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_03_04_131101) do
+ActiveRecord::Schema[7.1].define(version: 2024_03_05_101258) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "fish", force: :cascade do |t|
     t.string "name"
-    t.boolean "sick"
-    t.boolean "alive"
+    t.boolean "sick", default: false
+    t.boolean "alive", default: true
     t.bigint "tank_id", null: false
     t.string "species"
-    t.integer "size"
+    t.integer "size", default: 1
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["tank_id"], name: "index_fish_on_tank_id"
@@ -29,16 +29,16 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_04_131101) do
   create_table "plants", force: :cascade do |t|
     t.bigint "tank_id", null: false
     t.string "plant_type"
-    t.integer "life_expectancy"
+    t.integer "life_expectancy", default: 2
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["tank_id"], name: "index_plants_on_tank_id"
   end
 
   create_table "tanks", force: :cascade do |t|
-    t.integer "liters"
-    t.integer "nitrate"
-    t.boolean "has_lamp"
+    t.integer "liters", default: 5
+    t.integer "nitrate", default: 0
+    t.boolean "has_lamp", default: false
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -53,7 +53,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_04_131101) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "currency"
+    t.integer "currency", default: 0
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

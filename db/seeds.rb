@@ -22,4 +22,6 @@ Plant.create(tank: tank, plant_type: 'nana', life_expectancy: 2)
 
 Fish.create(tank: tank, name: "lili", sick: false, alive: true, species: "goldfish", size: 1)
 
+Fish.create(tank: tank, name:"Lila")
+
 puts "plante crée"
