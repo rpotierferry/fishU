@@ -41,7 +41,7 @@ class TanksController < ApplicationController
     @plant.tank = @tank
     @plant.save
     redirect_to tank_path(@tank)
-    bubble(5)
+    bubble(-5)
   end
 
   def plant_action
@@ -53,7 +53,7 @@ class TanksController < ApplicationController
     @tank.has_lamp = true
     @tank.save
     redirect_to tank_path(@tank)
-    bubble(20)
+    bubble(-20)
   end
 
   def lamp_action
@@ -66,7 +66,7 @@ class TanksController < ApplicationController
   def increase_tank_size
     @tank.liters += 5
     @tank.save
-    bubble(10)
+    bubble(-10)
     redirect_to tank_path(@tank)
   end
 
