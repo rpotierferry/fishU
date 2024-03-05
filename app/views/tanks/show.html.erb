@@ -1,3 +1,10 @@
 <%= @tank.fish.last.name %>
 
 <%= image_tag("fishi.png") %>
+
+Nitrate :<%= @tank.nitrate%>
+
+taille du ssoipon <%=@tank.fish.last.size%>
+
+<%=link_to "nourrir le ssoipon", feed_tank_path(@tank)%>
+
