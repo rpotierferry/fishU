@@ -3,5 +3,9 @@ Rails.application.routes.draw do
   get "up" => "rails/health#show", as: :rails_health_check
 
   root "tanks#index"
-  resources :tanks
+  resources :tanks do
+  member do
+    get 'feed'
+  end
+end
 end
