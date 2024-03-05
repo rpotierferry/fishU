@@ -4,7 +4,13 @@
 
 Nitrate :<%= @tank.nitrate%>
 
+taille du bac <%=@tank.liters%>
+
 taille du ssoipon <%=@tank.fish.last.size%>
-
-<%=link_to "nourrir le ssoipon", feed_tank_path(@tank)%>
-
+Nmbre de plante: <%= @tank.plants.count%>
+lampe ? <%= @tank.has_lamp%>
+<%= button_to "nourrir le ssoipon", feed_tank_path(@tank)%>
+<%= button_to "Ajouter plante", add_plant_tank_path(@tank) %>
+<%= button_to "Ajouter une lampe", add_lamp_tank_path(@tank) %>
+<%= button_to "Agrandir l'aquarium", increase_tank_size_tank_path(@tank) %>
+<%= button_to "Passer un jour", new_day_tank_path(@tank) %>

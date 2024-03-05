@@ -5,7 +5,13 @@ Rails.application.routes.draw do
   root "tanks#index"
   resources :tanks do
   member do
-    get 'feed'
+    post 'feed'
+    post 'add_plant'
+    post 'bubble'
+    post 'plant_action'
+    post 'add_lamp'
+    post 'increase_tank_size'
+    post 'new_day'
   end
 end
 end
