@@ -1,5 +1,5 @@
 class TanksController < ApplicationController
-  before_action :set_tank, only: %i[show feed bubble plant_action add_lamp lamp_action increase_tank_size new_day plant_life]
+  before_action :set_tank, only: %i[show feed bubble plant_action add_lamp add_plant lamp_action increase_tank_size new_day plant_life]
 
   def index
     @tanks = Tank.all
