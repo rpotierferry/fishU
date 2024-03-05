@@ -8,6 +8,8 @@ taille du bac <%=@tank.liters%>
 
 taille du ssoipon <%=@tank.fish.last.size%>
 Nmbre de plante: <%= @tank.plants.count%>
+<% user = current_user%>
+sous <%= user.currency%>
 lampe ? <%= @tank.has_lamp%>
 <%= button_to "nourrir le ssoipon", feed_tank_path(@tank)%>
 <%= button_to "Ajouter plante", add_plant_tank_path(@tank) %>
