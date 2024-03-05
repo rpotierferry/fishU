@@ -41,6 +41,7 @@ class TanksController < ApplicationController
     @plant.tank = @tank
     @plant.save
     redirect_to tank_path(@tank)
+    bubble(5)
   end
 
   def plant_action
@@ -50,30 +51,44 @@ class TanksController < ApplicationController
 
   def add_lamp
     @tank.has_lamp = true
-    @tank.plants.each do |p|
-    p.life_expectancy = nil
-    p.save
-    end
     @tank.save
     redirect_to tank_path(@tank)
+    bubble(20)
+  end
+
+  def lamp_action
+    @tank.plants.each do |p|
+      p.life_expectancy = nil
+      p.save
+    end
   end
 
   def increase_tank_size
     @tank.liters += 5
     @tank.save
+    bubble(10)
     redirect_to tank_path(@tank)
   end
 
   def new_day
     plant_action
     if @tank.nitrate >= @tank.liters
-      puts "fishU"
+      raise
     else @tank.fish.each do |f|
       f.fed = false
       f.save
     end
+     @tank.has_lamp ? lamp_action : plant_life
+    end
+    bubble(20)
+    redirect_to tank_path(@tank)
   end
-  redirect_to tank_path(@tank)
+
+  def plant_life
+    @tank.plants.each do |p|
+     p.life_expectancy == 0 ? p.destroy : p.life_expectancy -= 1
+     p.save
+    end
   end
 
   private
