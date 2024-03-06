@@ -98,6 +98,7 @@ class TanksController < ApplicationController
   def win_bubble(amount)
     set_user
     @user.currency += amount
+    @user.save
   end
 
   def spend_bubble(amount)
