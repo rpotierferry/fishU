@@ -1,6 +1,6 @@
 class TanksController < ApplicationController
-  before_action :set_tank, only: %i[show feed add_lamp add_plant increase_tank_size new_day reset_all]
-  before_action :set_user, only: %i[show reset_all]
+  before_action :set_tank, only: %i[show feed add_lamp add_plant increase_tank_size new_day]
+  before_action :set_user, only: %i[show]
   before_action :authenticate_user!
 
   CONFIG = {
