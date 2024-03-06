@@ -13,3 +13,19 @@
  *= require_tree .
  *= require_self
  */
+@import "tank.css";
+
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+  background-color: #476846;
+}
+
+* {
+  border: solid;
+}
