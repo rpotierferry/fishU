@@ -65,7 +65,7 @@ class TanksController < ApplicationController
   end
 
   def increase_tank_size
-    if bubble(CONFIG[:tank_increase_price]) == 'paid'
+    if spend_bubble(CONFIG[:tank_increase_price]) == 'paid'
       @tank.liters += CONFIG[:tank_increase_liters]
       @tank.save
     end
@@ -81,7 +81,7 @@ class TanksController < ApplicationController
       f.save
     end
     @tank.has_lamp ? lamp_action : plant_life
-    bubble(CONFIG[:win_bubble_amount])
+    win_bubble(CONFIG[:win_bubble_amount])
     redirect_to tank_path(@tank)
   end
 
