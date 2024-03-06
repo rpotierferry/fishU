@@ -1,5 +1,5 @@
 class TanksController < ApplicationController
-  before_action :set_tank
+  before_action :set_tank, only: %i[show feed bubble plant_action add_lamp add_plant lamp_action increase_tank_size new_day plant_life]
 
   def index
     @tanks = Tank.all
@@ -14,7 +14,8 @@ class TanksController < ApplicationController
 
   def create
     @user = current_user
-    @tank = Tank.new(@user)
+    @tank = Tank.new
+    @tank.user = @user
     @tank.save
     redirect_to tank_path(@tank)
   end

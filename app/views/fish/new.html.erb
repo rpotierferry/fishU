@@ -1,0 +1,4 @@
+<%= form_with model: @fish, url: tank_fish_index_path(@tank) do |f| %>
+  <%= f.text_field :name %>
+  <%= f.submit "Créer ton poisson" %>
+<% end %>
