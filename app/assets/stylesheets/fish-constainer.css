@@ -1,0 +1,46 @@
+.container {
+  position: relative;
+  width: 100%;
+  padding: 8px 0;
+  height: 100%;
+}
+
+.tank {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.tank img {
+  background-size: cover;
+}
+
+.sac {
+  height: 500px;
+  background-image: url('sac.png');
+  background-size: cover;
+  width: 500px;
+}
+
+
+.fish {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.fish img {
+  background-size: cover;
+}
