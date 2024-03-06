@@ -1,35 +1,43 @@
-<% if @tank.fish.count != 0 %>
-  <%= @user.email %>
-  <br>
-  <%= @tank.fish.last.name %>
+<div class="navbar">
+  <div class="name">
+    <%= @tank.fish.last.name %>
+  </div>
+  <div class="bulle">
+    
+  </div>
+</div>
 
+<div class="container">
+  <div class="fish-container tank">
 
-<%# <div class="aquarium">
-<div class="bocal">
-<img src="app/assets/images/bocal.png" alt="bocal"> %>
-<%# </div> %>
-<%# <div class="fishi"> %>
- <%# <%= image_tag ("/assets/images/fishi.png", alt: "fishi") %>
-<%# </div>
-</div> %>
+  </div>
+  <div class="fish">
 
-  <%= image_tag("fishi.png") %>
+  </div>
 
+  <div class="plante">
 
-  Nitrate :<%= @tank.nitrate%>
+  </div>
 
-  taille du bac <%=@tank.liters%>
+  <div class="poop">
 
-  taille du ssoipon <%=@tank.fish.last.size%>
-  Nmbre de plante: <%= @tank.plants.count%>
-  sous <%= @user.currency%>
-  lampe ? <%= @tank.has_lamp%>
-  <%= button_to "nourrir le ssoipon", feed_tank_path(@tank)%>
-  <%= button_to "Ajouter plante", add_plant_tank_path(@tank) %>
-  <%= button_to "Ajouter une lampe", add_lamp_tank_path(@tank) %>
-  <%= button_to "Agrandir l'aquarium", increase_tank_size_tank_path(@tank) %>
-  <%= button_to "Passer un jour", new_day_tank_path(@tank) %>
+  </div>
+</div>
 
-<% else %>
-  <%= link_to "Créer un nouveau poisson", new_tank_fish_path(@tank) %>
-<% end %>
+<div class="buttons">
+  <div class="eat-button">
+    <%= button_to "nourrir le ssoipon", feed_tank_path(@tank)%>
+  </div>
+  <div class="button-plant">
+    <%= button_to "Ajouter plante", add_plant_tank_path(@tank) %>
+  </div>
+  <div class="lamp-button">
+    <%= button_to "Ajouter une lampe", add_lamp_tank_path(@tank) %>
+  </div>
+  <div class="size-button">
+    <%= button_to "Agrandir l'aquarium", increase_tank_size_tank_path(@tank) %>
+  </div>
+  <div class="day_button">
+    <%= button_to "Passer un jour", new_day_tank_path(@tank) %>
+  </div>
+</div>

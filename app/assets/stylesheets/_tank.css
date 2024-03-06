@@ -1,0 +1,13 @@
+.tank {
+  height: 500px;
+  background-image: url('bocal.png');
+  background-size: cover;
+  width: 500px;
+}
+
+.sac {
+  height: 500px;
+  background-image: url('sac.png');
+  background-size: cover;
+  width: 500px;
+}
