@@ -1,1 +1,5 @@
-FishU
+<% @tanks.each do |tank| %>
+  <%= link_to tank.fish.last.name, tank_path(tank) %>
+<% end %>
+<br>
+<%= link_to 'Créer un nouvel aquarium', new_tank_path %>
