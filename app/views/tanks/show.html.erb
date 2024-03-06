@@ -1,4 +1,6 @@
 <% if @tank.fish.count != 0 %>
+  <%= @user.email %>
+  <br>
   <%= @tank.fish.last.name %>
 
 
@@ -20,14 +22,14 @@
 
   taille du ssoipon <%=@tank.fish.last.size%>
   Nmbre de plante: <%= @tank.plants.count%>
-  <% user = current_user%>
-  sous <%= user.currency%>
+  sous <%= @user.currency%>
   lampe ? <%= @tank.has_lamp%>
   <%= button_to "nourrir le ssoipon", feed_tank_path(@tank)%>
   <%= button_to "Ajouter plante", add_plant_tank_path(@tank) %>
   <%= button_to "Ajouter une lampe", add_lamp_tank_path(@tank) %>
   <%= button_to "Agrandir l'aquarium", increase_tank_size_tank_path(@tank) %>
   <%= button_to "Passer un jour", new_day_tank_path(@tank) %>
+  <%= button_to "remettre à 0", reset_all_tank_path(@tank) %>
 
 <% else %>
   <%= link_to "Créer un nouveau poisson", new_tank_fish_path(@tank) %>

@@ -1,14 +1,15 @@
 class TanksController < ApplicationController
-  before_action :set_tank, only: %i[show feed add_lamp add_plant increase_tank_size new_day]
+  before_action :set_tank, only: %i[show feed add_lamp add_plant increase_tank_size new_day reset_all]
+  before_action :set_user, only: %i[show reset_all]
   before_action :authenticate_user!
 
   CONFIG = {
-    plant_price: -5,
+    plant_price: 5,
     fish_growth: 1,
     food_nitrate_increase: 1,
     plant_nitrate_decrease: 1,
-    lamp_price: -20,
-    tank_increase_price: -10,
+    lamp_price: 20,
+    tank_increase_price: 10,
     tank_increase_liters: 5,
     win_bubble_amount: 20
   }.freeze
@@ -47,24 +48,27 @@ class TanksController < ApplicationController
   end
 
   def add_plant
-    @plant = Plant.new
-    @plant.tank = @tank
-    @plant.save
+    if spend_bubble(CONFIG[:plant_price]) == 'paid'
+      @plant = Plant.new
+      @plant.tank = @tank
+      @plant.save
+    end
     redirect_to tank_path(@tank)
-    bubble(CONFIG[:plant_price])
   end
 
   def add_lamp
-    @tank.has_lamp = true
-    @tank.save
+    if spend_bubble(CONFIG[:lamp_price]) == 'paid' && @tank.has_lamp == false
+      @tank.has_lamp = true
+      @tank.save
+    end
     redirect_to tank_path(@tank)
-    bubble(CONFIG[:lamp_price])
   end
 
   def increase_tank_size
-    @tank.liters += CONFIG[:tank_increase_liters]
-    @tank.save
-    bubble(CONFIG[:tank_increase_price])
+    if bubble(CONFIG[:tank_increase_price]) == 'paid'
+      @tank.liters += CONFIG[:tank_increase_liters]
+      @tank.save
+    end
     redirect_to tank_path(@tank)
   end
 
@@ -87,11 +91,25 @@ class TanksController < ApplicationController
     @tank = Tank.find(params[:id])
   end
 
-  def bubble(amount)
-    set_tank
-    @user = @tank.user
+  def set_user
+    @user = current_user
+  end
+
+  def win_bubble(amount)
+    set_user
     @user.currency += amount
-    @user.save
+  end
+
+  def spend_bubble(amount)
+    set_tank
+    set_user
+    if (@user.currency - amount) >= 0
+      @user.currency -= amount
+      @user.save
+      'paid'
+    else
+      flash[:alert] = "Tu n'as pas assez de bubulles"
+    end
   end
 
   def plant_action
