@@ -13,6 +13,14 @@
        <span><%= image_tag 'https://res.cloudinary.com/detoat4si/image/upload/v1709817978/bulles_momkcw.png' %></span>
     </div>
   </div>
+    <div>
+      <p>
+        tank info:
+      </p>
+      <p>
+        night-rate: <%= @tank.nitrate %>, tank size: <%= @tank.liters %>, lamp: <%= @tank.has_lamp %>, fish size: <%= @tank.fish.last.size %>, plants: <%= @tank.plants.count %>
+      </p>
+    </div>
 
   <div class="container">
 
@@ -39,20 +47,16 @@
     </div>
     <% end %>
 
-    <% if @tank.nitrate > 0 %>
     <div class="poop">
+    <% if @tank.nitrate > 0 %>
+    <% n = @tank.nitrate %>
+    <% poops = (1..n).to_a %>
+    <% poops.each do |poop| %>
       <%= image_tag 'https://res.cloudinary.com/detoat4si/image/upload/v1709818123/poop_ic8z7v.png' %>
-    </div>
+     <% end %>
     <% end %>
-
-    <div>
-      <p>
-        tank info:
-      </p>
-      <p>
-        night-rate: <%= @tank.nitrate %>, tank size: <%= @tank.liters %>, lamp: <%= @tank.has_lamp %>, fish size: <%= @tank.fish.last.size %>, plants: <%= @tank.plants.count %>
-      </p>
     </div>
+
 
   </div>
 
