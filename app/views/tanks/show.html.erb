@@ -45,7 +45,7 @@
 
     <% if @tank.plants.count > 0 %>
     <div class="plante">
-      <%= image_tag 'https://res.cloudinary.com/detoat4si/image/upload/v1709818107/plant_lfwgi1.png' %>
+      <%= image_tag 'https://res.cloudinary.com/detoat4si/image/upload/v1709818107/plant_lfwgi1.png', class:"plant1" %>
     </div>
     <% end %>
 
@@ -53,8 +53,8 @@
     <% if @tank.nitrate > 0 %>
     <% n = @tank.nitrate %>
     <% poops = (1..n).to_a %>
-    <% poops.each do |poop| %>
-      <%= image_tag 'https://res.cloudinary.com/detoat4si/image/upload/v1709818123/poop_ic8z7v.png' %>
+    <% poops.each_with_index do |poop, index| %>
+      <%= image_tag 'https://res.cloudinary.com/detoat4si/image/upload/v1709818123/poop_ic8z7v.png', id: "poop_#{index + 1}", class: "poop-image" %>
      <% end %>
     <% end %>
     </div>
