@@ -94,6 +94,21 @@
   background-size: cover;
 }
 
+.tomb {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 207px;
+  bottom: 0;
+  left: 25px;
+  right: 0;
+}
+
+.tomb img {
+  background-size: cover;
+}
+
 .plante {
   display: flex;
   justify-content: center;
