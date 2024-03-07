@@ -7,7 +7,6 @@
 .bulle{
   display: flex;
   align-items: flex-start;
-
 }
 
 .points{
@@ -78,6 +77,25 @@
 
 .fish img {
   background-size: cover;
+}
+
+.plante {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 366px;
+  bottom: 0;
+  left: 235px;
+  right: 0;
+  width: 40px;
+  height: 80px;
+}
+
+
+.plante img {
+  width: 70px;
+  height: 140px;
 }
 
 .buttons{
