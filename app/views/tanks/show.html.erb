@@ -1,63 +1,75 @@
-<div class="navbar">
-  <div class="name">
-    <%= @tank.fish.last.name %>
-  </div>
-  <div class="bulle">
+<% if @tank.fish.count == 0 %>
+  <%= link_to "Crée un nouveau poisson", new_tank_fish_path(@tank) %>
+<% else %>
+  <div class="navbar">
+    <div class="name">
+      <%= @tank.fish.last.name %>
+    </div>
+    <div class="bulle">
 
-  </div>
-</div>
-
-<div class="container">
-
-
-  <div class="tank">
-    <%= image_tag 'fishu/bocal.png', style:"width: 100%;" %>
+    </div>
   </div>
 
-
-  <% if @tank.fish.last.alive? %>
-  <div class="fish">
-    <%= image_tag 'fishu/fishi.png', style:"width: #{50}%;" %>
-  </div>
-  <% else %>
-  <div>
-    <%= image_tag 'fishu/rip.png' %>
-  </div>
-  <% end %>
+  <div class="container">
 
 
+    <div class="tank">
+      <%= image_tag 'fishu/bocal.png', style:"width: 100%;" %>
+    </div>
 
-  <div class="plante">
 
-  </div>
-
-  <div class="poop">
-
-  </div>
-</div>
-
-<div class="buttons">
-   <div class="setup">
-  <div class="eat-button">
-    <%= button_to feed_tank_path(@tank) do %>
-    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-  <path stroke-linecap="round" stroke-linejoin="round" d="M4.26 10.147a60.438 60.438 0 0 0-.491 6.347A48.62 48.62 0 0 1 12 20.904a48.62 48.62 0 0 1 8.232-4.41 60.46 60.46 0 0 0-.491-6.347m-15.482 0a50.636 50.636 0 0 0-2.658-.813A59.906 59.906 0 0 1 12 3.493a59.903 59.903 0 0 1 10.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.717 50.717 0 0 1 12 13.489a50.702 50.702 0 0 1 7.74-3.342M6.75 15a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm0 0v-3.675A55.378 55.378 0 0 1 12 8.443m-7.007 11.55A5.981 5.981 0 0 0 6.75 15.75v-1.5" />
-</svg>
-
+    <% if @tank.fish.last.alive? %>
+    <div class="fish">
+      <%= image_tag 'fishu/fishi.png', style:"width: #{50}%;" %>
+    </div>
+    <% else %>
+    <div>
+      <%= image_tag 'fishu/rip.png' %>
+    </div>
     <% end %>
+
+
+
+    <div class="plante">
+
+    </div>
+
+    <div class="poop">
+
+    </div>
+
+    <div>
+      <p>
+        tank info:
+      </p>
+      <p>
+        night-rate: <%= @tank.nitrate %>, tank size: <%= @tank.liters %>, lamp: <%= @tank.has_lamp %>, fish size: <%= @tank.fish.last.size %>, plants: <%= @tank.plants.count %>
+      </p>
+    </div>
+
   </div>
 
-  <div class="button-plant">
-    <%= button_to "Ajouter plante", add_plant_tank_path(@tank) %>
+  <div class="buttons">
+    <div class="eat-button">
+      <%= button_to feed_tank_path(@tank) do %>
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M4.26 10.147a60.438 60.438 0 0 0-.491 6.347A48.62 48.62 0 0 1 12 20.904a48.62 48.62 0 0 1 8.232-4.41 60.46 60.46 0 0 0-.491-6.347m-15.482 0a50.636 50.636 0 0 0-2.658-.813A59.906 59.906 0 0 1 12 3.493a59.903 59.903 0 0 1 10.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.717 50.717 0 0 1 12 13.489a50.702 50.702 0 0 1 7.74-3.342M6.75 15a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm0 0v-3.675A55.378 55.378 0 0 1 12 8.443m-7.007 11.55A5.981 5.981 0 0 0 6.75 15.75v-1.5" />
+  </svg>
+
+      <% end %>
+    </div>
+    <div class="button-plant">
+      <%= button_to "Ajouter plante", add_plant_tank_path(@tank) %>
+    </div>
+    <div class="lamp-button">
+      <%= button_to "Ajouter une lampe", add_lamp_tank_path(@tank) %>
+    </div>
+    <div class="size-button">
+      <%= button_to "Agrandir l'aquarium", increase_tank_size_tank_path(@tank) %>
+    </div>
+    <div class="day_button">
+      <%= button_to "Passer un jour", new_day_tank_path(@tank) %>
+    </div>
   </div>
-  <div class="lamp-button">
-    <%= button_to "Ajouter une lampe", add_lamp_tank_path(@tank) %>
-  </div>
-  <div class="size-button">
-    <%= button_to "Agrandir l'aquarium", increase_tank_size_tank_path(@tank) %>
-  </div>
-  </div>
-  <div class="day-button">
-    <%= button_to "Passer un jour", new_day_tank_path(@tank) %>
-  </div>
-</div>
+
+<% end %>
