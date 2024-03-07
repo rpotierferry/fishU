@@ -10,7 +10,7 @@
     </div>
     <div class="bulle">
     <p class="points"><%=@user.currency%> x </p>
-       <span><%= image_tag 'fishu/bulles.png' %></span>
+       <span><%= image_tag 'https://res.cloudinary.com/detoat4si/image/upload/v1709817978/bulles_momkcw.png' %></span>
     </div>
   </div>
 
@@ -18,30 +18,30 @@
 
 
     <div class="tank">
-      <%= image_tag 'fishu/bocal.png', style:"width: 100%;" %>
+      <%= image_tag 'https://res.cloudinary.com/detoat4si/image/upload/v1709818010/bocal_z7f90p.png', style:"width: 100%;" %>
     </div>
 
 
     <% if @tank.fish.last.alive? %>
     <div class="fish">
-      <%= image_tag 'fishu/fishi.png', style:"width: #{50}%;" %>
+      <%= image_tag 'https://res.cloudinary.com/detoat4si/image/upload/v1709818038/fishi_hvnpfp.png', style:"width: #{50}%;" %>
     </div>
     <% else %>
     <div>
-      <%= image_tag 'fishu/rip.png' %>
+      <%= image_tag 'https://res.cloudinary.com/detoat4si/image/upload/v1709819081/rip.png_14-17-06-151_dv31b3.png' %>
     </div>
     <% end %>
 
 
     <% if @tank.plants %>
     <div class="plante">
-      <%= image_tag 'fishu/plant.png' %>
+      <%= image_tag 'https://res.cloudinary.com/detoat4si/image/upload/v1709818107/plant_lfwgi1.png' %>
     </div>
     <% end %>
 
     <% if @tank.nitrate > 0 %>
     <div class="poop">
-      <%= image_tag 'fishu/poop.png' %>
+      <%= image_tag 'https://res.cloudinary.com/detoat4si/image/upload/v1709818123/poop_ic8z7v.png' %>
     </div>
     <% end %>
 
