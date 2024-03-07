@@ -4,6 +4,20 @@
   justify-content: space-between;
 }
 
+.bulle{
+  display: flex;
+  align-items: flex-start;
+}
+
+.points{
+  margin: 0px;
+}
+
+.bulle img {
+  width: 35px;
+  height: 35px;
+}
+
 .container {
   position: relative;
   width: 100%;
@@ -65,6 +79,42 @@
   background-size: cover;
 }
 
+.plante {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 366px;
+  bottom: 0;
+  left: 235px;
+  right: 0;
+  width: 40px;
+  height: 80px;
+}
+
+.plante img {
+  width: 70px;
+  height: 140px;
+}
+
+.poop {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 404px;
+  bottom: 0;
+  left: 130px;
+  right: 0;
+  width: 40px;
+  height: 80px;
+}
+
+.poop img {
+  width: 44px;
+  height: 40px;
+}
+
 .buttons{
   height:300px;
   width: 100%;
@@ -84,9 +134,4 @@ display: flex;
 align-items: flex-end;
 border-color: bisque;
 padding:10px;
-}
-
-.bulle img {
-  width: 35px;
-  size: auto;
 }
