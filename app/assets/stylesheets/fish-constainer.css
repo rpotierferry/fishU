@@ -4,6 +4,21 @@
   justify-content: space-between;
 }
 
+.bulle{
+  display: flex;
+  align-items: flex-start;
+
+}
+
+.points{
+  margin: 0px;
+}
+
+.bulle img {
+  width: 35px;
+  height: 35px;
+}
+
 .container {
   position: relative;
   width: 100%;
@@ -84,9 +99,4 @@ display: flex;
 align-items: flex-end;
 border-color: bisque;
 padding:10px;
-}
-
-.bulle img {
-  width: 35px;
-  size: auto;
 }
