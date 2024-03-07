@@ -28,7 +28,7 @@
 
 
     <div class="tank">
-      <%if @tank.liters < 10 %>
+      <%if @tank.liters > 20 %>
         <%= image_tag 'https://res.cloudinary.com/detoat4si/image/upload/v1709818010/bocal_z7f90p.png', style:"width: 100%;" %>
         <%end %>
     </div>
@@ -45,11 +45,18 @@
     <% end %>
 
 
-    <% if @tank.plants.count > 0 %>
     <div class="plante">
-      <%= image_tag 'https://res.cloudinary.com/detoat4si/image/upload/v1709818107/plant_lfwgi1.png', class:"plant1" %>
+    <% if @tank.plants.count > 0 %>
+      <%if @tank.liters < 10 %>
+          <%t = 270 %>
+          <%l = rand(90..250) %>
+      <%else%>
+          <%t = 330 %>
+          <%l = rand(0..350) %>
+      <%end %>
+      <%= image_tag 'https://res.cloudinary.com/detoat4si/image/upload/v1709818107/plant_lfwgi1.png', class:"plant1", style:"position: absolute; top:#{t}px; left: #{l}px;" %>
+    <%end%>
     </div>
-    <% end %>
 
     <div class="poop">
     <% if @tank.nitrate > 0 %>
@@ -60,7 +67,7 @@
           <% t = rand(60..350) %>
           <%l = rand(90..250) %>
         <%else%>
-          <% t = rand(0..400) %>
+          <% t = rand(0..330) %>
           <%l = rand(0..350) %>
         <%end %>
         <%= image_tag 'https://res.cloudinary.com/detoat4si/image/upload/v1709818123/poop_ic8z7v.png', class: "poop-image", style:"postion: absolute; top: #{t}px; left: #{l}px;" %>
