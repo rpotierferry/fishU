@@ -30,14 +30,17 @@
     <% end %>
 
 
-
+    <% if @tank.plants %>
     <div class="plante">
       <%= image_tag 'fishu/plant.png' %>
     </div>
+    <% end %>
 
+    <% if @tank.nitrate > 0 %>
     <div class="poop">
       <%= image_tag 'fishu/poop.png' %>
     </div>
+    <% end %>
 
     <div>
       <p>
