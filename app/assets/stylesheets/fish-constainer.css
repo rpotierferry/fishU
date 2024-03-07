@@ -90,8 +90,9 @@
   animation: fishSwim 2s ease-in-out infinite;
 }
 
-.fish img {
-  background-size: cover;
+.fish1 {
+  width: 200px;
+  height: 200px;
 }
 
 .plante {
