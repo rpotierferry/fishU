@@ -1,4 +1,14 @@
-<%= form_with model: @fish, url: tank_fish_index_path(@tank) do |f| %>
-  <%= f.text_field :name %>
-  <%= f.submit "Créer ton poisson" %>
-<% end %>
+<div class="tank">
+  <%= image_tag 'sac.png', style:"width: 100%;" %>
+</div>
+
+<div class="fish">
+  <%= image_tag 'fishu/fishi.png', style:"width: #{50}%;" %>
+</div>
+
+<div class="formulaire">
+  <%= form_with model: @fish, url: tank_fish_index_path(@tank) do |f| %>
+    <%= f.text_field :name, class:'form' %>
+    <%= f.submit "Nomme ton poisson", class:'form' %>
+  <% end %>
+</div>
