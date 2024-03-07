@@ -16,6 +16,7 @@
   bottom: 0;
   left: 0;
   right: 0;
+  border-color: brown;
 }
 
 .tank img {
@@ -29,6 +30,18 @@
   width: 500px;
 }
 
+@keyframes fishSwim {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(20px); /* Mouvement vers la droite */
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
 
 .fish {
   display: flex;
@@ -39,8 +52,30 @@
   bottom: 0;
   left: 0;
   right: 0;
+  animation: fishSwim 2s ease-in-out infinite;
 }
 
 .fish img {
   background-size: cover;
+}
+
+.buttons{
+  height:300px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  border-color: brown;
+}
+
+.setup{
+  width: 40%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.day-button{
+display: flex;
+align-items: flex-end;
+border-color: bisque;
+padding:10px;
 }

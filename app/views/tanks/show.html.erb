@@ -37,6 +37,7 @@
 </div>
 
 <div class="buttons">
+   <div class="setup">
   <div class="eat-button">
     <%= button_to feed_tank_path(@tank) do %>
     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
@@ -45,6 +46,7 @@
 
     <% end %>
   </div>
+
   <div class="button-plant">
     <%= button_to "Ajouter plante", add_plant_tank_path(@tank) %>
   </div>
@@ -54,7 +56,8 @@
   <div class="size-button">
     <%= button_to "Agrandir l'aquarium", increase_tank_size_tank_path(@tank) %>
   </div>
-  <div class="day_button">
+  </div>
+  <div class="day-button">
     <%= button_to "Passer un jour", new_day_tank_path(@tank) %>
   </div>
 </div>
