@@ -1,6 +1,8 @@
 <% if @tank.fish.count == 0 %>
   <%= link_to "Crée un nouveau poisson", new_tank_fish_path(@tank) %>
 <% else %>
+
+
   <div class="navbar">
     <div class="name">
       <%= @tank.fish.last.name %>
