@@ -14,9 +14,11 @@
  *= require_self
  */
 @import "tank.css";
+@import url(‘https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap’);
 
 
 body {
+  font-family: "Pixelify";
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -27,6 +29,7 @@ body {
   margin: 0
 }
 
-* {
+
+/* * {
   border: solid;
-}
+} */

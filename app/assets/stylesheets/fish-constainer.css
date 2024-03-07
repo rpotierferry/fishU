@@ -7,15 +7,32 @@
 .bulle{
   display: flex;
   align-items: flex-start;
+  width: 72px;
+  height: 52px;
 }
 
 .points{
   margin: 0px;
+  font-size: 20px;
 }
 
 .bulle img {
   width: 35px;
   height: 35px;
+}
+
+.name{
+  font-size: 20px;
+  width: 72px;
+  height: 52px;
+}
+
+.logo {
+
+}
+
+.logo img {
+  width: 100px;
 }
 
 .container {
