@@ -92,10 +92,27 @@
   height: 80px;
 }
 
-
 .plante img {
   width: 70px;
   height: 140px;
+}
+
+.poop {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 404px;
+  bottom: 0;
+  left: 130px;
+  right: 0;
+  width: 40px;
+  height: 80px;
+}
+
+.poop img {
+  width: 44px;
+  height: 40px;
 }
 
 .buttons{
