@@ -51,11 +51,7 @@
 
     <div class="poop">
     <% if @tank.nitrate > 0 %>
-    <% n = @tank.nitrate %>
-    <% poops = (1..n).to_a %>
-    <% poops.each do |poop| %>
       <%= image_tag 'https://res.cloudinary.com/detoat4si/image/upload/v1709818123/poop_ic8z7v.png' %>
-     <% end %>
     <% end %>
     </div>
 
