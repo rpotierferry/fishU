@@ -114,12 +114,12 @@
   justify-content: center;
   align-items: center;
   position: absolute;
-  top: 366px;
+  top: 385px;
   bottom: 0;
   left: 235px;
   right: 0;
   width: 40px;
-  height: 80px;
+  height: 80px
 }
 
 .plante img {
@@ -133,7 +133,7 @@
   justify-content: center;
   align-items: center;
   position: absolute;
-  top: 417px;
+  top: 440px;
   bottom: 0;
   left: 130px;
   right: 0;
