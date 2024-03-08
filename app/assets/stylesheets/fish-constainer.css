@@ -112,6 +112,10 @@ body {
   animation: fishSwim 2s ease-in-out infinite;
 }
 
+.fish img {
+  background-size: cover;
+}
+
 .tomb {
   display: flex;
   justify-content: center;
@@ -121,6 +125,10 @@ body {
   bottom: 0;
   left: 25px;
   right: 0;
+}
+
+.tomb img {
+  background-size: cover;
 }
 
 .tomb img {
