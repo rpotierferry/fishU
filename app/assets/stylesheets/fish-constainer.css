@@ -1,9 +1,30 @@
-@import url(‘https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap’);
+@import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap');
+/* 'Pixelify Sans' */
+@import url('https://fonts.googleapis.com/css2?family=Rubik+80s+Fade&display=swap');
+/* "Rubik 80s Fade" */
+
+
+body {
+  /* font-family: "Rubik 80s Fade"; */
+  font-family: 'Pixelify Sans';
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+  background-color: #476846;
+  margin: 0
+}
 
 .navbar {
+  /* font-family: "Rubik 80s Fade"; */
   width: 100%;
   display: flex;
   justify-content: space-between;
+  background-color: rgb(92, 99, 114);
+  padding: 10px;
+
 }
 
 .bulle{
@@ -16,6 +37,7 @@
 .points{
   margin: 0px;
   font-size: 20px;
+  white-space: nowrap;
 }
 
 .bulle img {
@@ -137,6 +159,7 @@
   display: flex;
   justify-content: space-between;
   border-color: brown;
+  background-color: rgb(92, 99, 114);
 }
 
 .setup{
@@ -164,4 +187,12 @@ padding:10px;
   bottom: 0;
   left: 270px;
   right: 0;
+}
+
+.has-lamp{
+  height: 5px;
+  width: 5px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 50%;
+  box-shadow:0px 0px 30px 20px rgba(255, 123, 0, 0.2); ;
 }

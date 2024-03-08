@@ -14,11 +14,13 @@
  *= require_self
  */
 @import "tank.css";
-@import url(‘https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap’);
+@import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap');
+/* 'Pixelify Sans' */
+@import url('https://fonts.googleapis.com/css2?family=Rubik+80s+Fade&display=swap');
+/* "Rubik 80s Fade" */
 
 
 body {
-  font-family: "Pixelify Sans";
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -30,6 +32,6 @@ body {
 }
 
 
-* {
+/* * {
   border: solid;
-}
+} */
