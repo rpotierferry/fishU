@@ -97,12 +97,23 @@
         <% end %>
       </div>
     </div>
-    <div>
+    <div class="dashboard">
       <p>
-        night-rate: <%= @tank.nitrate %>, tank size: <%= @tank.liters %>, lamp: <%= @tank.has_lamp %>, fish size: <%= @tank.fish.last.size %>, plants: <%= @tank.plants.count %>
+      niveau de nitrate: <%= @tank.nitrate %>
+      <br>
+      bac: <%= @tank.liters %>L
+      <br>
+      taille du poisson: <%= @tank.fish.last.size %>cm
+      <br>
+      <% if @tank.plants.count == 1  %>
+        <%= @tank.plants.count %> plante
+      <%else%>
+      <%= @tank.plants.count %> plantes
+      <%end %>
       </p>
     </div>
     <div class="day-button">
+      <button class="btn" >?</button>
       <%= button_to new_day_tank_path(@tank), class:"btn" do %>
           <%= image_tag "fishu/moon.png", class:"btn-img"%>
         <% end %>
