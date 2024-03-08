@@ -75,7 +75,7 @@ class TanksController < ApplicationController
   def new_day
     if @tank.fish.last.fed?
       plant_action
-      raise if @tank.nitrate >= @tank.liters
+      rip if @tank.nitrate >= @tank.liters
 
       @tank.fish.each do |f|
         f.fed = false
@@ -135,5 +135,13 @@ class TanksController < ApplicationController
       p.life_expectancy.zero? ? p.destroy : p.life_expectancy -= 1
       p.save
     end
+  end
+
+  def rip
+    set_tank
+    set_user
+    @fish = @tank.fish.last
+    @fish.alive = false
+    @fish.save
   end
 end

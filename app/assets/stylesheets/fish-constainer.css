@@ -112,6 +112,21 @@ body {
   animation: fishSwim 2s ease-in-out infinite;
 }
 
+.tomb {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 207px;
+  bottom: 0;
+  left: 25px;
+  right: 0;
+}
+
+.tomb img {
+  background-size: cover;
+}
+
 .fish1 {
   width: 200px;
   height: 200px;
@@ -121,12 +136,9 @@ body {
   width: 120px;
   height: 120px;
 }
-
 .fish3 {
   width: 80px;
-  height: 80px;
 }
-
 .fish4 {
   width: 50px;
   height: 50px;
