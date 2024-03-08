@@ -46,7 +46,7 @@
 
     <div class="plante">
     <% if @tank.plants.count > 0 %>
-      <%if @tank.liters < 10 %>
+      <%if @tank.liters < 20 %>
           <%t = 270 %>
           <%l = rand(90..250) %>
       <%else%>
@@ -64,7 +64,7 @@
         <% poops = (1..n).to_a %>
         <% poops.each do |poop| %>
           <div class="poop">
-            <%if @tank.liters < 10 %>
+            <%if @tank.liters < 20 %>
               <% t = rand(60..350) %>
               <%l = rand(90..250) %>
             <%else%>
@@ -101,6 +101,7 @@
       <%= button_to "Agrandir l'aquarium", increase_tank_size_tank_path(@tank) %>
     </div>
     </div>
+    <div class="space"></div>
     <div class="day-button">
       <%= button_to "Passer un jour", new_day_tank_path(@tank) %>
     </div>
