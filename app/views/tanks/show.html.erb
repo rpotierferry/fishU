@@ -26,9 +26,8 @@
 
   <div class="container">
 
-
     <div class="tank">
-      <%if @tank.liters > 20 %>
+      <%if @tank.liters < 20 %>
         <%= image_tag 'https://res.cloudinary.com/detoat4si/image/upload/v1709818010/bocal_z7f90p.png', style:"width: 100%;" %>
         <%end %>
     </div>
@@ -37,9 +36,7 @@
     <div class="fish">
     <% if @tank.fish.last.alive? %>
       <%= image_tag 'https://res.cloudinary.com/detoat4si/image/upload/v1709818038/fishi_hvnpfp.png', class:"fish1" %>
-    </div>
     <% else %>
-    <div>
       <%= image_tag 'https://res.cloudinary.com/detoat4si/image/upload/v1709819081/rip.png_14-17-06-151_dv31b3.png' %>
     <% end %>
     </div>
