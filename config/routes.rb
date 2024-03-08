@@ -15,4 +15,5 @@ Rails.application.routes.draw do
       post 'new_day'
     end
   end
+  get "/test", to: "pages#test"
 end

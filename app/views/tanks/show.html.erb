@@ -2,7 +2,6 @@
   <%= link_to "Crée un nouveau poisson", new_tank_fish_path(@tank) %>
 <% else %>
 
-
   <div class="navbar">
     <div class="name">
       <%= @tank.fish.last.name %>
@@ -90,7 +89,9 @@
       <% end %>
     </div>
     <div class="button-plant">
-      <%= button_to "Ajouter plante", add_plant_tank_path(@tank) %>
+      <%= button_to add_plant_tank_path(@tank) do %>
+      <%= image_tag 'fishu/plant_icon.png', class:'plant_icon' %>
+      <% end %>
     </div>
     <div class="lamp-button">
     <div class="has-lamp">
@@ -101,9 +102,31 @@
       <%= button_to "Agrandir l'aquarium", increase_tank_size_tank_path(@tank) %>
     </div>
     </div>
+    <div class="regles_button">
+      <a href="#popup" data-turbo="false" >?</a>
+      <div id="popup" class="regles">
+      <div class="regles_content">
+        <h1>Règles du jeu</h1>
+        <h2>Maintiens ton poisson en vie!
+          <br>
+        <p>* Il a besoin de manger 1 fois par jour
+          <br>
+          * Quand il mange il produit du nitrate
+          <br>
+          * Une plante filtre le nitrate
+          <br>
+          * Une plante à besoin de lumière
+          <br>
+          * + ton poisson mange + il grandit + il a besoin d'espace
+        </p>
+        <a href="#" class="regles_close" data-turbo="false">&times;</a>
+      </div>
+      </div>
+      </div>
     <div class="day-button">
       <%= button_to "Passer un jour", new_day_tank_path(@tank) %>
     </div>
   </div>
+
 
 <% end %>
