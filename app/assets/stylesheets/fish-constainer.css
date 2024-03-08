@@ -133,12 +133,12 @@
   justify-content: center;
   align-items: center;
   position: absolute;
-  top: 404px;
+  top: 417px;
   bottom: 0;
   left: 130px;
   right: 0;
   width: 40px;
-  height: 80px;
+  height: 80px
 }
 
 .poop img {
@@ -175,8 +175,8 @@ padding:10px;
 
 .form{
   position: relative;
-  top: 675px;
+  top: 715px;
   bottom: 0;
-  left: 270px;
+  left: 309px;
   right: 0;
 }
