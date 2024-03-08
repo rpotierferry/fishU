@@ -18,6 +18,8 @@ class TanksController < ApplicationController
 
   def index
     @tanks = Tank.all
+    @tanks.each { |tank| tank.destroy if tank.fish.last.alive? == false }
+    @tanks = Tank.all
   end
 
   def show; end
