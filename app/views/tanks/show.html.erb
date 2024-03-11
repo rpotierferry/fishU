@@ -5,6 +5,7 @@
   <div class="navbar">
     <div class="name">
       <%= @tank.fish.last.name %>
+      <%= @tank.night %>
       <br>
     </div>
     <div class="logo">
@@ -17,7 +18,7 @@
        <span><%= image_tag 'https://res.cloudinary.com/detoat4si/image/upload/v1709817978/bulles_momkcw.png' %></span>
     </div>
   </div>
-  <%if @tank.fish.last.fed? == false %>
+  <%if @tank.night = true%>
     <%day = "night" %>
   <%else %>
     <%day = "day" %>

@@ -75,6 +75,7 @@ class TanksController < ApplicationController
   end
 
   def new_day
+    night
     if @tank.fish.last.fed?
       plant_action
       if @tank.nitrate >= @tank.liters
@@ -86,6 +87,7 @@ class TanksController < ApplicationController
         @tank.has_lamp ? lamp_action : plant_life
         win_bubble(CONFIG[:win_bubble_amount])
       end
+      day
       redirect_to tank_path(@tank)
     end
   end
@@ -163,5 +165,15 @@ class TanksController < ApplicationController
       f.fed = false
       f.save
     end
+  end
+
+  def night
+    set_tank
+    @tank.night = true
+  end
+
+  def day
+    set_tank
+    @tank.night = false
   end
 end
