@@ -17,12 +17,8 @@
        <span><%= image_tag 'https://res.cloudinary.com/detoat4si/image/upload/v1709817978/bulles_momkcw.png' %></span>
     </div>
   </div>
-  <%if @tank.fish.last.fed? == false %>
-    <%day = "night" %>
-  <%else %>
-    <%day = "day" %>
-  <%end %>
-    <div class="<%=day%>">
+
+    <div class="day">
 
     <div class="tank">
       <%if @tank.liters < 20 %>
@@ -33,11 +29,11 @@
 
     <div class="fish">
     <% if @tank.fish.last.alive? %>
-      <% if @tank.liters < 19 %>
+      <% if @tank.liters < 20 %>
         <%fish = "fish1"%>
-      <% elsif @tank.liters > 29 && @tank.liters < 50%>
+      <% elsif @tank.liters >= 20 && @tank.liters < 50 %>
         <% fish = "fish2"%>
-      <% elsif @tank.liters > 50 && @tank.liters < 70%>
+      <% elsif @tank.liters >= 50 && @tank.liters < 70%>
         <%fish = "fish3"%>
       <% else %>
         <%fish = "fish4"%>
