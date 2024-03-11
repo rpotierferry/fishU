@@ -186,13 +186,20 @@ body {
   position: relative;
 }
 
-.poop-image {
+.poop-image1 {
   width: 44px;
   height: 40px;
 }
+.poop-image2 {
+  width: 34px;
+}
+.poop-image3 {
+  width: 24px;
+}
 
-
-
+.poop-image4 {
+  width: 14px;
+}
 .buttons{
   height:300px;
   width: 100%;
