@@ -20,7 +20,7 @@
     </div>
   </div>
 
-  <div class="container">
+    <div class="day">
 
     <% if @tank.liters < 20 %>
       <div class="tank">
@@ -30,9 +30,9 @@
         <div class="fish">
           <% if @tank.liters < 19 %>
             <%fish = "fish1"%>
-          <% elsif @tank.liters > 29 && @tank.liters < 50%>
+          <% elsif @tank.liters >= 19 && @tank.liters < 30%>
             <% fish = "fish2"%>
-          <% elsif @tank.liters > 50 && @tank.liters < 70%>
+          <% elsif @tank.liters >= 30 && @tank.liters < 50%>
             <%fish = "fish3"%>
           <% else %>
             <%fish = "fish4"%>
@@ -58,7 +58,7 @@
           <% if @tank.liters < 19 %>
             <%plant = "plant1"%>
           <% elsif @tank.liters > 29 && @tank.liters < 50%>
-            <%plant = "plant2"%>
+            <% plant = "plant2"%>
           <% elsif @tank.liters > 50 && @tank.liters < 70%>
             <%plant = "plant3"%>
           <% else %>
@@ -174,7 +174,7 @@
     <% if @tank.fish.last.alive? == false %>
       <div class="size-button">
         <%= button_to reset_all_tank_path(@tank), class:"btn" do %>
-          <%= image_tag "https://res.cloudinary.com/detoat4si/image/upload/v1710163432/recycling_py7bio.webp", class:"btn-img" %>
+          <%= image_tag "https://res.cloudinary.com/detoat4si/image/upload/v1710165578/redo_lpe81i.png", class:"btn-img" %>
         <% end %>
       </div>
     <% end %>
