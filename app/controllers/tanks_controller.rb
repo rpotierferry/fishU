@@ -176,6 +176,7 @@ class TanksController < ApplicationController
     @tank.liters = 5
     @tank.nitrate = 0
     @tank.has_lamp = false
+    @tank.plants.destroy_all
     @tank.save
   end
 
