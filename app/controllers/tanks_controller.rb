@@ -17,9 +17,9 @@ class TanksController < ApplicationController
   # controller actions
 
   def index
-    @tanks = Tank.all
+    @tanks = @user.tanks
     @tanks.each { |tank| tank.destroy if tank.fish.last.alive? == false }
-    @tanks = Tank.all
+    @tanks = @user.tanks
   end
 
   def show; end
@@ -77,14 +77,13 @@ class TanksController < ApplicationController
   def new_day
     if @tank.fish.last.fed?
       plant_action
-      rip if @tank.nitrate >= @tank.liters
-
-      @tank.fish.each do |f|
-        f.fed = false
-        f.save
+      if @tank.nitrate >= @tank.liters
+        rip
+      else
+        fish_get_hungry
+        @tank.has_lamp ? lamp_action : plant_life
+        win_bubble(CONFIG[:win_bubble_amount])
       end
-      @tank.has_lamp ? lamp_action : plant_life
-      win_bubble(CONFIG[:win_bubble_amount])
       redirect_to tank_path(@tank)
     end
   end
@@ -145,5 +144,15 @@ class TanksController < ApplicationController
     @fish = @tank.fish.last
     @fish.alive = false
     @fish.save
+    @user.currency = 0
+    @user.save
+  end
+
+  def fish_get_hungry
+    set_tank
+    @tank.fish.each do |f|
+      f.fed = false
+      f.save
+    end
   end
 end
