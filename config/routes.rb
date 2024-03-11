@@ -13,6 +13,7 @@ Rails.application.routes.draw do
       post 'add_lamp'
       post 'increase_tank_size'
       post 'new_day'
+      post 'reset_all'
     end
   end
   get "/test", to: "pages#test"

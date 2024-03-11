@@ -1,5 +1,5 @@
 class TanksController < ApplicationController
-  before_action :set_tank, only: %i[show feed add_lamp add_plant increase_tank_size new_day]
+  before_action :set_tank, only: %i[reset_all show feed add_lamp add_plant increase_tank_size new_day]
   before_action :set_user, only: %i[index show]
   before_action :authenticate_user!
 
@@ -37,6 +37,12 @@ class TanksController < ApplicationController
   end
 
   # user actions
+
+  def reset_all
+    reset_tank
+    reset_fish
+    redirect_to tank_path(@tank)
+  end
 
   def feed
     @tank.fish.each do |f|
@@ -162,6 +168,25 @@ class TanksController < ApplicationController
     @tank.fish.each do |f|
       f.fed = false
       f.save
+    end
+  end
+
+  def reset_tank
+    set_tank
+    @tank.liters = 5
+    @tank.nitrate = 0
+    @tank.has_lamp = false
+    @tank.save
+  end
+
+  def reset_fish
+    set_tank
+    @fishes = @tank.fish
+    @fishes.each do |fish|
+      fish.alive = true
+      fish.size = 1
+      fish.fed = false
+      fish.save
     end
   end
 end
