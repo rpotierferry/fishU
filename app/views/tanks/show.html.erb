@@ -50,10 +50,10 @@
     <div class="plante">
     <% if @tank.plants.count > 0 %>
       <%if @tank.liters < 20 %>
-          <%t = 351 %>
+          <%t = 310 %>
           <%l = rand(90..250) %>
       <%else%>
-          <%t = 330 %>
+          <%t = rand(370..380) %>
           <%l = rand(0..350) %>
       <%end %>
       <% if @tank.liters < 19 %>
