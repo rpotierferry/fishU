@@ -79,6 +79,8 @@ class TanksController < ApplicationController
       plant_action
       if @tank.nitrate >= @tank.liters
         rip
+      elsif fish_quantity > @tank.liters
+        rip
       else
         fish_get_hungry
         @tank.has_lamp ? lamp_action : plant_life
@@ -146,6 +148,13 @@ class TanksController < ApplicationController
     @fish.save
     @user.currency = 0
     @user.save
+  end
+
+  def fish_quantity
+    set_tank
+    @fish_quantity = 0
+    @tank.fish.each { |f| @fish_quantity += f.size }
+    @fish_quantity
   end
 
   def fish_get_hungry
