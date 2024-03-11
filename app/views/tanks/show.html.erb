@@ -77,22 +77,22 @@
           <% poops.each do |poop| %>
             <div class="poop">
               <%if @tank.liters < 20 %>
-                <% t = rand(30..300) %>
-                <% l = rand(30..260) %>
+                <% t = rand(66..300) %>
+                <% l = rand(70..260) %>
               <%else%>
                 <% t = rand(0..330) %>
                 <% l = rand(0..350) %>
               <%end %>
-            <% if @tank.liters < 19 %>
-              <%poopimage = "poop-image1"%>
-            <% elsif @tank.liters > 29 && @tank.liters < 50%>
-              <% poopimage = "poop-image2"%>
-            <% elsif @tank.liters > 50 && @tank.liters < 70%>
-              <%poopimage = "poop-image3"%>
-            <% else %>
-              <%poopimage = "poop-image4"%>
-            <%end %>
-              <%= image_tag 'https://res.cloudinary.com/detoat4si/image/upload/v1709818123/poop_ic8z7v.png', class: "#{poopimage}", style:"position: absolute; top: #{t}px; left: #{l}px;" %>
+              <% if @tank.liters < 19 %>
+                <%poopimage = "poop-image1"%>
+              <% elsif @tank.liters > 29 && @tank.liters < 50%>
+                <%poopimage = "poop-image2"%>
+              <% elsif @tank.liters > 50 && @tank.liters < 70%>
+                <%poopimage = "poop-image3"%>
+              <% else %>
+                <%poopimage = "poop-image4"%>
+                <%end %>
+              <%= image_tag 'https://res.cloudinary.com/detoat4si/image/upload/v1709818123/poop_ic8z7v.png', class: "#{poopimage}", style:"position: absolute; background-position: center; top: #{t}px; left: #{l}px;" %>
             </div>
           <% end %>
         <% end %>
