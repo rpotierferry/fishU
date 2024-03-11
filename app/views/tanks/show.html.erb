@@ -78,8 +78,8 @@
         <% poops.each do |poop| %>
           <div class="poop">
             <%if @tank.liters < 20 %>
-              <% t = rand(125..450) %>
-              <%l = rand(110..280) %>
+              <% t = rand(90..300) %>
+              <%l = rand(120..260) %>
             <%else%>
               <% t = rand(0..330) %>
               <% l = rand(0..350) %>
