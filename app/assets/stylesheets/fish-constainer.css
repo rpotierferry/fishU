@@ -1,12 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap');
 /* 'Pixelify Sans' */
-@import url('https://fonts.googleapis.com/css2?family=Rubik+80s+Fade&display=swap');
-/* "Rubik 80s Fade" */
-
+@import url('https://fonts.cdnfonts.com/css/public-pixel');
+/* 'Public Pixel' */
 
 body {
-  /* font-family: "Rubik 80s Fade"; */
-  font-family: 'Pixelify Sans';
+  font-family: 'Public Pixel', sans-serif;
+  /* font-family: 'Pixelify Sans'; */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -15,12 +14,9 @@ body {
   width: 100%;
   margin: 0;
   background-color: rgb(170, 170, 170);
-
-
 }
 
 .navbar {
-  /* font-family: "Rubik 80s Fade"; */
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -32,13 +28,12 @@ body {
 .bulle{
   display: flex;
   align-items: flex-start;
-  width: 72px;
   height: 52px;
 }
 
 .points{
   margin: 0px;
-  font-size: 20px;
+  font-size: 15px;
   white-space: nowrap;
 }
 
@@ -48,7 +43,7 @@ body {
 }
 
 .name{
-  font-size: 20px;
+  font-size: 15px;
   width: 72px;
   height: 52px;
 }
@@ -181,8 +176,6 @@ body {
   height: 40px;
 }
 
-
-
 .buttons{
   height:300px;
   width: 100%;
@@ -208,6 +201,15 @@ body {
 .btn-img{
   width: 100%;
 }
+
+a.btn {
+  text-decoration: none;
+  text-align: center;
+  font-size: 25px;
+  color: black;
+  box-shadow: 1px 1px 1px 1px black;
+}
+
 .day-button{
 display: flex;
 flex-direction: column;

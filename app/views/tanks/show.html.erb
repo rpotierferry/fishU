@@ -116,28 +116,31 @@
       </p>
     </div>
     <div class="regles_button">
-      <a href="#popup" data-turbo="false" class="pop" ></a>
       <div id="popup" class="regles">
-      <div class="regles_content">
-        <h1>Règles du jeu</h1>
-        <h2>Maintiens ton poisson en vie!
-          <br>
-        <p>* Il a besoin de manger 1 fois par jour
-          <br>
-          * Quand il mange il produit du nitrate
-          <br>
-          * Une plante filtre le nitrate
-          <br>
-          * Une plante à besoin de lumière
-          <br>
-          * + ton poisson mange + il grandit + il a besoin d'espace
-        </p>
-        <a href="#" class="regles_close" data-turbo="false">&times;</a>
+        <div class="regles_content">
+          <h1>Règles du jeu</h1>
+          <h2>Maintiens ton poisson en vie!
+            <br>
+          <p>* Il a besoin de manger 1 fois par jour
+            <br>
+            * Quand il mange il produit du nitrate
+            <br>
+            * Une plante filtre le nitrate
+            <br>
+            * Une plante à besoin de lumière
+            <br>
+            * + ton poisson mange + il grandit + il a besoin d'espace
+            <br>
+            * Utilise tes bubulles pour faire de nouveaux achats
+            <br>
+            * Tu gagnes 20 bubulles/jour
+          </p>
+          <a href="#" class="regles_close" data-turbo="false">&times;</a>
+        </div>
       </div>
-      </div>
-      </div>
+    </div>
     <div class="day-button">
-      <button class="btn" >?</button>
+      <a class="btn" href="#popup" data-turbo="false" class="pop">?</a>
       <%= button_to new_day_tank_path(@tank), class:"btn" do %>
           <%= image_tag "https://res.cloudinary.com/detoat4si/image/upload/v1709908668/moon_ckaxya.png", class:"btn-img"%>
         <% end %>
