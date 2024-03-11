@@ -17,8 +17,12 @@
        <span><%= image_tag 'https://res.cloudinary.com/detoat4si/image/upload/v1709817978/bulles_momkcw.png' %></span>
     </div>
   </div>
-
-  <div class="container">
+  <%if @tank.fish.last.fed? == false %>
+    <%day = "night" %>
+  <%else %>
+    <%day = "day" %>
+  <%end %>
+    <div class="<%=day%>">
 
     <div class="tank">
       <%if @tank.liters < 20 %>
