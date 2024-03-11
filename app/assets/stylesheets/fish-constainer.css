@@ -110,7 +110,6 @@ body {
   bottom: 0;
   left: 0;
   right: 0;
-  animation: fishSwim 2s ease-in-out infinite;
 }
 
 .fish img {
@@ -134,19 +133,23 @@ body {
 
 .fish1 {
   width: 200px;
-  height: 200px;
+  animation: fishSwim 2s ease-in-out infinite;
 }
 
 .fish2 {
   width: 120px;
-  height: 120px;
+  animation: fishSwim 2s ease-in-out infinite;
+
 }
 .fish3 {
   width: 80px;
+  animation: fishSwim 2s ease-in-out infinite;
+
 }
 .fish4 {
   width: 50px;
-  height: 50px;
+  animation: fishSwim 2s ease-in-out infinite;
+
 }
 
 .plante {
@@ -265,14 +268,6 @@ justify-content: space-between;
   bottom: 0;
   left: 309px;
   right: 0;
-}
-
-.has-lamp {
-  height: 1px;
-  width: 1px;
-  background-color: rgb(255, 255, 255);
-  border-radius: 50%;
-  box-shadow: 0px 0px 3px 1px white, 0px 0px 6px 7px rgb(255, 96, 0);
 }
 
 .plant_icon {
