@@ -56,8 +56,17 @@
           <%t = 330 %>
           <%l = rand(0..350) %>
       <%end %>
+      <% if @tank.liters < 19 %>
+        <%plant = "plant1"%>
+      <% elsif @tank.liters > 29 && @tank.liters < 50%>
+        <%plant = "plant2"%>
+      <% elsif @tank.liters > 50 && @tank.liters < 70%>
+        <%plant = "plant3"%>
+      <% else %>
+        <%plant = "plant4"%>
+      <%end %>
       <%= image_tag 'https://res.cloudinary.com/detoat4si/image/upload/v1709818107/plant_lfwgi1.png',
-      class:"plant1", style:"position: absolute; top:#{t}px; left: #{l}px;" %>
+      class:"#{plant}", style:"position: absolute; top:#{t}px; left: #{l}px;" %>
     <%end%>
     </div>
 
