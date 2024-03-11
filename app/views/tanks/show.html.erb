@@ -20,7 +20,7 @@
     </div>
   </div>
 
-  <div class="container">
+    <div class="day">
 
     <% if @tank.liters < 20 %>
       <div class="tank">
@@ -30,9 +30,9 @@
         <div class="fish">
           <% if @tank.liters < 19 %>
             <%fish = "fish1"%>
-          <% elsif @tank.liters > 29 && @tank.liters < 50%>
+          <% elsif @tank.liters >= 19 && @tank.liters < 30%>
             <% fish = "fish2"%>
-          <% elsif @tank.liters > 50 && @tank.liters < 70%>
+          <% elsif @tank.liters >= 30 && @tank.liters < 50%>
             <%fish = "fish3"%>
           <% else %>
             <%fish = "fish4"%>

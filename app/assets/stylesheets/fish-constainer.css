@@ -51,8 +51,18 @@ body {
 .logo img {
   width: 100px;
 }
-
-.container {
+@keyframes night {
+  0% {
+    background-color: #476846;
+  }
+  50% {
+    background-color: #000000;
+  }
+  100% {
+    background-color: #476846;
+  }
+}
+.night {
   position: relative;
   width: 98%;
   padding: 8px 0;
@@ -61,7 +71,17 @@ body {
   border: solid;
   border-radius: 10px;
   background-color: #476846;
-
+  animation: night 2s linear 1 alternate;
+}
+.day {
+  position: relative;
+  width: 98%;
+  padding: 8px 0;
+  height: 100%;
+  overflow: hidden;
+  border: solid;
+  border-radius: 10px;
+  background-color: #476846;
 }
 
 .tank {
