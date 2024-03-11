@@ -77,10 +77,7 @@ body {
   background-image: url('https://res.cloudinary.com/detoat4si/image/upload/v1709818010/bocal_z7f90p.png');
   background-size: contain;
   background-repeat: no-repeat;
-}
-
-.tank img {
-  background-size: cover;
+  background-position: center;
 }
 
 .sac {
