@@ -5,9 +5,12 @@
   <div class="navbar">
     <div class="name">
       <%= @tank.fish.last.name %>
+      <br>
     </div>
     <div class="logo">
-       <%= image_tag 'fishu/logo.png' %>
+      <%= link_to tanks_path do %>
+       <%= image_tag 'https://res.cloudinary.com/detoat4si/image/upload/v1709910367/logo_vkcqrc.png' %>
+       <% end %>
     </div>
     <div class="bulle">
     <p class="points"><%=@user.currency%> x </p>
@@ -66,8 +69,8 @@
         <% poops.each do |poop| %>
           <div class="poop">
             <%if @tank.liters < 20 %>
-              <% t = rand(60..350) %>
-              <%l = rand(90..250) %>
+              <% t = rand(125..450) %>
+              <%l = rand(110..280) %>
             <%else%>
               <% t = rand(0..330) %>
               <% l = rand(0..350) %>
@@ -122,7 +125,7 @@
       </p>
     </div>
     <div class="regles_button">
-      <a href="#popup" data-turbo="false" ></a>
+      <a href="#popup" data-turbo="false" class="pop" ></a>
       <div id="popup" class="regles">
       <div class="regles_content">
         <h1>Règles du jeu</h1>
