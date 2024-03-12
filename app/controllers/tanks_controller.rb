@@ -6,7 +6,7 @@ class TanksController < ApplicationController
   CONFIG = {
     plant_price: 5,
     fish_growth: 1,
-    food_nitrate_increase: 0.9,
+    food_nitrate_increase: 0.8,
     plant_nitrate_decrease: 1,
     lamp_price: 20,
     tank_increase_price: 10,
@@ -85,9 +85,8 @@ class TanksController < ApplicationController
       plant_action
       if @tank.nitrate >= @tank.liters
         rip
-      # elsif fish_quantity > @tank.liters
-      #   rip
       else
+        fish_sick
         fish_get_hungry
         @tank.has_lamp ? lamp_action : plant_life
         win_bubble(CONFIG[:win_bubble_amount])
@@ -156,11 +155,15 @@ class TanksController < ApplicationController
     @user.save
   end
 
-  def fish_quantity
+  def fish_sick
     set_tank
-    @fish_quantity = 0
-    @tank.fish.each { |f| @fish_quantity += f.size }
-    @fish_quantity
+    @condition = @tank.nitrate.to_f / @tank.liters
+    if (@condition >= 0.5) && (@condition != 1)
+      @tank.fish.each do |f|
+        f.sick = true
+        f.save
+      end
+    end
   end
 
   def fish_get_hungry
@@ -187,6 +190,7 @@ class TanksController < ApplicationController
       fish.alive = true
       fish.size = 1
       fish.fed = false
+      fish.sick = false
       fish.save
     end
   end
