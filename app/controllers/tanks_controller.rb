@@ -158,11 +158,9 @@ class TanksController < ApplicationController
   def fish_sick
     set_tank
     @condition = @tank.nitrate.to_f / @tank.liters
-    if (@condition >= 0.5) && (@condition != 1)
-      @tank.fish.each do |f|
-        f.sick = true
+    @tank.fish.each do |f|
+      (@condition >= 0.5) && (@condition != 1) ? f.sick = true : f.sick = false
         f.save
-      end
     end
   end
 
