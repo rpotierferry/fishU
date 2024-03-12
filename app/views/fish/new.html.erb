@@ -22,5 +22,8 @@
     <%= f.text_field :name, class:'form' %>
     <%= f.submit "Nomme ton poisson", class:'form' %>
   <% end %>
+  <%= @fish.errors.full_messages.join()%>
+
+
 </div>
 </div>

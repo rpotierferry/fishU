@@ -11,8 +11,8 @@ class FishController < ApplicationController
       if @fish.save
         redirect_to tank_path(@tank)
       else
-        render :new, statut: :unprocessable_entity
-      end
+        render :new, status: :unprocessable_entity
+    end
   end
 
   private
