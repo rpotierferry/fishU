@@ -6,7 +6,7 @@ class TanksController < ApplicationController
   CONFIG = {
     plant_price: 5,
     fish_growth: 1,
-    food_nitrate_increase: 1,
+    food_nitrate_increase: 0.9,
     plant_nitrate_decrease: 1,
     lamp_price: 20,
     tank_increase_price: 10,
@@ -49,7 +49,7 @@ class TanksController < ApplicationController
       f.size += CONFIG[:fish_growth]
       f.fed = true
       f.save
-      @tank.nitrate += CONFIG[:food_nitrate_increase]
+      @tank.nitrate += f.size * CONFIG[:food_nitrate_increase]
     end
     @tank.save
     redirect_to tank_path(@tank)
@@ -85,8 +85,8 @@ class TanksController < ApplicationController
       plant_action
       if @tank.nitrate >= @tank.liters
         rip
-      elsif fish_quantity > @tank.liters
-        rip
+      # elsif fish_quantity > @tank.liters
+      #   rip
       else
         fish_get_hungry
         @tank.has_lamp ? lamp_action : plant_life
