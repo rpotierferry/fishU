@@ -53,51 +53,53 @@
       <div class="plante">
         <% if @tank.plants.count > 0 %>
           <% if @tank.liters < 20 %>
-            <% t = 300 %>
-            <% l = rand(90..250) %>
-          <%else%>
-            <% t = rand(370..380) %>
-            <% l = rand(0..350) %>
-          <%end %>
+            <% left = "calc(#{rand(40..60)}% - 35px)" %>
+            <% bottom = "10px" %>
+          <% else %>
+            <% left = "calc(#{rand(5..95)}% - 20px)" %>
+            <% bottom = "calc(#{5}%)" %>
+          <% end %>
           <% if @tank.liters < 19 %>
             <%plant = "plant1"%>
-          <% elsif @tank.liters > 29 && @tank.liters < 50%>
+          <% elsif @tank.liters > 19 && @tank.liters < 50%>
             <% plant = "plant2"%>
           <% elsif @tank.liters > 50 && @tank.liters < 70%>
             <%plant = "plant3"%>
           <% else %>
             <%plant = "plant4"%>
           <%end %>
-          <%= image_tag 'https://res.cloudinary.com/detoat4si/image/upload/v1709818107/plant_lfwgi1.png', class:"#{plant}", style:"position: absolute; bottom: 10px; left: #{l}px;" %>
+          <%= image_tag 'https://res.cloudinary.com/detoat4si/image/upload/v1709818107/plant_lfwgi1.png', class:"#{plant}", style:"position: absolute; bottom: #{bottom}; left: #{left};" %>
         <%end%>
       </div>
 
       <div class="poops" data-controller="poop">
-        <% if @tank.nitrate > 0 %>
-          <% n = @tank.nitrate %>
-          <% poops = (1..n).to_a %>
-          <% poops.each do |poop| %>
-            <div class="poop poop-with-sound">
+        <div class="poop-container">
+          <% if @tank.nitrate > 0 %>
+            <% n = @tank.nitrate %>
+            <% poops = (1..n).to_a %>
+            <% poops.each do |poop| %>
               <%if @tank.liters < 20 %>
-                <% t = rand(66..300) %>
-                <% l = rand(70..260) %>
-              <%else%>
-                <% t = rand(0..330) %>
-                <% l = rand(0..350) %>
+                <% top = "calc(#{rand(25..65)}% - 44px)" %>
+                <% left = "calc(#{rand(25..65)}% - 44px)" %>
+              <% else %>
+                <% top = "calc(#{rand(15..95)}% - 14px)" %>
+                <% left = "calc(#{rand(5..95)}% - 14px)" %>
               <%end %>
               <% if @tank.liters < 19 %>
-                <%poopimage = "poop-image1"%>
-              <% elsif @tank.liters > 29 && @tank.liters < 50%>
-                <%poopimage = "poop-image2"%>
+                <% poopimage = "poop-image1"%>
+              <% elsif @tank.liters > 19 && @tank.liters < 50%>
+                <% poopimage = "poop-image2"%>
               <% elsif @tank.liters > 50 && @tank.liters < 70%>
-                <%poopimage = "poop-image3"%>
+                <% poopimage = "poop-image3"%>
               <% else %>
-                <%poopimage = "poop-image4"%>
+                <% poopimage = "poop-image4"%>
                 <%end %>
-              <%= image_tag 'https://res.cloudinary.com/detoat4si/image/upload/v1709818123/poop_ic8z7v.png', class: "#{poopimage}", style:"position: absolute; background-position: center; top: #{t}px; left: #{l}px;" %>
-            </div>
+              <%= image_tag 'https://res.cloudinary.com/detoat4si/image/upload/v1709818123/poop_ic8z7v.png',
+                            class: "#{poopimage}",
+                            style:"position: absolute; background-position: center; top: #{top}; left: #{left};" %>
+            <% end %>
           <% end %>
-        <% end %>
+        </div>
       </div>
   </div>
 </div>
