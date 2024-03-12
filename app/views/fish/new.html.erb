@@ -1,13 +1,26 @@
+<div class="navbar" style="justify-content: center">
+  <div class="logo">
+    <%= link_to tanks_path do %>
+      <%= image_tag 'https://res.cloudinary.com/detoat4si/image/upload/v1709910367/logo_vkcqrc.png' %>
+      <% end %>
+  </div>
+</div>
+<div class="day">
+<div class="tank">
 
   <%= image_tag 'https://res.cloudinary.com/detoat4si/image/upload/v1709818174/sac_vzkktu.png', style:"width: 100%;" %>
 
 <div class="fish">
   <%= image_tag 'https://res.cloudinary.com/detoat4si/image/upload/v1709818038/fishi_hvnpfp.png', class:"fish1" %>
 </div>
+</div>
+</div>
 
+<div class="buttons">
 <div class="formulaire">
   <%= form_with model: @fish, url: tank_fish_index_path(@tank) do |f| %>
     <%= f.text_field :name, class:'form' %>
     <%= f.submit "Nomme ton poisson", class:'form' %>
   <% end %>
+</div>
 </div>

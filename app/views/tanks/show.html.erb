@@ -22,7 +22,7 @@
   <audio id="popSound" src="<%= image_path("fishu/pop.mp3") %>"></audio>
 
     <% if @tank.liters < 20 %>
-      <div class="tank">
+      <div class="tank" style="background-image: url('https://res.cloudinary.com/detoat4si/image/upload/v1709818010/bocal_z7f90p.png');">
     <% end %>
 
       <% if @tank.fish.last.alive? %>
