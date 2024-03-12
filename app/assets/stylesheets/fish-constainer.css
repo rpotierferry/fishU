@@ -106,7 +106,7 @@ body {
   width: 500px;
 }
 
-@keyframes fishSwim {
+@keyframes Swim {
   0% {
     transform: translateX(0);
   }
@@ -118,6 +118,21 @@ body {
   }
 }
 
+.swim1 {
+  animation: Swim 3s ease-in-out infinite;
+}
+
+.swim2 {
+  animation: Swim 2s ease-in-out infinite;
+}
+
+.swim-sick1 {
+  animation: Swim 4s ease-in-out infinite;
+}
+
+.swim-sick2 {
+  animation: Swim 5s ease-in-out infinite;
+}
 
 .fish {
   display: flex;
@@ -148,17 +163,14 @@ body {
 
 .fish1 {
   width: 200px;
-  animation: fishSwim 2s ease-in-out infinite;
 }
 
 .fish2 {
   width: 120px;
-  animation: fishSwim 2s ease-in-out infinite;
 
 }
 .fish3 {
   width: 80px;
-  animation: fishSwim 2s ease-in-out infinite;
 
 }
 .fish4 {
