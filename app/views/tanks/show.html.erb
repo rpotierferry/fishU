@@ -13,8 +13,12 @@
       <% end %>
   </div>
   <div class="bulle">
-  <p class="points"><%=@user.currency%> x </p>
-      <span><%= image_tag 'https://res.cloudinary.com/detoat4si/image/upload/v1709817978/bulles_momkcw.png' %></span>
+    <p class="points"><%= @user.currency %> x
+    <span><%= image_tag 'https://res.cloudinary.com/detoat4si/image/upload/v1709817978/bulles_momkcw.png' %></span>
+    </p>
+    <% if params[:bubble].present? %>
+      <span class="new-points">+ <%= params[:bubble] %></span>
+    <% end %>
   </div>
 </div>
 
