@@ -195,9 +195,10 @@ body {
   left: 0;
 }
 
-.poop {
+.poop-container {
   position: relative;
-  background-image: url('https://res.cloudinary.com/detoat4si/image/upload/v1709818123/poop_ic8z7v.png');
+  width: 100%;
+  height: 100%;
 }
 
 .poop-image1 {
