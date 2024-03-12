@@ -118,20 +118,40 @@ body {
   }
 }
 
-.swim1 {
-  animation: Swim 3s ease-in-out infinite;
+@keyframes Swim2 {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(30px); /* Mouvement vers la droite */
+  }
+  100% {
+    transform: translateX(0);
+  }
 }
 
-.swim2 {
-  animation: Swim 2s ease-in-out infinite;
+@keyframes Swim3 {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(40px); /* Mouvement vers la droite */
+  }
+  100% {
+    transform: translateX(0);
+  }
 }
 
-.swim-sick1 {
-  animation: Swim 4s ease-in-out infinite;
-}
-
-.swim-sick2 {
-  animation: Swim 5s ease-in-out infinite;
+@keyframes Swim4 {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(100px); /* Mouvement vers la droite */
+  }
+  100% {
+    transform: translateX(0);
+  }
 }
 
 .fish {
