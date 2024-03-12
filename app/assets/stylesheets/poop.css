@@ -1,0 +1,28 @@
+.poops {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.poop-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.poop-image1 {
+  width: 44px;
+  height: 40px;
+}
+.poop-image2 {
+  width: 34px;
+}
+.poop-image3 {
+  width: 24px;
+}
+
+.poop-image4 {
+  width: 14px;
+}
