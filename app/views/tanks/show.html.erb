@@ -136,11 +136,13 @@
                     } do %>
         <%= image_tag "https://res.cloudinary.com/detoat4si/image/upload/v1709908668/food_hpgn0v.png", class:"btn-img" %>
       <% end %>
+
     </div>
     <div class="button-plant">
       <%= button_to add_plant_tank_path(@tank), class:"btn" do %>
         <%= image_tag "https://res.cloudinary.com/detoat4si/image/upload/v1709908668/leaf_wkvdfh.gif", class:"btn-img" %>
       <%end %>
+
     </div>
     <div class="lamp-button">
       <% if @tank.has_lamp %>
@@ -150,11 +152,20 @@
         <%= image_tag "https://res.cloudinary.com/detoat4si/image/upload/v1709908668/bulb_kjdcky.gif", class:"btn-img" %>
       <% end %>
     </div>
+
     <div class="size-button">
       <%= button_to increase_tank_size_tank_path(@tank), class:"btn" do %>
         <%= image_tag "https://res.cloudinary.com/detoat4si/image/upload/v1709908668/drop_nurd3m.png", class:"btn-img" %>
       <% end %>
     </div>
+
+    <% if @tank.liters >= 20 %>
+    <div class="btn">
+      <%= link_to new_tank_fish_path(@tank) do %>
+        <%= image_tag "https://res.cloudinary.com/detoat4si/image/upload/v1710256281/morefish_ngkz2x.png", class:"btn-img" %>
+        <% end %>
+    </div>
+    <% end %>
 
   </div>
   <div class="dashboard">
@@ -205,10 +216,6 @@
       <% end %>
     </div>
   <% end %>
-
-  <div class="new_fish_button">
-    <%= link_to 'ajouter fishi', new_tank_fish_path(@tank) %>
-  </div>
 
   <div class="day-button">
     <a class="btn" href="#popup" data-turbo="false" class="pop">?</a>
