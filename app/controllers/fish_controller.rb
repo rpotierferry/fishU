@@ -8,8 +8,11 @@ class FishController < ApplicationController
     @tank = Tank.find(params[:tank_id])
     @fish = Fish.new(fish_params)
     @fish.tank = @tank
-    @fish.save
-    redirect_to tank_path(@tank)
+      if @fish.save
+        redirect_to tank_path(@tank)
+      else
+        render :new, statut: :unprocessable_entity
+      end
   end
 
   private
