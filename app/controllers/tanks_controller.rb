@@ -91,7 +91,7 @@ class TanksController < ApplicationController
         @tank.has_lamp ? lamp_action : plant_life
         win_bubble(CONFIG[:win_bubble_amount])
       end
-      redirect_to tank_path(@tank)
+      redirect_to tank_path(@tank, bubble: CONFIG[:win_bubble_amount])
     end
   end
 
