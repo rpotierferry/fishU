@@ -1,191 +1,193 @@
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <% if @tank.fish.count == 0 %>
   <%= link_to "Crée un nouveau poisson", new_tank_fish_path(@tank) %>
 <% else %>
 
-  <div class="navbar">
-    <div class="name">
-      <%= @tank.fish.last.name %>
-      <br>
+<div class="navbar">
+  <div class="name">
+    <%= @tank.fish.last.name %>
+    <br>
+  </div>
+  <div class="logo">
+    <%= link_to tanks_path do %>
+      <%= image_tag 'https://res.cloudinary.com/detoat4si/image/upload/v1709910367/logo_vkcqrc.png' %>
+      <% end %>
+  </div>
+  <div class="bulle">
+  <p class="points"><%=@user.currency%> x </p>
+      <span><%= image_tag 'https://res.cloudinary.com/detoat4si/image/upload/v1709817978/bulles_momkcw.png' %></span>
+  </div>
+</div>
+
+<div class="day">
+  <audio id="popSound" src="<%= image_path("fishu/pop.mp3") %>"></audio>
+
+  <% if @tank.liters < 20 %>
+    <div class="tank">
+  <% end %>
+
+  <% if @tank.fish.last.alive? %>
+    <div class="fish">
+      <% if @tank.liters < 19 %>
+        <%fish = "fish1"%>
+      <% elsif @tank.liters >= 19 && @tank.liters < 30%>
+        <% fish = "fish2"%>
+      <% elsif @tank.liters >= 30 && @tank.liters < 50%>
+        <%fish = "fish3"%>
+      <% else %>
+        <%fish = "fish4"%>
+      <%end %>
+      <%= image_tag 'https://res.cloudinary.com/detoat4si/image/upload/v1709818038/fishi_hvnpfp.png', class:"#{fish}" %>
     </div>
-    <div class="logo">
-      <%= link_to tanks_path do %>
-       <%= image_tag 'https://res.cloudinary.com/detoat4si/image/upload/v1709910367/logo_vkcqrc.png' %>
-       <% end %>
+  <% else %>
+    <div class="tomb">
+      <%= image_tag 'https://res.cloudinary.com/detoat4si/image/upload/v1709819081/rip.png_14-17-06-151_dv31b3.png', style:"width: #{50}%;" %>
     </div>
-    <div class="bulle">
-    <p class="points"><%=@user.currency%> x </p>
-       <span><%= image_tag 'https://res.cloudinary.com/detoat4si/image/upload/v1709817978/bulles_momkcw.png' %></span>
-    </div>
+  <% end %>
+
+
+  <div class="plante">
+    <% if @tank.plants.count > 0 %>
+      <% if @tank.liters < 20 %>
+        <% t = 300 %>
+        <% l = rand(90..250) %>
+      <%else%>
+        <% t = rand(370..380) %>
+        <% l = rand(0..350) %>
+      <%end %>
+      <% if @tank.liters < 19 %>
+        <%plant = "plant1"%>
+      <% elsif @tank.liters > 29 && @tank.liters < 50%>
+        <% plant = "plant2"%>
+      <% elsif @tank.liters > 50 && @tank.liters < 70%>
+        <%plant = "plant3"%>
+      <% else %>
+        <%plant = "plant4"%>
+      <%end %>
+      <%= image_tag 'https://res.cloudinary.com/detoat4si/image/upload/v1709818107/plant_lfwgi1.png', class:"#{plant}", style:"position: absolute; bottom: 10px; left: #{l}px;" %>
+    <%end%>
   </div>
 
-    <div class="day">
 
-    <% if @tank.liters < 20 %>
-      <div class="tank">
-    <% end %>
-
-      <% if @tank.fish.last.alive? %>
-        <div class="fish">
-          <% if @tank.liters < 19 %>
-            <%fish = "fish1"%>
-          <% elsif @tank.liters >= 19 && @tank.liters < 30%>
-            <% fish = "fish2"%>
-          <% elsif @tank.liters >= 30 && @tank.liters < 50%>
-            <%fish = "fish3"%>
-          <% else %>
-            <%fish = "fish4"%>
-          <%end %>
-          <%= image_tag 'https://res.cloudinary.com/detoat4si/image/upload/v1709818038/fishi_hvnpfp.png', class:"#{fish}" %>
-        </div>
-      <% else %>
-        <div class="tomb">
-          <%= image_tag 'https://res.cloudinary.com/detoat4si/image/upload/v1709819081/rip.png_14-17-06-151_dv31b3.png', style:"width: #{50}%;" %>
-        </div>
-      <% end %>
-
-
-      <div class="plante">
-        <% if @tank.plants.count > 0 %>
-          <% if @tank.liters < 20 %>
-            <% t = 300 %>
-            <% l = rand(90..250) %>
+  <div class="poops" data-controller="poop">
+    <% if @tank.nitrate > 0 %>
+      <% n = @tank.nitrate %>
+      <% poops = (1..n).to_a %>
+      <% poops.each do |poop| %>
+        <div class="poop poop-with-sound">
+          <%if @tank.liters < 20 %>
+            <% t = rand(66..300) %>
+            <% l = rand(70..260) %>
           <%else%>
-            <% t = rand(370..380) %>
+            <% t = rand(0..330) %>
             <% l = rand(0..350) %>
           <%end %>
           <% if @tank.liters < 19 %>
-            <%plant = "plant1"%>
+            <%poopimage = "poop-image1"%>
           <% elsif @tank.liters > 29 && @tank.liters < 50%>
-            <% plant = "plant2"%>
+            <%poopimage = "poop-image2"%>
           <% elsif @tank.liters > 50 && @tank.liters < 70%>
-            <%plant = "plant3"%>
+            <%poopimage = "poop-image3"%>
           <% else %>
-            <%plant = "plant4"%>
-          <%end %>
-          <%= image_tag 'https://res.cloudinary.com/detoat4si/image/upload/v1709818107/plant_lfwgi1.png', class:"#{plant}", style:"position: absolute; bottom: 10px; left: #{l}px;" %>
-        <%end%>
-      </div>
-
-
-
-      <div class="poops">
-        <% if @tank.nitrate > 0 %>
-          <% n = @tank.nitrate %>
-          <% poops = (1..n).to_a %>
-          <% poops.each do |poop| %>
-            <div class="poop">
-              <%if @tank.liters < 20 %>
-                <% t = rand(66..300) %>
-                <% l = rand(70..260) %>
-              <%else%>
-                <% t = rand(0..330) %>
-                <% l = rand(0..350) %>
-              <%end %>
-              <% if @tank.liters < 19 %>
-                <%poopimage = "poop-image1"%>
-              <% elsif @tank.liters > 29 && @tank.liters < 50%>
-                <%poopimage = "poop-image2"%>
-              <% elsif @tank.liters > 50 && @tank.liters < 70%>
-                <%poopimage = "poop-image3"%>
-              <% else %>
-                <%poopimage = "poop-image4"%>
-                <%end %>
-              <%= image_tag 'https://res.cloudinary.com/detoat4si/image/upload/v1709818123/poop_ic8z7v.png', class: "#{poopimage}", style:"position: absolute; background-position: center; top: #{t}px; left: #{l}px;" %>
-            </div>
-          <% end %>
-        <% end %>
-      </div>
-
-    <% if @tank.liters < 20 %>
-      </div>
+            <%poopimage = "poop-image4"%>
+            <%end %>
+          <%= image_tag 'https://res.cloudinary.com/detoat4si/image/upload/v1709818123/poop_ic8z7v.png', class: "#{poopimage}", style:"position: absolute; background-position: center; top: #{t}px; left: #{l}px;" %>
+        </div>
+      <% end %>
     <% end %>
-
   </div>
 
-  <div class="buttons">
-    <div class="set-up">
-      <div class="eat-button">
-        <%= button_to feed_tank_path(@tank), class:"btn" do %>
-          <%= image_tag "https://res.cloudinary.com/detoat4si/image/upload/v1709908668/food_hpgn0v.png", class:"btn-img" %>
-        <% end %>
-      </div>
-      <div class="button-plant">
-        <%= button_to add_plant_tank_path(@tank), class:"btn" do %>
-          <%= image_tag "https://res.cloudinary.com/detoat4si/image/upload/v1709908668/leaf_wkvdfh.gif", class:"btn-img" %>
-        <%end %>
-      </div>
-      <div class="lamp-button">
-        <% if @tank.has_lamp %>
-          <div class="has-lamp"></div>
-        <% end %>
-        <%= button_to add_lamp_tank_path(@tank), class:"btn" do %>
-          <%= image_tag "https://res.cloudinary.com/detoat4si/image/upload/v1709908668/bulb_kjdcky.gif", class:"btn-img" %>
-        <% end %>
-      </div>
-      <div class="size-button">
-        <%= button_to increase_tank_size_tank_path(@tank), class:"btn" do %>
-          <%= image_tag "https://res.cloudinary.com/detoat4si/image/upload/v1709908668/drop_nurd3m.png", class:"btn-img" %>
-        <% end %>
-      </div>
-
+  <% if @tank.liters < 20 %>
     </div>
-    <div class="dashboard">
-      <p>
-      niveau de nitrate: <%= @tank.nitrate %>
-      <br>
-      bac: <%= @tank.liters %>L
-      <br>
-      taille du poisson: <%= @tank.fish.last.size %>cm
-      <br>
-      <% if @tank.plants.count == 1  %>
-        <%= @tank.plants.count %> plante
-      <%else%>
-      <%= @tank.plants.count %> plantes
-      <%end %>
-      </p>
-    </div>
-    <div class="regles_button">
-      <div id="popup" class="regles">
-        <div class="regles_content">
-          <h1>Règles du jeu</h1>
-          <h2>Maintiens ton poisson en vie!
-            <br>
-          <p>* Il a besoin de manger 1 fois par jour
-            <br>
-            * Quand il mange il produit du nitrate
-            <br>
-            * Une plante filtre le nitrate
-            <br>
-            * Une plante à besoin de lumière
-            <br>
-            * + ton poisson mange + il grandit + il a besoin d'espace
-            <br>
-            * Utilise tes bubulles pour faire de nouveaux achats
-            <br>
-            * Tu gagnes 20 bubulles/jour
-          </p>
-          <a href="#" class="regles_close" data-turbo="false">&times;</a>
-        </div>
-      </div>
-    </div>
+  <% end %>
 
-    <% if @tank.fish.last.alive? == false %>
-      <div class="size-button">
-        <%= button_to reset_all_tank_path(@tank), class:"btn" do %>
-          <%= image_tag "https://res.cloudinary.com/detoat4si/image/upload/v1710165578/redo_lpe81i.png", class:"btn-img" %>
-        <% end %>
-      </div>
-    <% end %>
+</div>
 
-    <div class="day-button">
-      <a class="btn" href="#popup" data-turbo="false" class="pop">?</a>
-      <%= button_to new_day_tank_path(@tank), class:"btn btn-day" do %>
-        <%= image_tag "https://res.cloudinary.com/detoat4si/image/upload/v1709908668/moon_ckaxya.png", class:"btn-img"%>
+<div class="buttons">
+  <div class="set-up">
+    <div class="eat-button">
+      <%= button_to feed_tank_path(@tank),
+                    class:"btn",
+                    data: {
+                      action: "click->poop#playPopSound"
+                    } do %>
+        <%= image_tag "https://res.cloudinary.com/detoat4si/image/upload/v1709908668/food_hpgn0v.png", class:"btn-img" %>
       <% end %>
     </div>
+    <div class="button-plant">
+      <%= button_to add_plant_tank_path(@tank), class:"btn" do %>
+        <%= image_tag "https://res.cloudinary.com/detoat4si/image/upload/v1709908668/leaf_wkvdfh.gif", class:"btn-img" %>
+      <%end %>
+    </div>
+    <div class="lamp-button">
+      <% if @tank.has_lamp %>
+        <div class="has-lamp"></div>
+      <% end %>
+      <%= button_to add_lamp_tank_path(@tank), class:"btn" do %>
+        <%= image_tag "https://res.cloudinary.com/detoat4si/image/upload/v1709908668/bulb_kjdcky.gif", class:"btn-img" %>
+      <% end %>
+    </div>
+    <div class="size-button">
+      <%= button_to increase_tank_size_tank_path(@tank), class:"btn" do %>
+        <%= image_tag "https://res.cloudinary.com/detoat4si/image/upload/v1709908668/drop_nurd3m.png", class:"btn-img" %>
+      <% end %>
+    </div>
+
   </div>
+  <div class="dashboard">
+    <p>
+    niveau de nitrate: <%= @tank.nitrate %>
+    <br>
+    bac: <%= @tank.liters %>L
+    <br>
+    taille du poisson: <%= @tank.fish.last.size %>cm
+    <br>
+    <% if @tank.plants.count == 1  %>
+      <%= @tank.plants.count %> plante
+    <%else%>
+    <%= @tank.plants.count %> plantes
+    <%end %>
+    </p>
+  </div>
+  <div class="regles_button">
+    <div id="popup" class="regles">
+      <div class="regles_content">
+        <h1>Règles du jeu</h1>
+        <h2>Maintiens ton poisson en vie!
+          <br>
+        <p>* Il a besoin de manger 1 fois par jour
+          <br>
+          * Quand il mange il produit du nitrate
+          <br>
+          * Une plante filtre le nitrate
+          <br>
+          * Une plante à besoin de lumière
+          <br>
+          * + ton poisson mange + il grandit + il a besoin d'espace
+          <br>
+          * Utilise tes bubulles pour faire de nouveaux achats
+          <br>
+          * Tu gagnes 20 bubulles/jour
+        </p>
+        <a href="#" class="regles_close" data-turbo="false">&times;</a>
+      </div>
+    </div>
+  </div>
+
+  <% if @tank.fish.last.alive? == false %>
+    <div class="size-button">
+      <%= button_to reset_all_tank_path(@tank), class:"btn" do %>
+        <%= image_tag "https://res.cloudinary.com/detoat4si/image/upload/v1710165578/redo_lpe81i.png", class:"btn-img" %>
+      <% end %>
+    </div>
+  <% end %>
+
+  <div class="day-button">
+    <a class="btn" href="#popup" data-turbo="false" class="pop">?</a>
+    <%= button_to new_day_tank_path(@tank), class:"btn" do %>
+      <%= image_tag "https://res.cloudinary.com/detoat4si/image/upload/v1709908668/moon_ckaxya.png", class:"btn-img"%>
+    <% end %>
+  </div>
+</div>
 
 
 <% end %>
