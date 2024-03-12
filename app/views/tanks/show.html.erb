@@ -29,8 +29,8 @@
         <% if @tank.fish.last.alive? %>
           <div class="fish">
             <% if @tank.liters < 19 %>
-              <% t = rand(66..300) %>
-              <% l = rand(70..260) %>
+              <% t = -70 %>
+              <% l = 95 %>
             <% else %>
               <% t = rand(0..330) %>
               <% l = rand(0..350) %>
