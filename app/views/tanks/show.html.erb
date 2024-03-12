@@ -221,9 +221,14 @@
     </div>
   <% end %>
 
-  <div class="day-button">
+  <div class="day-button"
+    data-controller="night">
     <a class="btn" href="#popup" data-turbo="false" class="pop">?</a>
-    <%= button_to new_day_tank_path(@tank), class:"btn" do %>
+    <%= button_to new_day_tank_path(@tank),
+    class:"btn",
+    data: {
+            action: "click->night#nightAnimation"
+          } do %>
       <%= image_tag "https://res.cloudinary.com/detoat4si/image/upload/v1709908668/moon_ckaxya.png", class:"btn-img"%>
     <% end %>
   </div>
