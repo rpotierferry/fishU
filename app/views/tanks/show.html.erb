@@ -22,7 +22,7 @@
   </div>
 </div>
 
-<div class="day">
+<div class="day <%= 'night' if params[:night_passed].present? %>" >
   <audio id="popSound" src="<%= image_path("https://res.cloudinary.com/detoat4si/video/upload/v1710239882/pop_k74adw.mp3") %>"></audio>
   <audio id="flushSound" src="<%= image_path("https://res.cloudinary.com/detoat4si/video/upload/v1710273036/v983j86nqrjtvd8w2kqv.mp3") %>"></audio>
     <% if @tank.liters < 20 %>
@@ -227,24 +227,11 @@
     </div>
   <% end %>
 
-  <div class="day-button"
-    data-controller="night">
+  <div class="day-button" data-controller="night">
     <a class="btn" href="#popup" data-turbo="false" class="pop">?</a>
-    <% if @tank.fish.last.fed? %>
-    <%= button_to new_day_tank_path(@tank),
-    class:"btn",
-    data: {
-            action: "click->night#nightAnimation"
-          } do %>
-      <%= image_tag "https://res.cloudinary.com/detoat4si/image/upload/v1709908668/moon_ckaxya.png", class:"btn-img"%>
-    <% end %>
-    <% else %>
-    <span class="btn" onclick="alert('Vous devez nourrir le poisson avant de passer au jour suivant.');">
-      <%= image_tag "https://res.cloudinary.com/detoat4si/image/upload/v1709908668/moon_ckaxya.png", class:"btn-img"%>
-    </span>
-  <% end %>
+      <%= button_to new_day_tank_path(@tank), class:"btn", data: { action: "click->night#nightAnimation" } do %>
+        <%= image_tag "https://res.cloudinary.com/detoat4si/image/upload/v1709908668/moon_ckaxya.png", class:"btn-img"%>
+      <% end %>
   </div>
 </div>
-
-
 <% end %>
