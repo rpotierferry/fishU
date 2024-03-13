@@ -199,6 +199,7 @@ justify-content: space-between;
   justify-content: center;
   align-items: center;
   padding: 25px;
+  text-align: center;
 }
 
 /* .form{
@@ -298,4 +299,8 @@ a{
   text-align: center;
   width: 60%;
 
+}
+
+input{
+font-family:'Public Pixel', sans-serif;
 }
