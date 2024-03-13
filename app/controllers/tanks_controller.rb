@@ -17,9 +17,8 @@ class TanksController < ApplicationController
   # controller actions
 
   def index
-    @tanks = @user.tanks
-    @tanks.each { |tank| tank.destroy if tank.fish.last.alive? == false }
-    @tanks = @user.tanks
+    @user.tanks.each { |tank| tank.destroy if tank.fish.last.alive? == false }
+    @tanks = @user.tanks.reload
   end
 
   def show; end
@@ -40,7 +39,6 @@ class TanksController < ApplicationController
 
   def reset_all
     reset_tank
-    reset_fish
     redirect_to tank_path(@tank)
   end
 
@@ -179,18 +177,10 @@ class TanksController < ApplicationController
     @tank.nitrate = 0
     @tank.has_lamp = false
     @tank.plants.destroy_all
+    @fish_name = @tank.fish.first.name
+    @tank.fish.destroy_all
+    @fish = Fish.create(name: @fish_name)
+    @fish.tank = @tank
     @tank.save
-  end
-
-  def reset_fish
-    set_tank
-    @fishes = @tank.fish
-    @fishes.each do |fish|
-      fish.alive = true
-      fish.size = 1
-      fish.fed = false
-      fish.sick = false
-      fish.save
-    end
   end
 end
