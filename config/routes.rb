@@ -16,5 +16,4 @@ Rails.application.routes.draw do
       post 'reset_all'
     end
   end
-  get "/test", to: "pages#test"
 end
