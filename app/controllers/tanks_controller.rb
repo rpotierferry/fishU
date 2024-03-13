@@ -85,18 +85,15 @@ class TanksController < ApplicationController
       if @tank.nitrate >= @tank.liters
         rip
       else
-        puts "sick"
         fish_sick
         fish_get_hungry
         @tank.has_lamp ? lamp_action : plant_life
         win_bubble(CONFIG[:win_bubble_amount])
-        puts "autre"
       end
-      redirect_to tank_path(@tank, bubble: CONFIG[:win_bubble_amount], night_passed: true)
-    else
-      redirect_to tank_path(@tank), alert: "Vous devez nourrir le poisson avant de passer au jour suivant."
+        redirect_to tank_path(@tank, bubble: CONFIG[:win_bubble_amount], night_passed: true)
+      else
+        redirect_to tank_path(@tank), alert: "Vous devez nourrir le poisson avant de passer au jour suivant."
     end
-    puts "rien"
   end
 
   private
