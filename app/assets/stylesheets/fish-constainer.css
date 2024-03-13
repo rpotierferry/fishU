@@ -145,8 +145,9 @@ body {
 
 .set-up{
   display: flex;
-  flex-direction: column;
-  gap: 15px;
+flex-direction: column-reverse;
+gap: 15px;
+flex-wrap: wrap;
 }
 
 .btn{
@@ -303,4 +304,19 @@ a{
 
 input{
 font-family:'Public Pixel', sans-serif;
+}
+
+.infos{
+  position: absolute;
+  top: 71%;
+  left: 40%;
+  font-size: 15px;
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: end;
+
+}
+
+p{
+  font-size: 15px;
 }

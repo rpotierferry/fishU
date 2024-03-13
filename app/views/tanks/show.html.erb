@@ -186,20 +186,21 @@
     <% end %>
 
   </div>
+   <div class="infos"> <span>nitrates : <%= @tank.nitrate %>mg/L</span>
+    <span><%= @tank.liters %>L</span></div>
   <div class="dashboard">
+
     <p>
-    niveau de nitrate: <%= @tank.nitrate %>
-    <br>
-    bac: <%= @tank.liters %>L
-    <br>
-    taille du poisson: <%= @tank.fish.last.size %>cm
-    <br>
+    <% @tank.fish.each do |fish| %>
+    <%=fish.name%>: <%=fish.size%>cm
+    <%end %>
+    </p>
+     <p>
     <% if @tank.plants.count == 1  %>
       <%= @tank.plants.count %> plante
     <%else%>
     <%= @tank.plants.count %> plantes
     <%end %>
-    <%= @tank.fish.count %> fishis
     </p>
   </div>
   <div class="regles_button">
