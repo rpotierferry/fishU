@@ -1,5 +1,7 @@
 <% if @tank.fish.count == 0 %>
-  <%= link_to "Crée un nouveau poisson", new_tank_fish_path(@tank) %>
+<div class="index">
+  <%= link_to "Creer un nouveau poisson", new_tank_fish_path(@tank) %>
+  </div>
 <% else %>
 
 <div class="navbar">
