@@ -89,13 +89,25 @@ class TanksController < ApplicationController
         @tank.has_lamp ? lamp_action : plant_life
         win_bubble(CONFIG[:win_bubble_amount])
       end
-    else
-      flash[:alert] = "Vous devez nourrir le poisson avant de passer au jour suivant."
+        redirect_to tank_path(@tank, bubble: CONFIG[:win_bubble_amount], night_passed: true)
+      else
+        redirect_to tank_path(@tank), alert: "Vous devez nourrir le poisson avant de passer au jour suivant."
     end
-      redirect_to tank_path(@tank, bubble: CONFIG[:win_bubble_amount])
   end
 
   private
+
+  def spend_bubble(amount)
+    set_tank
+    set_user
+    if (@user.currency - amount) >= 0
+      @user.currency -= amount
+      @user.save
+      'paid'
+    else
+      flash[:alert] = "Tu n'as pas assez de bubulles"
+    end
+  end
 
   def set_tank
     @tank = Tank.find(params[:id])
@@ -111,17 +123,6 @@ class TanksController < ApplicationController
     @user.save
   end
 
-  def spend_bubble(amount)
-    set_tank
-    set_user
-    if (@user.currency - amount) >= 0
-      @user.currency -= amount
-      @user.save
-      'paid'
-    else
-      flash[:alert] = "Tu n'as pas assez de bubulles"
-    end
-  end
 
   def plant_action
     set_tank
