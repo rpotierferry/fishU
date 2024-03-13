@@ -10,7 +10,7 @@
     transform: translateX(0);
   }
   50% {
-    transform: translateX(20px); /* Mouvement vers la droite */
+    transform: translateX(10px); /* Mouvement vers la droite */
   }
   100% {
     transform: translateX(0);
