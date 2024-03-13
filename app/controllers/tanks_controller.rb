@@ -89,8 +89,10 @@ class TanksController < ApplicationController
         @tank.has_lamp ? lamp_action : plant_life
         win_bubble(CONFIG[:win_bubble_amount])
       end
-      redirect_to tank_path(@tank, bubble: CONFIG[:win_bubble_amount])
+    else
+      flash[:alert] = "Vous devez nourrir le poisson avant de passer au jour suivant."
     end
+      redirect_to tank_path(@tank, bubble: CONFIG[:win_bubble_amount])
   end
 
   private
