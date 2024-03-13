@@ -234,6 +234,7 @@
   <div class="day-button"
     data-controller="night">
     <a class="btn" href="#popup" data-turbo="false" class="pop">?</a>
+    <% if @tank.fish.last.fed? %>
     <%= button_to new_day_tank_path(@tank),
     class:"btn",
     data: {
@@ -241,6 +242,11 @@
           } do %>
       <%= image_tag "https://res.cloudinary.com/detoat4si/image/upload/v1709908668/moon_ckaxya.png", class:"btn-img"%>
     <% end %>
+    <% else %>
+    <span class="btn" onclick="alert('Vous devez nourrir le poisson avant de passer au jour suivant.');">
+      <%= image_tag "https://res.cloudinary.com/detoat4si/image/upload/v1709908668/moon_ckaxya.png", class:"btn-img"%>
+    </span>
+  <% end %>
   </div>
 </div>
 
