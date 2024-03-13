@@ -27,17 +27,12 @@ body {
   margin: 0
 }
 
-/* * {
-  border: solid;
-} */
-
-
 .alert {
   position: fixed;
   bottom: 1rem;
   width: 90vw;
   background-color: white;
-  animation: degage 5s forwards;
+  animation: degage 1.2s forwards;
 }
 
 @keyframes degage {
@@ -54,5 +49,4 @@ body {
     display: none;
     opacity: 0;
   }
-
 }
