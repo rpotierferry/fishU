@@ -30,3 +30,29 @@ body {
 /* * {
   border: solid;
 } */
+
+
+.alert {
+  position: fixed;
+  bottom: 1rem;
+  width: 90vw;
+  background-color: white;
+  animation: degage 5s forwards;
+}
+
+@keyframes degage {
+  0% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  99% {
+    opacity: 0;
+  }
+  100% {
+    display: none;
+    opacity: 0;
+  }
+
+}

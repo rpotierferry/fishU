@@ -30,7 +30,7 @@
   </div>
 </div>
 
-<div class="day <%= 'night' if params[:night_passed].present? %>" >
+<div class="day <%= "to_day" if params[:to_day].present? %>">
   <audio id="popSound" src="<%= image_path("https://res.cloudinary.com/detoat4si/video/upload/v1710239882/pop_k74adw.mp3") %>"></audio>
   <audio id="flushSound" src="<%= image_path("https://res.cloudinary.com/detoat4si/video/upload/v1710273036/v983j86nqrjtvd8w2kqv.mp3") %>"></audio>
     <% if @tank.liters < 20 %>
@@ -239,11 +239,15 @@
     </div>
   <% end %>
 
+
   <div class="day-button" data-controller="night">
     <a class="btn" href="#popup" data-turbo="false" class="pop">?</a>
-      <%= button_to new_day_tank_path(@tank), class:"btn", data: { action: "click->night#nightAnimation" } do %>
-        <%= image_tag "https://res.cloudinary.com/detoat4si/image/upload/v1709908668/moon_ckaxya.png", class:"btn-img"%>
-      <% end %>
+    <%= button_to new_day_tank_path(@tank), class:"btn", data: { action: "#{@tank.fish.last.fed? ? "click->night#nightAnimation" : "click->night#notFed"}" } do %>
+      <%= image_tag "https://res.cloudinary.com/detoat4si/image/upload/v1709908668/moon_ckaxya.png", class:"btn-img"%>
+    <% end %>
+
+
+
   </div>
 </div>
 <% end %>
