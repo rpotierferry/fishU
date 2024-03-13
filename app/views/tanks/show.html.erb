@@ -78,27 +78,31 @@
           </div>
       </div>
 
+    <div class="plantes">
       <div class="plante-container">
         <% if @tank.plants.count > 0 %>
+          <%@tank.plants.each do |plant| %>
           <% if @tank.liters < 20 %>
-            <% left = "calc(#{rand(40..60)}% - 35px)" %>
-            <% bottom = "10px" %>
+            <% left = "calc(#{rand(25..60)}% )" %>
+            <% bottom = "5%" %>
           <% else %>
-            <% left = "calc(#{rand(5..95)}% - 20px)" %>
-            <% bottom = "calc(#{5}%)" %>
+            <% left = "calc(#{rand(0..95)}%)" %>
+            <% bottom = "calc(#{rand(0..10)}%)" %>
           <% end %>
-          <% if @tank.liters < 19 %>
+          <% if @tank.liters < 20 %>
             <%plant = "plant1"%>
-          <% elsif @tank.liters > 19 && @tank.liters < 50%>
+          <% elsif @tank.liters >= 20 && @tank.liters < 50%>
             <% plant = "plant2"%>
-          <% elsif @tank.liters > 50 && @tank.liters < 70%>
+          <% elsif @tank.liters >= 50 && @tank.liters < 70%>
             <%plant = "plant3"%>
           <% else %>
             <%plant = "plant4"%>
           <%end %>
           <%= image_tag 'https://res.cloudinary.com/detoat4si/image/upload/v1709818107/plant_lfwgi1.png', class:"#{plant}", style:"position: absolute; bottom: #{bottom}; left: #{left};" %>
         <%end%>
+        <%end %>
       </div>
+    </div>
 
       <div class="poops" data-controller="poop">
         <div class="poop-container">
