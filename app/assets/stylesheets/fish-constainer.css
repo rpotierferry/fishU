@@ -288,11 +288,14 @@ justify-content: space-between;
 a{
   text-decoration: none;
   color: #000000;
+  margin: 10px;
 }
 
 .index{
   display: flex;
   flex-direction: column;
-  width: 60%;
+  justify-content: space-between;
   text-align: center;
+  width: 60%;
+
 }
