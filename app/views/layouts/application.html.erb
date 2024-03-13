@@ -12,5 +12,11 @@
 
   <body data-controller="poop">
     <%= yield %>
+
+    <% flash.each do |type, message| %>
+  <div class="alert alert-<%= type %>">
+    <%= message %>
+  </div>
+<% end %>
   </body>
 </html>
