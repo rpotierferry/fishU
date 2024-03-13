@@ -126,6 +126,7 @@ class TanksController < ApplicationController
   def plant_action
     set_tank
     @tank.nitrate -= (@tank.plants.count * CONFIG[:plant_nitrate_decrease])
+    @tank.nitrate = 0 if @tank.nitrate.negative?
     @tank.save
   end
 
