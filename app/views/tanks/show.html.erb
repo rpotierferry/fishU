@@ -34,7 +34,7 @@
   <audio id="popSound" src="<%= image_path("fishu/pop.mp3") %>"></audio>
   <audio id="flushSound" src="<%= image_path("https://res.cloudinary.com/detoat4si/video/upload/v1710273036/v983j86nqrjtvd8w2kqv.mp3") %>"></audio>
     <% if @tank.liters < 20 %>
-      <div class="tank" style="background-image: url('fishu/bocal.png');">
+      <div class="tank" style="background-image: url('<%= image_path('fishu/bocal.png') %>');">
     <% end %>
         <div class="fish">
       <div class="fish-container">
