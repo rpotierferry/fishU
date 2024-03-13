@@ -1,0 +1,6 @@
+# config/meta.yml
+meta_product_name: "FishU"
+meta_title: "FishU - Ne les tuez plus!"
+meta_description: "Prenez soin d'un poisson virtuel dans un style tamagotchi"
+meta_image: "cover_fishu.png" # should exist in `app/assets/images/`
+twitter_account: "@product_twitter_account" # required for Twitter Cards
