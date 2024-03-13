@@ -19,7 +19,7 @@ export default class extends Controller {
     event.preventDefault()
     const popup = `
     <div class="alert">
-      Vous ne pouvez pas ...
+      Tu dois nourrir ton poisson!
     </div>
     `
     document.body.insertAdjacentHTML("beforeend", popup)
