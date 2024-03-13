@@ -79,7 +79,6 @@ class TanksController < ApplicationController
   end
 
   def new_day
-    p "new day"
     if @tank.fish.last.fed?
       plant_action
       if @tank.nitrate >= @tank.liters
