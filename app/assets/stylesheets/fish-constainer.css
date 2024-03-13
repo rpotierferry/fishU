@@ -283,3 +283,16 @@ justify-content: space-between;
   flex-direction: column;
   justify-content: center;
 }
+
+
+a{
+  text-decoration: none;
+  color: #000000;
+}
+
+.index{
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  text-align: center;
+}
