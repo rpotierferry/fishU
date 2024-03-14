@@ -146,10 +146,6 @@
     <% if @tank.liters < 20 %>
     </div>
     <% end %>
-  <div class="infos">
-    <div style="padding: 4px;">NO3:<%= @tank.nitrate %>mg/L</div>
-    <div style="padding: 4px;"><%= @tank.liters %>L</div>
-  </div>
 </div>
 <div class="buttons"
   data-controller="button">
@@ -196,23 +192,38 @@
   </div>
   <div class="dashboard">
 
-    <p>
-      <% @tank.fish.each do |fish| %>
-      <span>
-        | <%=fish.name%> : <%=fish.size%>cm | <br>
-      </span>
-      <%end %>
-    </p>
-     <p>
-        <% if @tank.plants.count == 1  %>
-          < %= @tank.plants.count %> plante
-        <%else%>
-          <%= @tank.plants.count %> plantes
+      <div class="fish-info">
+      <span class="underline">Poissons</span>
+      <div class="fish-list">
+        <% @tank.fish.each do |fish| %>
+          <span>
+            <%=fish.name%> | <%=fish.size%>cm
+          </span>
         <%end %>
-    </p>
-    <p>
-      Nombre de jours: <%= @tank.age %>
-    </p>
+      </div>
+      </div>
+
+     <div>
+      <div class="tank-info">
+        <span class="underline">
+          Informations
+        </span>
+        <div class="details-info">
+          <span>
+            Plantes : <%= @tank.plants.count %>
+          </span>
+
+          <span>
+            NO3 : <%= @tank.nitrate %>mg/L
+          </span>
+
+          <span>
+            Volume : <%= @tank.liters %>L
+          </span>
+        </div>
+      </div>
+    </div>
+
   </div>
   <div class="regles_button">
     <div id="popup" class="regles">
