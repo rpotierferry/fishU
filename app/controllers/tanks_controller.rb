@@ -54,14 +54,14 @@ class TanksController < ApplicationController
   end
 
   def add_plant
-    if @tank.liters % @tank.plants.count >= 2
-      if spend_bubble(CONFIG[:plant_price]) == 'paid'
-        @plant = Plant.new
-        @plant.tank = @tank
-        @plant.save
-      end
+    if @tank.plants.count.zero?
+      buy_plant
     else
+      if @tank.liters % @tank.plants.count >= 2
+        buy_plant
+      else
       flash[alert:] = "Il n'y a pas assez d'eau pour ajouter une plante"
+      end
     end
     redirect_to tank_path(@tank)
   end
@@ -95,9 +95,9 @@ class TanksController < ApplicationController
         @tank.age += 1
         @tank.save
       end
-        redirect_to tank_path(@tank, bubble: CONFIG[:win_bubble_amount], to_day: true)
-      else
-        redirect_to tank_path(@tank), alert: "Nourris le poisson pour passer au jour suivant."
+      redirect_to tank_path(@tank, bubble: CONFIG[:win_bubble_amount], to_day: true)
+    else
+      redirect_to tank_path(@tank), alert: "Nourris le poisson pour passer au jour suivant."
     end
   end
 
@@ -168,7 +168,7 @@ class TanksController < ApplicationController
     @condition = @tank.nitrate.to_f / @tank.liters
     @tank.fish.each do |f|
       (@condition >= 0.5) && (@condition != 1) ? f.sick = true : f.sick = false
-        f.save
+      f.save
     end
   end
 
@@ -192,5 +192,14 @@ class TanksController < ApplicationController
     @fish = Fish.create(name: @fish_name)
     @fish.tank = @tank
     @tank.save
+  end
+
+  def buy_plant
+    set_tank
+    if spend_bubble(CONFIG[:plant_price]) == 'paid'
+      @plant = Plant.new
+      @plant.tank = @tank
+      @plant.save
+    end
   end
 end
