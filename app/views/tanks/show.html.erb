@@ -45,10 +45,10 @@
               <% if @tank.liters < 20 %>
                 <% fish = "fish1"%>
                 <% length = "Swim" %>
-              <% elsif @tank.liters >= 20 && @tank.liters < 50%>
+              <% elsif @tank.liters >= 20 && @tank.liters < 50 %>
                 <% fish = "fish2"%>
                 <% length = "Swim2" %>
-              <% elsif @tank.liters >= 50 && @tank.liters < 80%>
+              <% elsif @tank.liters >= 50 && @tank.liters < 80 %>
                 <% fish = "fish3"%>
                 <% length = "Swim3" %>
               <% else %>
@@ -193,11 +193,12 @@
       <%else %>
       <% poisson = "poissons" %>
       <%end %>
+
       <span class="underline"> <%= poisson %> </span>
       <div class="fish-list">
         <% @tank.fish.each do |fish| %>
-          <span>
-            <%=fish.name%> | <%=fish.size%>cm
+          <span class="item">
+            <%=fish.name%> | <div class="nb"><%=fish.size%></div>cm
           </span>
         <% end %>
       </div>
@@ -208,44 +209,43 @@
           Informations
         </span>
         <div class="details-info">
-          <span>
-            Plantes : <%= @tank.plants.count %>
+          <div class="item">
+              Plantes : <span class="nb"><%= @tank.plants.count %></span>
+          </div>
+
+          <div class="item">
+            NO3 : <div class="nb"><%= @tank.nitrate %></div>mg/L
+          </div>
+
+          <span class="item">
+            Volume : <div class="nb"><%= @tank.liters %></div>L
           </span>
 
-          <span>
-            NO3 : <%= @tank.nitrate %>mg/L
-          </span>
-
-          <span>
-            Volume : <%= @tank.liters %>L
-          </span>
-
-          <span>
-            jour <%= @tank.age %>
+          <span class="item">
+            Jour : <div class="nb"><%= @tank.age %></div>
           </span>
         </div>
       </div>
     </div>
 
-  <div class="regles_button">
-    <div id="popup" class="regles">
-      <div class="regles_content">
-        <h1>Règles du jeu</h1>
-        <h2>Maintiens ton <%= image_tag "fishu/fishi.png", class:"icon" %> en vie!
-          <br>
-          <p> * Il a besoin de manger <%= image_tag "fishu/food.png", class:"icon" %> 1 fois par jour <%= image_tag "fishu/moon.png", class:"icon"%></p>
-          <p> * Quand il mange <%= image_tag "fishu/food.png", class:"icon" %> il produit du nitrate (NO3-) <%= image_tag "fishu/poop.png", class:"icon" %> </p>
-          <p> * Les plantes <%= image_tag "fishu/leaf.png", class:"icon" %> réduisent les nitrates (NO3-) <%= image_tag "fishu/poop.png", class:"icon" %> </p>
-          <p> * Les plantes <%= image_tag "fishu/leaf.png", class:"icon" %> ont besoin de lumière <%= image_tag "fishu/bulb.png", class:"icon" %></p>
-          <p> * + il mange <%= image_tag "fishu/food.png", class:"icon" %> + il grandit + il a besoin d'espace <%= image_tag "fishu/drop.png", class:"icon" %> </p>
-          <p> * Utilise tes bubulles <%= image_tag 'fishu/bulles.png', class:"icon" %> pour faire de nouveaux achats </p>
-          <p> * Tu gagnes 20 bubulles <%= image_tag 'fishu/bulles.png', class:"icon" %> par jour <%= image_tag "fishu/moon.png", class:"icon"%> </p>
-        <a href="#" class="regles_close" data-turbo="false">&times;</a>
-      </div>
+<div id="" class="regles <%= "first" if params[:rules].present? %>">
+  <div class="regles_content">
+    <div class="typewriter">
+    <h1>Règles du jeu</h1>
+    <h2>Maintiens ton <%= image_tag "fishu/fishi.png", class:"icon" %> en vie!</h2>
+
+      <br>
+      <p> * Il a besoin de manger <%= image_tag "fishu/food.png", class:"icon" %> 1 fois par jour <%= image_tag "fishu/moon.png", class:"icon"%></p>
+      <p> * Quand il mange <%= image_tag "fishu/food.png", class:"icon" %> il produit du nitrate (NO3-) <%= image_tag "fishu/poop.png", class:"icon" %> </p>
+      <p> * Les plantes <%= image_tag "fishu/leaf.png", class:"icon" %> réduisent les nitrates (NO3-) <%= image_tag "fishu/poop.png", class:"icon" %> </p>
+      <p> * Les plantes <%= image_tag "fishu/leaf.png", class:"icon" %> ont besoin de lumière <%= image_tag "fishu/bulb.png", class:"icon" %></p>
+      <p> * + il mange <%= image_tag "fishu/food.png", class:"icon" %> + il grandit + il a besoin d'espace <%= image_tag "fishu/drop.png", class:"icon" %> </p>
+      <p> * Utilise tes bubulles <%= image_tag 'fishu/bulles.png', class:"icon" %> pour faire de nouveaux achats </p>
+      <p> * Tu gagnes 20 bubulles <%= image_tag 'fishu/bulles.png', class:"icon" %> par jour <%= image_tag "fishu/moon.png", class:"icon"%> </p>
+    <a href="#" class="regles_close" data-turbo="false"></a>
     </div>
   </div>
-
-
+</div>
 
   <div class="day-button" data-controller="night">
   <div style="display: flex;
@@ -270,3 +270,21 @@ gap: 10px;">
   </div>
   </div>
 <% end %>
+
+  <div class="regles_button">
+    <div id="popup" class="regles">
+      <div class="regles_content">
+        <h1>Règles du jeu</h1>
+        <h2>Maintiens ton <%= image_tag "fishu/fishi.png", class:"icon" %> en vie!
+          <br>
+          <p> * Il a besoin de manger <%= image_tag "fishu/food.png", class:"icon" %> 1 fois par jour <%= image_tag "fishu/moon.png", class:"icon"%></p>
+          <p> * Quand il mange <%= image_tag "fishu/food.png", class:"icon" %> il produit du nitrate (NO3-) <%= image_tag "fishu/poop.png", class:"icon" %> </p>
+          <p> * Les plantes <%= image_tag "fishu/leaf.png", class:"icon" %> réduisent les nitrates (NO3-) <%= image_tag "fishu/poop.png", class:"icon" %> </p>
+          <p> * Les plantes <%= image_tag "fishu/leaf.png", class:"icon" %> ont besoin de lumière <%= image_tag "fishu/bulb.png", class:"icon" %></p>
+          <p> * + il mange <%= image_tag "fishu/food.png", class:"icon" %> + il grandit + il a besoin d'espace <%= image_tag "fishu/drop.png", class:"icon" %> </p>
+          <p> * Utilise tes bubulles <%= image_tag 'fishu/bulles.png', class:"icon" %> pour faire de nouveaux achats </p>
+          <p> * Tu gagnes 20 bubulles <%= image_tag 'fishu/bulles.png', class:"icon" %> par jour <%= image_tag "fishu/moon.png", class:"icon"%> </p>
+        <a href="#" class="regles_close" data-turbo="false">&times;</a>
+      </div>
+    </div>
+  </div>
