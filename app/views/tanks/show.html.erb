@@ -10,7 +10,12 @@
 <% else %>
 
 <div class="navbar">
-  <div class="name">
+  <div class="age">
+  <%if @tank.age == 1  %>
+      <%= @tank.age %>jour
+    <%else%>
+    <%= @tank.age %>jours
+    <%end %>
   </div>
   <div class="logo">
     <%= link_to tanks_path do %>
