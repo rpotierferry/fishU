@@ -217,6 +217,7 @@ justify-content: space-between;
   flex-direction: row-reverse;
   align-items: center;
   gap: 10px;
+  position: relative;
 }
 
 .has-lamp {
@@ -225,6 +226,8 @@ justify-content: space-between;
   background-color: rgb(255, 255, 255);
   border-radius: 50%;
   box-shadow: 0px 0px 3px 1px white, 0px 0px 6px 7px rgb(255, 96, 0);
+  position: absolute;
+    right: -25%;
 }
 .formulaire{
   display: flex;
