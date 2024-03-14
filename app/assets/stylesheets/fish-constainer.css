@@ -19,12 +19,16 @@ body {
 .navbar {
   width: 100%;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   padding: 10px;
   box-sizing: border-box;
-
+  position: relative;
 }
 
+.age {
+  position: absolute;
+  left: 10px;
+}
 .bulle{
   display: flex;
   align-items: flex-start;
