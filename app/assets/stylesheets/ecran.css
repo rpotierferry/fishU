@@ -10,11 +10,13 @@
   border-top: solid 1px #2b2b2b;
   border-left: solid 1px #2b2b2b;
   box-shadow: -1px -1px 1px #000;
+  justify-content: space-between;
 }
 
 .underline {
   border-bottom: dashed;
   margin-bottom: 3px;
+  text-align: center;
 }
 
 .fish-info {
@@ -26,9 +28,7 @@
 .fish-list {
   display: flex;
   flex-direction: column;
-  align-items: left;
-  justify-items: center;
-  padding-left: 5px;
+  text-align: center;
 }
 
 .tank-info {

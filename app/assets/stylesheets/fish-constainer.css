@@ -170,7 +170,10 @@ flex-wrap: wrap;
   border-radius: 10px;
   background-color: rgb(196, 196, 196);
   border: none;
-  box-shadow: 3px 3px 0px #5e5e5e;
+  box-shadow: -1px 1px 1px rgb(196, 196, 196),-4px 4px 0px #5e5e5e;
+  justify-content: center;
+  display: flex;
+
 }
 
 .btndroite{
@@ -179,7 +182,7 @@ flex-wrap: wrap;
   border-radius: 10px;
   background-color: rgb(196, 196, 196);
   border: none;
-  box-shadow: -3px 3px 0px #5e5e5e;
+  box-shadow: -1px 1px 1px rgb(196, 196, 196),-4px 4px 0px #5e5e5e;
 }
 .btn:active{
   box-shadow: none;
@@ -314,7 +317,7 @@ justify-content: space-between;
   height: 25px;
 }
 
-a{
+.lien{
   text-decoration: none;
   color: #000000;
   margin: 10px;
