@@ -3,9 +3,9 @@
 @import url('https://fonts.cdnfonts.com/css/public-pixel');
 /* 'Public Pixel' */
 
+/* font-family: 'Pixelify Sans'; */
 body {
   font-family: 'Public Pixel', sans-serif;
-  /* font-family: 'Pixelify Sans'; */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -49,6 +49,7 @@ body {
   left: 0;
   height: 35px;
   flex-direction: row-reverse;
+
 }
 .new-points {
   position: absolute;
@@ -110,11 +111,10 @@ body {
   width: 93%;
   padding: 8px 0;
   overflow: hidden;
-  border: solid;
   border-radius: 10px;
   background-color: #476846;
   flex-grow: 1;
-  /* background-color: #000000; */
+  box-shadow: -3px -3px 1px #2b2b2b;
 }
 
 .to_day {
@@ -166,15 +166,32 @@ flex-wrap: wrap;
   width: 45px;
   height: 40px;
   border-radius: 10px;
-  background-color: rgb(160, 156, 92);
-  border:none
+  background-color: rgb(196, 196, 196);
+  border: none;
+  box-shadow: 3px 3px 0px #5e5e5e;
 }
 
-a.btn{
+.btndroite{
+  width: 45px;
+  height: 40px;
+  border-radius: 10px;
+  background-color: rgb(196, 196, 196);
+  border: none;
+  box-shadow: -3px 3px 0px #5e5e5e;
+}
+.btn:active{
+  box-shadow: none;
+}
+.btndroite:active{
+  box-shadow: none;
+}
+
+a.btndroite{
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 0px;}
+  margin: 0px;
+}
 
 .btn-img{
   width: 100%;
@@ -222,11 +239,9 @@ justify-content: space-between;
   right: 0;
 } */
 
-.plant_icon {
+/* .plant_icon {
   width: 80px;
-  height: 80px;
-  box-shadow: 100px greenyellow;
-}
+  height: 80px;} */
 
 .pop {
   text-decoration: none;
