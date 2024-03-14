@@ -17,7 +17,7 @@ class TanksController < ApplicationController
   # controller actions
 
   def index
-    @user.tanks.each { |tank| tank.destroy if tank.fish.last.alive? == false }
+    @user.tanks.each { |tank| tank.destroy if tank.fish.empty? ||tank.fish.last.alive? == false }
     @tanks = @user.tanks.reload
   end
 
