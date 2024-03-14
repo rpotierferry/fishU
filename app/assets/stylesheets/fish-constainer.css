@@ -181,10 +181,10 @@ flex-wrap: wrap;
   border: none;
   box-shadow: -3px 3px 0px #5e5e5e;
 }
-.btn:hover{
+.btn:active{
   box-shadow: none;
 }
-.btndroite:hover{
+.btndroite:active{
   box-shadow: none;
 }
 
