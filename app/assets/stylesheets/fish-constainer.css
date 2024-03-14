@@ -275,16 +275,25 @@ justify-content: space-between;
 }
 
 .regles_button h1 {
+  font-family: 'Pixelify Sans';
   font-size: 30px;
 }
 
 .regles_button h2 {
+  font-family: 'Pixelify Sans';
   font-size: 25px;
 }
 
 .regles_content p {
   font-size: 20px;
+  font-family: 'Pixelify Sans';
 }
+
+.icon {
+  width: 25px;
+  height: 25px;
+}
+
 .dashboard{
   font-size: 20px;
   margin-left: 20px;
