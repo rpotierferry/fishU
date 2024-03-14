@@ -167,18 +167,17 @@ flex-wrap: wrap;
   height: 40px;
   border-radius: 10px;
   background-color: rgb(160, 156, 92);
+  border:none
 }
+
+a.btn{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0px;}
 
 .btn-img{
   width: 100%;
-}
-
-a.btn {
-  text-decoration: none;
-  text-align: center;
-  font-size: 25px;
-  color: black;
-  box-shadow: 1px 1px 1px 1px black;
 }
 
 .day-button{
