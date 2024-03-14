@@ -10,13 +10,6 @@
 <% else %>
 
 <div class="navbar">
-  <div class="age">
-  <%if @tank.age == 1  %>
-      <%= @tank.age %>jour
-    <%else%>
-    <%= @tank.age %>jours
-    <%end %>
-  </div>
   <div class="logo">
     <%= link_to tanks_path do %>
       <%= image_tag 'fishu/logo.png' %>
@@ -219,6 +212,10 @@
 
           <span>
             Volume : <%= @tank.liters %>L
+          </span>
+
+          <span>
+            Nombre de jours : <%= @tank.age %>
           </span>
         </div>
       </div>
