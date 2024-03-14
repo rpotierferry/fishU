@@ -17,14 +17,6 @@
       <%= image_tag 'fishu/logo.png' %>
       <% end %>
   </div>
-  <div class="bulle">
-    <p class="points"><%= @user.currency %> x
-    <span><%= image_tag 'fishu/bulles.png' %></span>
-    </p>
-    <% if params[:bubble].present? %>
-      <span class="new-points">+ <%= params[:bubble] %></span>
-    <% end %>
-  </div>
 </div>
 
 <div class="day <%= "to_day" if params[:to_day].present? %>">
@@ -33,6 +25,14 @@
     <% if @tank.liters < 20 %>
       <div class="tank" style="background-image: url('<%= image_path('fishu/bocal.png') %>');">
     <% end %>
+    <div class="bulle">
+      <p class="points"><%= @user.currency %>
+      <span><%= image_tag 'fishu/bulles.png' %></span>
+      </p>
+      <% if params[:bubble].present? %>
+        <span class="new-points">+ <%= params[:bubble] %></span>
+      <% end %>
+    </div>
     <div class="fish">
       <div class="fish-container">
         <% @tank.fish.each_with_index do |f, i| %>
@@ -142,9 +142,9 @@
     </div>
     <% end %>
   <div class="infos">
-    <div style="background: #476846;
-  padding: 4px;">nitrates : <%= @tank.nitrate %>mg/L</div>
-    <div style="background: #476846;
+    <div class="mesures" style="background: #476846;
+  padding: 4px;">NO3:<%= @tank.nitrate %>mg/L</div>
+    <div class="mesures2" style="background: #476846;
   padding: 4px;"><%= @tank.liters %>L</div>
   </div>
 </div>
