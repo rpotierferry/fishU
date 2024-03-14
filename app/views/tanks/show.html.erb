@@ -210,15 +210,15 @@
     <div id="popup" class="regles">
       <div class="regles_content">
         <h1>Règles du jeu</h1>
-        <h2>Maintiens ton poisson en vie!
+        <h2>Maintiens ton <%= image_tag "fishu/fishi.png", class:"icon" %> en vie!
           <br>
-          <p> * Il a besoin de manger <%= image_tag "fishu/food.png", class:"icon" %> 1 fois par jour </p>
-          <p> * Quand il mange il produit du nitrate (nO3-)  <% image_tag "fishu/poop.png", classe="icon" %> </p>
-          <p> * Une plante <%= image_tag "fishu/leaf.png", class:"icon" %> filtre le nitrate </p>
-          <p> * Une plante <%= image_tag "fishu/leaf.png", class:"icon" %> à besoin de lumière </p>
-          <p> * + ton poisson mange + il grandit + il a besoin d'espace </p>
-          <p> * Utilise tes bubulles pour faire de nouveaux achats </p>
-          <p> * Tu gagnes 20 bubulles/jour </p>
+          <p> * Il a besoin de manger <%= image_tag "fishu/food.png", class:"icon" %> 1 fois par jour <%= image_tag "fishu/moon.png", class:"icon"%></p>
+          <p> * Quand il mange <%= image_tag "fishu/food.png", class:"icon" %> il produit du nitrate (NO3-) <%= image_tag "fishu/poop.png", class:"icon" %> </p>
+          <p> * Les plantes <%= image_tag "fishu/leaf.png", class:"icon" %> réduisent les nitrates (NO3-) <%= image_tag "fishu/poop.png", class:"icon" %> </p>
+          <p> * Les plantes <%= image_tag "fishu/leaf.png", class:"icon" %> ont besoin de lumière <%= image_tag "fishu/bulb.png", class:"icon" %></p>
+          <p> * + il mange <%= image_tag "fishu/food.png", class:"icon" %> + il grandit + il a besoin d'espace <%= image_tag "fishu/drop.png", class:"icon" %> </p>
+          <p> * Utilise tes bubulles <%= image_tag 'fishu/bulles.png', class:"icon" %> pour faire de nouveaux achats </p>
+          <p> * Tu gagnes 20 bubulles <%= image_tag 'fishu/bulles.png', class:"icon" %> par jour <%= image_tag "fishu/moon.png", class:"icon"%> </p>
         <a href="#" class="regles_close" data-turbo="false">&times;</a>
       </div>
     </div>
