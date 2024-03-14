@@ -61,7 +61,7 @@ class TanksController < ApplicationController
         @plant.save
       end
     else
-      flash[alert:] = "Il n'y a pas assez d'eau pour ajouter une plante"
+      flash[alert:] = "Il n'y a pas assez d'espace dans l'aquarium pour ajouter une plante"
     end
     redirect_to tank_path(@tank)
   end
