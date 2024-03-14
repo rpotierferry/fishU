@@ -240,7 +240,8 @@ justify-content: space-between;
 
 .regles.first {
   visibility: visible;
-  animation: first 8s;
+
+  animation: first 8s forwards;
 }
 
 @keyframes first {
@@ -253,16 +254,20 @@ justify-content: space-between;
   90% {
     opacity: 1;
   }
+  99% {
+    opacity: 0;
+  }
   100% {
     opacity: 0;
+    display: none;
   }
 }
 
 .regles_content {
   background-color: white;
   padding: 1.5em 2em;
-  width: 500px;
-  max-width: 400px;
+  width: 100%;
+  box-sizing: border-box;
   border-radius: 5px;
   position: relative;
 }
@@ -291,8 +296,18 @@ justify-content: space-between;
   font-size: 25px;
 }
 
-.regles_content p {
+.regles_content h1 {
+  font-size: 28px;
+  font-family: 'Pixelify Sans';
+}
+
+.regles_content h2 {
   font-size: 20px;
+  font-family: 'Pixelify Sans';
+}
+
+.regles_content p {
+  font-size: 16px;
   font-family: 'Pixelify Sans';
 }
 
@@ -346,13 +361,12 @@ p{
 
 .typewriter {
   overflow: hidden;
-  border-right: .15em solid orange;
-  white-space: nowrap;
   margin: 0 auto;
   letter-spacing: .15em;
-  animation:
+  /* border-right: .15em solid orange; */
+  /* animation:
     typing 3.5s steps(40, end),
-    blink-caret .75s step-end infinite;
+    blink-caret .75s step-end infinite; */
 }
 
 @keyframes typing {

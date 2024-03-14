@@ -233,11 +233,12 @@
     </div>
   </div>
 
-<div id="popup" class="regles <%= "first" if @tank.age == 1 %>">
+<div id="popup" class="regles <%= "first" if params[:rules].present? %>">
   <div class="regles_content">
     <div class="typewriter">
     <h1>Règles du jeu</h1>
-    <h2>Maintiens ton <%= image_tag "fishu/fishi.png", class:"icon" %> en vie!
+    <h2>Maintiens ton <%= image_tag "fishu/fishi.png", class:"icon" %> en vie!</h2>
+
       <br>
       <p> * Il a besoin de manger <%= image_tag "fishu/food.png", class:"icon" %> 1 fois par jour <%= image_tag "fishu/moon.png", class:"icon"%></p>
       <p> * Quand il mange <%= image_tag "fishu/food.png", class:"icon" %> il produit du nitrate (NO3-) <%= image_tag "fishu/poop.png", class:"icon" %> </p>
