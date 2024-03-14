@@ -45,3 +45,15 @@
   justify-items: center;
   padding-left: 5px;
 }
+
+.nb {
+  /* font-family: 'Public Pixel', sans-serif; */
+  font-family: Arial, Helvetica, sans-serif;
+  /* font-size: 10px; */
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
