@@ -9,7 +9,7 @@ class FishController < ApplicationController
     @fish = Fish.new(fish_params)
     @fish.tank = @tank
       if @fish.save
-        redirect_to tank_path(@tank)
+        redirect_to tank_path(@tank, rules: true)
       else
         render :new, status: :unprocessable_entity
     end
