@@ -5,7 +5,7 @@
   </div>
 </div>
 <div class="index">
-  <%= link_to "Creer un nouveau poisson", new_tank_fish_path(@tank) %>
+  <%= link_to "Creer un nouveau poisson", new_tank_fish_path(@tank), class:"lien" %>
   </div>
 <% else %>
 
@@ -206,19 +206,19 @@
 
       <div class="tank-info">
         <span class="underline">
-          Informations
+          Paramètres
         </span>
         <div class="details-info">
           <span>
-            Plantes : <%= @tank.plants.count %>
+            Plantes: <%= @tank.plants.count %>
           </span>
 
           <span>
-            NO3 : <%= @tank.nitrate %>mg/L
+            NO3: <%= @tank.nitrate %>mg/L
           </span>
 
           <span>
-            Volume : <%= @tank.liters %>L
+            Volume: <%= @tank.liters %>L
           </span>
 
           <span>

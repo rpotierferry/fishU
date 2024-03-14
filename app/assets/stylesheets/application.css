@@ -9,8 +9,8 @@
 @import "plant";
 @import "poop";
 body {
-  font-family: 'Public Pixel', sans-serif;
-  /* font-family: 'Pixelify Sans'; */
+  /* font-family: 'Public Pixel', sans-serif; */
+  font-family: 'Pixelify Sans';
   display: flex;
   flex-direction: column;
   justify-content: center;
