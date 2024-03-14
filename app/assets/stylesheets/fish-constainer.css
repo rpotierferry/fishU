@@ -92,7 +92,7 @@
 
 .day {
   position: relative;
-  width: 93%;
+  width: 100%;
   padding: 8px 0;
   overflow: hidden;
   border-radius: 10px;
@@ -138,7 +138,7 @@
   display: flex;
   justify-content: space-between;
   box-sizing: border-box;
-  padding: 25px;
+  padding-top: 25px;
 }
 
 .set-up{

@@ -15,9 +15,12 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: 100dvh;
   width: 100%;
   margin: 0;
+  box-sizing: border-box;
+  padding: 25px;
+  padding-top: 0;
   background-color: rgb(170, 170, 170);
 }
 
