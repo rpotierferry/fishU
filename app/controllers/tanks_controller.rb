@@ -17,8 +17,8 @@ class TanksController < ApplicationController
   # controller actions
 
   def index
-    @user.tanks.each { |tank| tank.destroy if tank.fish.empty? ||tank.fish.last.alive? == false }
     @tanks = @user.tanks.reload
+    @tanks = @user.tanks.joins(:fish).where(fish: { alive: true }).distinct
   end
 
   def show; end
@@ -54,14 +54,10 @@ class TanksController < ApplicationController
   end
 
   def add_plant
-    if @tank.plants.count.zero?
+    if (@tank.liters - (@tank.plants.count * 2)) >= 2
       buy_plant
     else
-      if @tank.liters % @tank.plants.count >= 2
-        buy_plant
-      else
       flash[alert:] = "Il n'y a pas assez d'eau pour ajouter une plante"
-      end
     end
     redirect_to tank_path(@tank)
   end

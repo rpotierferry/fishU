@@ -36,6 +36,7 @@
   left: 0;
   height: 35px;
   flex-direction: row-reverse;
+
 }
 .new-points {
   position: absolute;
@@ -94,10 +95,12 @@
   width: 93%;
   padding: 8px 0;
   overflow: hidden;
-  border: solid;
   border-radius: 10px;
   background-color: #476846;
   flex-grow: 1;
+  border-top: solid 1px #2b2b2b;
+  border-left: solid 1px #2b2b2b;
+  box-shadow: -1px -1px 1px #000;
 }
 
 .to_day {
@@ -149,19 +152,38 @@ flex-wrap: wrap;
   width: 45px;
   height: 40px;
   border-radius: 10px;
-  background-color: rgb(160, 156, 92);
+  background-color: rgb(196, 196, 196);
+  border: none;
+  box-shadow: -1px 1px 1px rgb(196, 196, 196),-4px 4px 0px #5e5e5e;
+  justify-content: center;
+  display: flex;
+
+}
+
+.btndroite{
+  width: 45px;
+  height: 40px;
+  border-radius: 10px;
+  background-color: rgb(196, 196, 196);
+  border: none;
+  box-shadow: -1px 1px 1px rgb(196, 196, 196),-4px 4px 0px #5e5e5e;
+}
+.btn:active{
+  box-shadow: none;
+}
+.btndroite:active{
+  box-shadow: none;
+}
+
+a.btndroite{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0px;
 }
 
 .btn-img{
   width: 100%;
-}
-
-a.btn {
-  text-decoration: none;
-  text-align: center;
-  font-size: 25px;
-  color: black;
-  box-shadow: 1px 1px 1px 1px black;
 }
 
 .day-button{
@@ -206,11 +228,9 @@ justify-content: space-between;
   right: 0;
 } */
 
-.plant_icon {
+/* .plant_icon {
   width: 80px;
-  height: 80px;
-  box-shadow: 100px greenyellow;
-}
+  height: 80px;} */
 
 .pop {
   text-decoration: none;
@@ -316,17 +336,7 @@ justify-content: space-between;
   height: 25px;
 }
 
-.dashboard{
-  font-size: 20px;
-  margin-left: 20px;
-  margin-right: 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-
-a{
+.lien{
   text-decoration: none;
   color: #000000;
   margin: 10px;

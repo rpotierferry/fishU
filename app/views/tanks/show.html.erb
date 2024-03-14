@@ -10,13 +10,6 @@
 <% else %>
 
 <div class="navbar">
-  <div class="age">
-  <%if @tank.age == 1  %>
-      <%= @tank.age %>jour
-    <%else%>
-    <%= @tank.age %>jours
-    <%end %>
-  </div>
   <div class="logo">
     <%= link_to tanks_path do %>
       <%= image_tag 'fishu/logo.png' %>
@@ -146,13 +139,8 @@
     <% if @tank.liters < 20 %>
     </div>
     <% end %>
-  <div class="infos">
-    <div style="padding: 4px;">NO3:<%= @tank.nitrate %>mg/L</div>
-    <div style="padding: 4px;"><%= @tank.liters %>L</div>
-  </div>
 </div>
-<div class="buttons"
-  data-controller="button">
+<div class="buttons" data-controller="button">
   <div class="set-up">
     <div class="eat-button">
       <%= button_to feed_tank_path(@tank),
@@ -162,14 +150,14 @@
                     } do %>
         <%= image_tag "fishu/food.png", class:"btn-img" %>
       <% end %>
-
     </div>
+
     <div class="button-plant">
       <%= button_to add_plant_tank_path(@tank), class:"btn" do %>
         <%= image_tag "fishu/leaf.png", class:"btn-img" %>
       <%end %>
-
     </div>
+
     <div class="lamp-button">
       <% if @tank.has_lamp %>
         <div class="has-lamp"></div>
@@ -185,36 +173,60 @@
       <% end %>
     </div>
 
-    <% if @tank.liters >= 20 %>
+      <% if @tank.liters >= 20 %>
     <div class="btn">
-      <%= link_to new_tank_fish_path(@tank) do %>
-        <%= image_tag "fishu/morefish.png", class:"btn-img" %>
-        <% end %>
+        <%= link_to new_tank_fish_path(@tank) do %>
+          <div>
+          <%= image_tag "fishu/morefish.png", class:"btn-img", style:"width:40px" %>
+          <% end %>
+          </div>
     </div>
-    <% end %>
-
-  </div>
-  <div class="dashboard">
-
-    <p>
-      <% @tank.fish.each do |fish| %>
-      <span>
-        | <%=fish.name%> : <%=fish.size%>cm | <br>
-      </span>
+    <% if @tank.liters >= 20 %>
+      <% end %>
       <%end %>
-    </p>
-     <p>
-        <% if @tank.plants.count == 1  %>
-          < %= @tank.plants.count %> plante
-        <%else%>
-          <%= @tank.plants.count %> plantes
-        <%end %>
-    </p>
-    <p>
-      Nombre de jours: <%= @tank.age %>
-    </p>
-
   </div>
+
+  <div class="dashboard">
+      <div class="fish-info">
+      <%if @tank.fish.count == 1 %>
+      <% poisson = "poisson" %>
+      <%else %>
+      <% poisson = "poissons" %>
+      <%end %>
+
+      <span class="underline"> <%= poisson %> </span>
+      <div class="fish-list">
+        <% @tank.fish.each do |fish| %>
+          <span>
+            <%=fish.name%> | <%=fish.size%>cm
+          </span>
+        <% end %>
+      </div>
+      </div>
+
+      <div class="tank-info">
+        <span class="underline">
+          Informations
+        </span>
+        <div class="details-info">
+          <span>
+            Plantes : <%= @tank.plants.count %>
+          </span>
+
+          <span>
+            NO3 : <%= @tank.nitrate %>mg/L
+          </span>
+
+          <span>
+            Volume : <%= @tank.liters %>L
+          </span>
+
+          <span>
+            jour <%= @tank.age %>
+          </span>
+        </div>
+      </div>
+    </div>
   <div class="regles_button">
     <div id="popup" class="regles">
       <div class="regles_content">
@@ -253,11 +265,13 @@
 </div>
 
   <div class="day-button" data-controller="night">
-  <div>
+  <div style="display: flex;
+flex-direction: column-reverse;
+gap: 10px;">
   <% if @tank.fish.last.alive? == false %>
     <div class="">
       <%= button_to reset_all_tank_path(@tank),
-      class:"btn",
+      class:"btndroite",
       data: {
         action: "click->button#playFlushSound"
       } do %>
@@ -265,11 +279,11 @@
       <% end %>
     </div>
   <% end %>
-    <a class="btn" href="#popup" data-turbo="false" class="pop">?</a>
+    <a class="btndroite lien" href="#popup" data-turbo="false" class="pop">?</a>
     </div>
-    <%= button_to new_day_tank_path(@tank), class:"btn", data: { action: "#{@tank.fish.last.fed? ? "click->night#nightAnimation" : "click->night#notFed"}" } do %>
+    <%= button_to new_day_tank_path(@tank), class:"btndroite", data: { action: "#{@tank.fish.last.fed? ? "click->night#nightAnimation" : "click->night#notFed"}" } do %>
       <%= image_tag "fishu/moon.png", class:"btn-img"%>
     <% end %>
   </div>
-</div>
+  </div>
 <% end %>
