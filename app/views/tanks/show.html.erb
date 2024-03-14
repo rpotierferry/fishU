@@ -22,9 +22,6 @@
 <div class="day <%= "to_day" if params[:to_day].present? %>">
   <audio id="popSound" src="<%= image_path("fishu/pop.mp3") %>"></audio>
   <audio id="flushSound" src="<%= image_path("https://res.cloudinary.com/detoat4si/video/upload/v1710273036/v983j86nqrjtvd8w2kqv.mp3") %>"></audio>
-    <% if @tank.liters < 20 %>
-      <div class="tank" style="background-image: url('<%= image_path('fishu/bocal.png') %>');">
-    <% end %>
     <div class="bulle">
       <p class="points"><%= @user.currency %>
       <span><%= image_tag 'fishu/bulles.png' %></span>
@@ -33,15 +30,18 @@
         <span class="new-points">+ <%= params[:bubble] %></span>
       <% end %>
     </div>
+    <% if @tank.liters < 20 %>
+      <div class="tank" style="background-image: url('<%= image_path('fishu/bocal.png') %>');">
+    <% end %>
     <div class="fish">
       <div class="fish-container">
         <% @tank.fish.each_with_index do |f, i| %>
           <% if @tank.fish.last.alive? %>
               <% if @tank.liters < 20 %>
-                <% t = rand(10..40) %>
-                <% l = rand(20..30) %>
+                <% t = 20 %>
+                <% l = 25 %>
               <% else %>
-                <% t = rand(0..70) %>
+                <% t = rand(9..70) %>
                 <% l = rand(0..60) %>
               <% end %>
               <% if @tank.liters < 20 %>
@@ -116,11 +116,11 @@
           <% poops = (1..n).to_a %>
           <% poops.each do |poop| %>
             <%if @tank.liters < 20 %>
-              <% top = "calc(#{rand(25..65)}% - 44px)" %>
-              <% left = "calc(#{rand(25..65)}% - 44px)" %>
+              <% top = "#{rand(10..75)}%" %>
+              <% left = "#{rand(20..70)}% " %>
             <% else %>
-              <% top = "calc(#{rand(15..95)}% - 14px)" %>
-              <% left = "calc(#{rand(5..95)}% - 14px)" %>
+              <% top = "#{rand(10..95)}% " %>
+              <% left = "#{rand(5..95)}% " %>
             <%end %>
             <% if @tank.liters < 20 %>
               <% poopimage = "poop-image1"%>
@@ -142,10 +142,8 @@
     </div>
     <% end %>
   <div class="infos">
-    <div class="mesures" style="background: #476846;
-  padding: 4px;">NO3:<%= @tank.nitrate %>mg/L</div>
-    <div class="mesures2" style="background: #476846;
-  padding: 4px;"><%= @tank.liters %>L</div>
+    <div style="padding: 4px;">NO3:<%= @tank.nitrate %>mg/L</div>
+    <div style="padding: 4px;"><%= @tank.liters %>L</div>
   </div>
 </div>
 <div class="buttons"
@@ -227,8 +225,12 @@
     </div>
   </div>
 
+
+
+  <div class="day-button" data-controller="night">
+  <div>
   <% if @tank.fish.last.alive? == false %>
-    <div class="size-button">
+    <div class="">
       <%= button_to reset_all_tank_path(@tank),
       class:"btn",
       data: {
@@ -238,10 +240,8 @@
       <% end %>
     </div>
   <% end %>
-
-
-  <div class="day-button" data-controller="night">
     <a class="btn" href="#popup" data-turbo="false" class="pop">?</a>
+    </div>
     <%= button_to new_day_tank_path(@tank), class:"btn", data: { action: "#{@tank.fish.last.fed? ? "click->night#nightAnimation" : "click->night#notFed"}" } do %>
       <%= image_tag "fishu/moon.png", class:"btn-img"%>
     <% end %>

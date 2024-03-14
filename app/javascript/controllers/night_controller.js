@@ -10,8 +10,7 @@ export default class extends Controller {
     event.preventDefault()
     const form = event.currentTarget.closest(".button_to")
     document.querySelector(".day").classList.add("to_night")
-    document.querySelector(".mesures").classList.add('to_night')
-    document.querySelector(".mesures2").classList.add('to_night')
+    
 
     setTimeout(() => {
       form.submit()
