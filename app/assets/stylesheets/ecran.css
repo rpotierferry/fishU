@@ -1,6 +1,5 @@
 .dashboard {
   background-color: #476846;
-  border: solid;
   border-radius: 10px;
   padding: 15px 40px;
   display: flex;
@@ -8,6 +7,7 @@
   flex-direction: column;
   margin-left: 15px;
   margin-bottom: 15px;
+  box-shadow: -2px -2px 1px #2b2b2b;
 }
 
 .underline {
