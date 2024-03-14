@@ -17,6 +17,7 @@ class TanksController < ApplicationController
   # controller actions
 
   def index
+    @tanks = @user.tanks.reload
     @tanks = @user.tanks.joins(:fish).where(fish: { alive: true }).distinct
   end
 
