@@ -246,7 +246,9 @@
 
 
   <div class="day-button" data-controller="night">
-  <div>
+  <div style="display: flex;
+flex-direction: column-reverse;
+gap: 10px;">
   <% if @tank.fish.last.alive? == false %>
     <div class="">
       <%= button_to reset_all_tank_path(@tank),
