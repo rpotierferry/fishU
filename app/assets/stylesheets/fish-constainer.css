@@ -114,7 +114,9 @@ body {
   border-radius: 10px;
   background-color: #476846;
   flex-grow: 1;
-  box-shadow: -3px -3px 1px #2b2b2b;
+  border-top: solid 1px #2b2b2b;
+  border-left: solid 1px #2b2b2b;
+  box-shadow: -1px -1px 1px #000;
 }
 
 .to_day {

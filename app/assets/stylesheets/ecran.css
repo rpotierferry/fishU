@@ -7,7 +7,9 @@
   flex-direction: column;
   margin-left: 15px;
   margin-bottom: 15px;
-  box-shadow: -2px -2px 1px #2b2b2b;
+  border-top: solid 1px #2b2b2b;
+  border-left: solid 1px #2b2b2b;
+  box-shadow: -1px -1px 1px #000;
 }
 
 .underline {
