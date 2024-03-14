@@ -87,11 +87,13 @@ class TanksController < ApplicationController
         fish_sick
         fish_get_hungry
         @tank.has_lamp ? lamp_action : plant_life
-        win_bubble(CONFIG[:win_bubble_amount])
+        win_bubble(CONFIG[:win_bubble_amount] * @tank.fish.count)
+        @tank.age += 1
+        @tank.save
       end
         redirect_to tank_path(@tank, bubble: CONFIG[:win_bubble_amount], to_day: true)
       else
-        redirect_to tank_path(@tank), alert: "Vous devez nourrir le poisson avant de passer au jour suivant."
+        redirect_to tank_path(@tank), alert: "Nourris le poisson pour passer au jour suivant."
     end
   end
 
@@ -178,6 +180,7 @@ class TanksController < ApplicationController
     set_tank
     @tank.liters = 5
     @tank.nitrate = 0
+    @tank.age = 1
     @tank.has_lamp = false
     @tank.plants.destroy_all
     @fish_name = @tank.fish.first.name
