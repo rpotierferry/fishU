@@ -3,19 +3,6 @@
 @import url('https://fonts.cdnfonts.com/css/public-pixel');
 /* 'Public Pixel' */
 
-/* font-family: 'Pixelify Sans'; */
-body {
-  font-family: 'Public Pixel', sans-serif;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  width: 100%;
-  margin: 0;
-  background-color: rgb(170, 170, 170);
-}
-
 .navbar {
   width: 100%;
   display: flex;
@@ -73,9 +60,7 @@ body {
     transform: translateY(0);
     opacity: 0;
   }
-
 }
-
 
 .bulle img {
   width: 35px;
@@ -104,7 +89,6 @@ body {
     background-color: #000000;
   }
 }
-
 
 .day {
   position: relative;
@@ -274,11 +258,36 @@ justify-content: space-between;
   opacity: 1;
 }
 
+.regles.first {
+  visibility: visible;
+
+  animation: first 8s forwards;
+}
+
+@keyframes first {
+  0% {
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  99% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+    display: none;
+  }
+}
+
 .regles_content {
   background-color: white;
   padding: 1.5em 2em;
-  width: 500px;
-  max-width: 400px;
+  width: 100%;
+  box-sizing: border-box;
   border-radius: 5px;
   position: relative;
 }
@@ -307,8 +316,18 @@ justify-content: space-between;
   font-size: 25px;
 }
 
-.regles_content p {
+.regles_content h1 {
+  font-size: 28px;
+  font-family: 'Pixelify Sans';
+}
+
+.regles_content h2 {
   font-size: 20px;
+  font-family: 'Pixelify Sans';
+}
+
+.regles_content p {
+  font-size: 16px;
   font-family: 'Pixelify Sans';
 }
 
@@ -348,4 +367,24 @@ font-family:'Public Pixel', sans-serif;
 
 p{
   font-size: 15px;
+}
+
+.typewriter {
+  overflow: hidden;
+  margin: 0 auto;
+  letter-spacing: .15em;
+  /* border-right: .15em solid orange; */
+  /* animation:
+    typing 3.5s steps(40, end),
+    blink-caret .75s step-end infinite; */
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: orange; }
 }
