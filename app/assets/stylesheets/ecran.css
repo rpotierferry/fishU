@@ -6,4 +6,25 @@
   display: flex;
   gap: 10px;
   flex-direction: column;
+  margin-left: 20px;
+  margin-bottom: 85px;
+}
+
+.underline {
+  border-bottom: double;
+  border-bottom: dotted;
+  margin-bottom: 3px;
+}
+
+.fish-info {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.fish-list {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  justify-items: center;
 }

@@ -196,23 +196,25 @@
   </div>
   <div class="dashboard">
 
-    <p>
-      <% @tank.fish.each do |fish| %>
-      <span>
-        | <%=fish.name%> : <%=fish.size%>cm | <br>
-      </span>
-      <%end %>
-    </p>
-     <p>
+      <div class="fish-info">
+      <span class="underline">Poissons (x <%= @tank.fish.count %>)</span>
+      <div class="fish-list">
+        <% @tank.fish.each do |fish| %>
+          <span>
+            <%=fish.name%> | <%=fish.size%>cm
+          </span>
+        <%end %>
+      </div>
+      </div>
+
+     <div>
         <% if @tank.plants.count == 1  %>
           < %= @tank.plants.count %> plante
         <%else%>
           <%= @tank.plants.count %> plantes
         <%end %>
-    </p>
-    <p>
-      Nombre de jours: <%= @tank.age %>
-    </p>
+    </div>
+
   </div>
   <div class="regles_button">
     <div id="popup" class="regles">

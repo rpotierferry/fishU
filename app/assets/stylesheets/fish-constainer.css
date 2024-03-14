@@ -298,16 +298,6 @@ justify-content: space-between;
   height: 25px;
 }
 
-.dashboard{
-  font-size: 20px;
-  margin-left: 20px;
-  margin-right: 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-
 a{
   text-decoration: none;
   color: #000000;
