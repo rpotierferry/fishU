@@ -17,8 +17,7 @@ class TanksController < ApplicationController
   # controller actions
 
   def index
-    @user.tanks.each { |tank| tank.destroy if tank.fish.last.alive? == false }
-    @tanks = @user.tanks.reload
+    @tanks = @user.tanks.joins(:fish).where(fish: { alive: true }).distinct
   end
 
   def show; end
