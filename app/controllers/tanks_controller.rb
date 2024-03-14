@@ -54,10 +54,14 @@ class TanksController < ApplicationController
   end
 
   def add_plant
-    if spend_bubble(CONFIG[:plant_price]) == 'paid'
-      @plant = Plant.new
-      @plant.tank = @tank
-      @plant.save
+    if @tank.liters % @tank.plants.count >= 2
+      if spend_bubble(CONFIG[:plant_price]) == 'paid'
+        @plant = Plant.new
+        @plant.tank = @tank
+        @plant.save
+      end
+    else
+      flash[alert:] = "Il n'y a pas assez d'eau pour ajouter une plante"
     end
     redirect_to tank_path(@tank)
   end
