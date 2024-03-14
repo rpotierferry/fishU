@@ -197,8 +197,8 @@
       <span class="underline"> <%= poisson %> </span>
       <div class="fish-list">
         <% @tank.fish.each do |fish| %>
-          <span class="item">
-            <%=fish.name%> | <div class="nb"><%=fish.size%></div>cm
+          <span>
+            <%=fish.name%> | <%=fish.size%>cm
           </span>
         <% end %>
       </div>
@@ -209,20 +209,20 @@
           Informations
         </span>
         <div class="details-info">
-          <div class="item">
-              Plantes : <span class="nb"><%= @tank.plants.count %></span>
-          </div>
-
-          <div class="item">
-            NO3 : <div class="nb"><%= @tank.nitrate %></div>mg/L
-          </div>
-
-          <span class="item">
-            Volume : <div class="nb"><%= @tank.liters %></div>L
+          <span>
+            Plantes : <%= @tank.plants.count %>
           </span>
 
-          <span class="item">
-            Jour : <div class="nb"><%= @tank.age %></div>
+          <span>
+            NO3 : <%= @tank.nitrate %>mg/L
+          </span>
+
+          <span>
+            Volume : <%= @tank.liters %>L
+          </span>
+
+          <span>
+            jour <%= @tank.age %>
           </span>
         </div>
       </div>
