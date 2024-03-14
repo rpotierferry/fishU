@@ -197,7 +197,7 @@
   <div class="dashboard">
 
       <div class="fish-info">
-      <span class="underline">Poissons (x <%= @tank.fish.count %>)</span>
+      <span class="underline">Poissons</span>
       <div class="fish-list">
         <% @tank.fish.each do |fish| %>
           <span>
@@ -208,11 +208,24 @@
       </div>
 
      <div>
-        <% if @tank.plants.count == 1  %>
-          < %= @tank.plants.count %> plante
-        <%else%>
-          <%= @tank.plants.count %> plantes
-        <%end %>
+      <div class="tank-info">
+        <span class="underline">
+          Informations
+        </span>
+        <div class="details-info">
+          <span>
+            Plantes : <%= @tank.plants.count %>
+          </span>
+
+          <span>
+            NO3 : <%= @tank.nitrate %>mg/L
+          </span>
+
+          <span>
+            Volume : <%= @tank.liters %>L
+          </span>
+        </div>
+      </div>
     </div>
 
   </div>
