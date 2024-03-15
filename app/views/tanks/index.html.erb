@@ -10,6 +10,10 @@
     <%= link_to tank.fish.last.name, tank_path(tank), class:"lien" %>
   <% end %>
 <% end %>
-<%= link_to 'Creer un nouvel aquarium', new_tank_path, class:"lien" %>
-<%= button_to create_tank_path(@user), class:"btn"%>
+<div class="">
+<%= form_with model: [ Tank.new] do |f| %>
+<%= f.submit "Creer mon aquarium", class: "image-submit lien"%>
+<% end %>
+</div>
+
 </div>
