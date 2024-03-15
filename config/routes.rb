@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   get "up" => "rails/health#show", as: :rails_health_check
 
   root "tanks#index"
+  post '/tanks', to: 'tanks#create', as: 'create_tank'
   resources :tanks do
     resources :fish
     member do
