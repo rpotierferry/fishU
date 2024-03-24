@@ -32,7 +32,7 @@ class TanksController < ApplicationController
     @tank = Tank.new
     @tank.user = @user
     @tank.save
-    redirect_to tank_path(@tank)
+    redirect_to new_tank_fish_path(@tank)
   end
 
   # user actions
