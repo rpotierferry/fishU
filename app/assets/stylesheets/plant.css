@@ -1,13 +1,15 @@
 .plante-container {
-  .poop-container {
     position: relative;
     width: 100%;
     height: 100%;
   }
-}
+
 .plantes {
   width: 100%;
   height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 .plant1 {

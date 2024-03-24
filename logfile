@@ -1,0 +1,7 @@
+2024-03-24 11:34:28.321 CET [51019] LOG:  starting PostgreSQL 14.11 (Homebrew) on x86_64-apple-darwin21.6.0, compiled by Apple clang version 14.0.0 (clang-1400.0.29.202), 64-bit
+2024-03-24 11:34:28.324 CET [51019] LOG:  listening on IPv6 address "::1", port 5432
+2024-03-24 11:34:28.324 CET [51019] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2024-03-24 11:34:28.325 CET [51019] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2024-03-24 11:34:28.332 CET [51020] LOG:  database system was shut down at 2024-03-24 11:34:08 CET
+2024-03-24 11:34:28.345 CET [51019] LOG:  database system is ready to accept connections
+2024-03-24 11:35:07.747 CET [51065] FATAL:  database "fishU_development" does not exist

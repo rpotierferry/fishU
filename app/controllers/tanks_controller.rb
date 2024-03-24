@@ -10,7 +10,7 @@ class TanksController < ApplicationController
     plant_nitrate_decrease: 1,
     lamp_price: 20,
     tank_increase_price: 10,
-    tank_increase_liters: 5,
+    tank_increase_liters: 10,
     win_bubble_amount: 20
   }.freeze
 
@@ -43,14 +43,16 @@ class TanksController < ApplicationController
   end
 
   def feed
-    @tank.fish.each do |f|
-      f.size += CONFIG[:fish_growth]
-      f.fed = true
-      f.save
-      @tank.nitrate += f.size * CONFIG[:food_nitrate_increase]
+    if @tank.fish.last.alive?
+      @tank.fish.each do |f|
+        f.size += CONFIG[:fish_growth] if f.size < 20
+        f.fed = true
+        f.save
+        @tank.nitrate += f.size * CONFIG[:food_nitrate_increase]
+      end
+      @tank.save
+      redirect_to tank_path(@tank)
     end
-    @tank.save
-    redirect_to tank_path(@tank)
   end
 
   def add_plant

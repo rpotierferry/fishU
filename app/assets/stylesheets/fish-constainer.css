@@ -26,9 +26,9 @@
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  position: absolute;
-  top: 0;
-  left: 0;
+  position: fixed;
+  top: 8%;
+  left: 8%;
   height: 35px;
   flex-direction: row-reverse;
 
@@ -89,7 +89,7 @@
   position: relative;
   width: 100%;
   padding: 8px 0;
-  overflow: hidden;
+  overflow: scroll;
   border-radius: 10px;
   background-color: #476846;
   flex-grow: 1;
@@ -197,6 +197,7 @@ justify-content: space-between;
   flex-direction: row-reverse;
   align-items: center;
   gap: 10px;
+  position: relative;
 }
 
 .has-lamp {
@@ -205,6 +206,9 @@ justify-content: space-between;
   background-color: rgb(255, 255, 255);
   border-radius: 50%;
   box-shadow: 0px 0px 3px 1px white, 0px 0px 6px 7px rgb(255, 96, 0);
+  position: absolute;
+  top: 50%;
+  left: -35%;
 }
 .formulaire{
   display: flex;
@@ -222,6 +226,10 @@ justify-content: space-between;
   padding: 15px;
   border-radius: 5px;
   color: black;
+}
+
+.size{
+  display: flex;
 }
 
 .regles {
