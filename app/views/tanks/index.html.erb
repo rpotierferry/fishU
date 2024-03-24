@@ -7,7 +7,7 @@
 <% if @user.tanks %>
   <% @tanks.each do |tank| %>
 
-    <%= link_to tank.fish.last.name, tank_path(tank), class:"lien" %>
+    <%= link_to tank.fish.first.name, tank_path(tank), class:"lien" %>
   <% end %>
 <% end %>
 <div class="">
