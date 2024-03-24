@@ -7,12 +7,12 @@
 <% if @user.tanks %>
   <% @tanks.each do |tank| %>
 
-    <%= link_to tank.fish.first.name, tank_path(tank), class:"lien" %>
+    <%= link_to tank.fish.first.name, tank_path(tank), class:"lien btn-index" %>
   <% end %>
 <% end %>
 <div class="">
 <%= form_with model: [ Tank.new] do |f| %>
-<%= f.submit "Creer mon aquarium", class: "image-submit lien"%>
+<%= f.submit "Creer mon aquarium", class: "btn-index"%>
 <% end %>
 </div>
 
