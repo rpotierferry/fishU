@@ -268,6 +268,37 @@ gap: 15px;
 flex-wrap: wrap;
 }
 
+.btn-index{
+  min-width: 50px;
+  height: 40px;
+  border-radius: 10px;
+  background-color: rgb(196, 196, 196);
+  border: none;
+  box-shadow: -1px 1px 1px rgb(196, 196, 196),-4px 4px 0px #5e5e5e;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 4px;
+  font-family:'Pixelify Sans';
+  font-size: 15px;
+}
+
+.form-with{
+  display: flex;
+  gap: 10px;
+}
+
+.input{
+  background-color: #476846;
+  border-top: solid 1px #2b2b2b;
+  border-left: solid 1px #2b2b2b;
+  box-shadow: -1px -1px 1px #000;
+  border-right: none;
+  border-bottom: none;
+  border-radius: 10px;
+  font-family: 'Pixelify Sans' ;
+}
+
 .btn{
   width: 45px;
   height: 40px;
@@ -277,6 +308,7 @@ flex-wrap: wrap;
   box-shadow: -1px 1px 1px rgb(196, 196, 196),-4px 4px 0px #5e5e5e;
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 .btndroite{
@@ -288,6 +320,7 @@ flex-wrap: wrap;
   box-shadow: -1px 1px 1px rgb(196, 196, 196),-4px 4px 0px #5e5e5e;
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 .btn:active{
   box-shadow: none;
@@ -464,7 +497,7 @@ justify-content: space-between;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  text-align: center;
+  align-items: center;
   width: 60%;
 
 }

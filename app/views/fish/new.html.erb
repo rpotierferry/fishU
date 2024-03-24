@@ -17,11 +17,9 @@
 </div>
 
 <div class="formulaire">
-  <%= form_with model: @fish, url: tank_fish_index_path(@tank) do |f| %>
-    <%= f.text_field :name, class:'form' %>
-    <%= f.submit "Nomme ton poisson", class:'form' %>
+  <%= form_with model: @fish, url: tank_fish_index_path(@tank), class:"form-with" do |f| %>
+    <%= f.text_field :name, class:'input' %>
+    <%= f.submit "Nomme ton poisson", class:'btn-index' %>
   <% end %>
-  <%= @fish.errors.full_messages.join()%>
-
-
 </div>
+  <p style="position: fixed;bottom: 0%;"><%= @fish.errors.full_messages.join()%></p>
