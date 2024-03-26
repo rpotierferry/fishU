@@ -614,6 +614,7 @@ p{
   align-items: center;
   position: absolute;
   bottom: -10px;
+  z-index: 1000;
 }
 
 .tomb img {
@@ -704,4 +705,26 @@ p{
 
 .poop-image4 {
   width: 14px;
+}
+
+.causeofdeath{
+  background-color: #000;
+  width: 50px;
+  height: 2px;
+  position: absolute;
+  animation: causeofdeath 1.5s linear infinite;
+
+}
+
+@keyframes causeofdeath {
+  0% {
+    background-color: #476846;
+  }
+  50% {
+    background-color: #000000;
+  }
+
+  100%{
+    background-color: #476846;
+  }
 }

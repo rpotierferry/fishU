@@ -1,5 +1,5 @@
 class TanksController < ApplicationController
-  before_action :set_tank, only: %i[reset_all show feed add_lamp add_plant increase_tank_size new_day]
+  before_action :set_tank, only: %i[reset_all show feed add_lamp add_plant increase_tank_size new_day details_death]
   before_action :set_user, only: %i[index show]
   before_action :authenticate_user!
 
@@ -97,6 +97,9 @@ class TanksController < ApplicationController
     else
       redirect_to tank_path(@tank), alert: "Nourris le poisson pour passer au jour suivant."
     end
+  end
+
+  def details_death
   end
 
   private
