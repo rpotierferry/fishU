@@ -10,7 +10,7 @@ export default class extends Controller {
     event.preventDefault()
     const form = event.currentTarget.closest(".button_to")
     document.querySelector(".day").classList.add("to_night")
-    
+
 
     setTimeout(() => {
       form.submit()
@@ -21,7 +21,7 @@ export default class extends Controller {
     event.preventDefault()
     const popup = `
     <div class="alert">
-      Tu dois nourrir ton poisson!
+      Tu dois nourrir ton poisson !
     </div>
     `
     document.body.insertAdjacentHTML("beforeend", popup)
