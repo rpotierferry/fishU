@@ -64,9 +64,12 @@
                 <% end %>
               <% end %>
           <% else %>
-            <div class="tomb">
-            <%= image_tag 'fishu/rip.png', style:"width: #{45}%;" %>
-            </div>
+            <%=link_to details_death_tank_path(@tank), class:"tomb" do %>
+              <%= image_tag 'fishu/rip.png', style:"width: #{45}%;" %>
+              <div class="causeofdeath" style="top: 65%;"> </div>
+              <div class="causeofdeath" style="top: 68%;"></div>
+              <div class="causeofdeath" style="top: 70%;"></div>
+              <% end %>
           <% end %>
         <% end %>
       </div>
