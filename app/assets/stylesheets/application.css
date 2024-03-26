@@ -152,8 +152,8 @@ body {
   align-items: center;
   gap: 0.5rem;
   position: fixed;
-  top: 8%;
-  left: 8%;
+  top: 10%;
+  left: 10%;
   height: 35px;
   flex-direction: row-reverse;
   font-family:'arial'
