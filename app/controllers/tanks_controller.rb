@@ -43,16 +43,14 @@ class TanksController < ApplicationController
   end
 
   def feed
-    if @tank.fish.last.alive?
-      @tank.fish.each do |f|
-        f.size += CONFIG[:fish_growth] if f.size < 20
-        f.fed = true
-        f.save
-        @tank.nitrate += f.size * CONFIG[:food_nitrate_increase]
-      end
+    @tank.fish.each do |f|
+      f.size += CONFIG[:fish_growth] if f.size < 20
+      f.fed = true
+      f.save
+      @tank.nitrate += f.size * CONFIG[:food_nitrate_increase]
+    end
       @tank.save
       redirect_to tank_path(@tank)
-    end
   end
 
   def add_plant

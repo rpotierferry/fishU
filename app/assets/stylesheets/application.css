@@ -18,6 +18,11 @@ body {
   background-color: rgb(170, 170, 170);
 }
 
+p{
+  font-size: 15px;
+  text-align: justify;
+  padding: 30px;
+}
 .alert {
   position: fixed;
   bottom: 1rem;
@@ -89,7 +94,7 @@ body {
 
 .nb {
   /* font-family: 'Public Pixel', sans-serif; */
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'pixer';
   /* font-size: 10px; */
 }
 
@@ -727,4 +732,10 @@ p{
   100%{
     background-color: #476846;
   }
+}
+
+#zoomtumb {
+  font-family: 'pixer';
+  font-size: 250px;
+  margin: 0;
 }
