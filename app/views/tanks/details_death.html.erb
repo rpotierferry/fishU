@@ -26,7 +26,11 @@
        Ajouter des plantes permet également de limiter la pollution car elles se nourrissent en partie des déchets et permettent de filtrer l'eau.</p>
 
   <%else %>
-    <%="#{@tank.fish.name} est mort à cause d'une intoxication aux nitrates" %>
+    <p><%="#{@tank.fish.first.name}"%> est mort à cause d'une intoxication aux nitrites.
+    La pollution aux nitrites est le resultats de la décomposition des matières organiques dans l'aquarium comme les excréments des poissons, des restes de nourriture ou encore des plantes mortes.
+       Pour réduire la concentration en nitrite, on peut les diluer en adaptant le volume de l'aquarium à la taille des poissons et à leur nombre.
+       Ajouter des plantes permet également de limiter la pollution car elles se nourrissent en partie des déchets et permettent de filtrer l'eau.</p>
+
   <%end %>
 
 </div>
