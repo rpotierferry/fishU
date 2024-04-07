@@ -7,13 +7,29 @@
 </div>
 
 <div class="day">
- <%=image_tag 'fishu/rip.png', style:"position: absolute;top: -80%;left: -75%;width: 255%;" %>
- <p style="position: absolute;bottom: 30%;left: 10%;">
- <%@tank.fish.each do |fish|%>
-    <%="#{fish.name} est mort à cause d'une trop forte concentration en nitrate dans son aquarium" %>
-  <%end %>
- </p>
+ <div class="zoomtumb">
+ <h1 id="zoomtumb">RIP</h1>
+ <% if @tank.fish.count > 1 %>
+    <% fishiz = @tank.fish.map do |fish|%>
+      <%if fish == @tank.fish.first %>
+        <% fish.name %>
+      <%elsif fish == @tank.fish.last %>
+        <% "et #{fish.name}" %>
+      <% else %>
+        <%",#{fish.name} " %>
+      <%end %>
+    <%end %>
+      <p><%="Ci-gisent #{fishiz.join("")}."%></p>
+       <p>Ils sont morts à cause d'une intoxication aux nitrites.
+       La pollution aux nitrites est le resultats de la décomposition des matières organiques dans l'aquarium comme les excréments des poissons, des restes de nourriture ou encore des plantes mortes.
+       Pour réduire la concentration en nitrite, on peut les diluer en adaptant le volume de l'aquarium à la taille des poissons et à leur nombre.
+       Ajouter des plantes permet également de limiter la pollution car elles se nourrissent en partie des déchets et permettent de filtrer l'eau.</p>
 
+  <%else %>
+    <%="#{@tank.fish.name} est mort à cause d'une intoxication aux nitrates" %>
+  <%end %>
+
+</div>
     </div>
 
 <div class="buttons" data-controller="button">
@@ -49,14 +65,14 @@
       <% end %>
     </div>
 
-      <% if @tank.liters >= 20 %>
-    <div class="btn">
-        <%= link_to new_tank_fish_path(@tank) do %>
-          <div>
-          <%= image_tag "fishu/morefish.png", class:"btn-img", style:"width:40px" %>
-          <% end %>
-          </div>
-    </div>
+      <% if @tank.liters >= 20 && @tank.fish.last.alive %>
+        <div class="btn">
+          <%= link_to new_tank_fish_path(@tank) do %>
+        <div>
+        <%= image_tag "fishu/morefish.png", class:"btn-img", style:"width:40px" %>
+        <% end %>
+        </div>
+        </div>
     <% if @tank.liters >= 20 %>
       <% end %>
       <%end %>
