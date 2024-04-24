@@ -1,22 +1,30 @@
 @import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap');
 /* 'Pixelify Sans' */
 
+*{
+  border: solid 1px #f90000;
+}
+
 body {
   /* font-family: 'Public Pixel', sans-serif; */
   font-family: 'Pixelify Sans';
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 100dvh;
+  display: grid;
+  grid-template-rows: 10% 1fr 20%;
   height: 100vh;
-  width: 100%;
   margin: 0;
   box-sizing: border-box;
   padding: 25px;
-  padding-top: 0;
   background-color: rgb(170, 170, 170);
+  overflow: hidden;
 }
+
+.screen{
+  display:grid;
+  background-color: #476846;
+  grid-template-columns: repeat(10,1fr);
+  grid-template-rows: repeat(10,1fr);
+}
+
 
 p{
   font-size: 15px;
@@ -127,14 +135,32 @@ p{
   border-radius: 50%;
 }
 
+.bag{
+  background-image: url(fishu/sac.png);
+  grid-row: 1/-1;
+  grid-column: 1/-1;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  margin: 5px;
+}
 
+.fishi{
+  background-image: url(fishu/fishi.png);
+  grid-row: 5/10;
+  background-size: contain;
+  grid-column: 4/8;
+  background-repeat: no-repeat;
+  background-position: center;
+  animation: Swim 1s linear infinite;
+}
 .navbar {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  padding: 10px;
   box-sizing: border-box;
-  position: relative;
+  justify-content: center;
+  display: flex;
+  height: 100%;
+  align-items: center;
+  width: 100%;
 }
 
 .age {
@@ -217,9 +243,11 @@ p{
 }
 
 .day {
-  position: relative;
-  width: 100%;
+  grid-row: 2/9;
   padding: 8px 0;
+  display:grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(4, 1fr);
   overflow: scroll;
   border-radius: 10px;
   background-color: #476846;
@@ -274,9 +302,8 @@ gap: 15px;
 flex-wrap: wrap;
 }
 
-.btn-index{
-  min-width: 50px;
-  height: 40px;
+ .btn-index {
+  width: auto;
   border-radius: 10px;
   background-color: rgb(196, 196, 196);
   border: none;
@@ -284,14 +311,18 @@ flex-wrap: wrap;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 4px;
-  font-family:'Pixelify Sans';
-  font-size: 15px;
+  font-family: 'Pixelify Sans';
+  font-size: 100%;
+
 }
 
 .form-with{
   display: flex;
   gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+  align-items: center;
 }
 
 .input{
@@ -302,7 +333,8 @@ flex-wrap: wrap;
   border-right: none;
   border-bottom: none;
   border-radius: 10px;
-  font-family: 'Pixelify Sans' ;
+  font-family: 'Pixelify Sans';
+  width: auto;
 }
 
 .btn{
@@ -376,12 +408,9 @@ justify-content: space-between;
 }
 .formulaire{
   display: flex;
-  width: 100%;
-  height: 300px;
-  justify-content: center;
   align-items: center;
   padding: 25px;
-  text-align: center;
+
 }
 
 .pop {
@@ -626,9 +655,9 @@ p{
   background-size: cover;
 }
 
-.fish1 {
+/* .fish1 {
   width: 55%;
-}
+} */
 
 .fish2 {
   width: 50%;
