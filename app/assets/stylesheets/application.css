@@ -7,7 +7,7 @@
 
 body {
   /* font-family: 'Public Pixel', sans-serif; */
-  font-family: 'Pixelify Sans';
+  font-family: 'Pixer';
   display: grid;
   grid-template-rows: 10% 1fr 20%;
   height: 100vh;
@@ -16,6 +16,8 @@ body {
   padding: 25px;
   background-color: rgb(170, 170, 170);
   overflow: hidden;
+  padding-bottom: 0;
+  padding-top: 0;
 }
 
 .screen{
@@ -23,13 +25,32 @@ body {
   background-color: #476846;
   grid-template-columns: repeat(10,1fr);
   grid-template-rows: repeat(10,1fr);
+  overflow: scroll;
+}
+
+.screendisplay{
+  display:grid;
+  background-color: #476846;
+  grid-template-columns: repeat(10,1fr);
+  grid-template-rows: repeat(10,1fr);
+  overflow: scroll;
+  grid-auto-rows: 1fr;
+}
+
+.ligne{
+  grid-column: 1/-1;
+  text-decoration: none;
+  color: black;
 }
 
 
 p{
-  font-size: 15px;
-  text-align: justify;
-  padding: 30px;
+  margin:0
+  }
+
+.select:hover{
+  background-color: #000000;
+  color: #476846;
 }
 .alert {
   position: fixed;
@@ -225,6 +246,12 @@ p{
   height: 52px;
 }
 
+.logo{
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+}
+
 .logo img {
   width: 100px;
 }
@@ -396,6 +423,7 @@ justify-content: space-between;
   position: relative;
 }
 
+
 .has-lamp {
   height: 1px;
   width: 1px;
@@ -406,10 +434,11 @@ justify-content: space-between;
   top: 50%;
   left: -35%;
 }
-.formulaire{
+.centerfooter{
   display: flex;
   align-items: center;
   padding: 25px;
+  justify-content:center
 
 }
 
@@ -551,9 +580,6 @@ font-family:'Public Pixel', sans-serif;
   align-items: end;
 }
 
-p{
-  font-size: 15px;
-}
 
 .typewriter {
   overflow: hidden;
