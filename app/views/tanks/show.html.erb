@@ -19,7 +19,8 @@
       <% end %>
     </div>
     <% if @tank.liters < 20 %>
-      <div class="tank" style="background-image: url('<%= image_path('fishu/bocal.png') %>');">
+      <div class="tank">
+      <%= image_tag 'fishu/bocal.png' %>
     <% end %>
     <div class="fish">
       <div class="fish-container">
