@@ -1,19 +1,40 @@
-<div class="navbar" style="justify-content: center;position: absolute;top: 0%;">
+<div class="navbar">
   <div class="logo">
       <%= image_tag 'fishu/logo.png' %>
   </div>
 </div>
-<div class="index">
-<% if @user.tanks %>
+<div class="screendisplay">
+<% if @user.tanks.empty? %>
+  coucou
+<% else %>
   <% @tanks.each do |tank| %>
 
-    <%= link_to tank.fish.first.name, tank_path(tank), class:"lien btn-index" %>
+    <%= link_to tank_path(tank), class:"ligne" do %>
+      <div class="linespacebtw">
+        <p class="select"><%=tank.liters%> litres |
+          <%=tank.fish.count%>
+          <%if tank.fish.count > 1 %>
+            <%if tank.fish.last.sick?%>
+              poissons | statut: malades
+            <%else%>
+              poissons | statut: sains
+            <%end%>
+          <%else%>
+            <%if tank.fish.last.sick?%>
+              poisson | statut: malade
+            <%else%>
+              poisson | statut: sain
+            <%end%>
+          <%end%>
+
+        </p>
+      </div>
+      <%end %>
   <% end %>
 <% end %>
-<div class="">
+</div>
+<div class=centerfooter>
 <%= form_with model: [ Tank.new] do |f| %>
 <%= f.submit "Creer mon aquarium", class: "btn-index"%>
 <% end %>
-</div>
-
 </div>
