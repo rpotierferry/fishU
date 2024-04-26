@@ -1,32 +1,35 @@
 @import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap');
 /* 'Pixelify Sans' */
 
-*{
+/* *{
   border: solid 1px #f90000;
-}
+} */
 
 body {
   /* font-family: 'Public Pixel', sans-serif; */
   font-family: 'Pixer';
   display: grid;
-  grid-template-rows: 10% 1fr 20%;
+  grid-template-rows: 10% 1fr;
   height: 100vh;
   margin: 0;
   box-sizing: border-box;
   padding: 25px;
   background-color: rgb(170, 170, 170);
   overflow: hidden;
-  padding-bottom: 0;
-  padding-top: 0;
+  grid-template-columns: 50% 50%;
 }
 
 .screen{
-  display:grid;
+  display: grid;
   background-color: #476846;
   grid-template-columns: repeat(10,10%);
   grid-template-rows: repeat(10,10%);
   overflow: scroll;
   grid-auto-columns: 10%;
+  border-top: solid 1px #2b2b2b;
+  border-left: solid 1px #2b2b2b;
+  box-shadow: -1px -1px 1px #000;
+  border-radius: 10px;
 }
 
 .screendisplay{
@@ -36,6 +39,10 @@ body {
   grid-template-rows: repeat(10,1fr);
   overflow: scroll;
   grid-auto-rows: 1fr;
+  border-top: solid 1px #2b2b2b;
+  border-left: solid 1px #2b2b2b;
+  box-shadow: -1px -1px 1px #000;
+  border-radius: 10px;
 }
 
 .ligne{
@@ -188,11 +195,12 @@ p{
 }
 .navbar {
   box-sizing: border-box;
-  justify-content: center;
   display: flex;
   height: 100%;
   align-items: center;
   width: 100%;
+  grid-column: 1/-1;
+  justify-content: center;
 }
 
 .age {
@@ -201,8 +209,9 @@ p{
 }
 .bulle{
   display: flex;
-  align-items: flex-start;
-  position: relative;
+  align-items: center;
+  grid-row-start: 1;
+  grid-column-start: 1;
 }
 
 .points {
@@ -212,9 +221,6 @@ p{
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  position: fixed;
-  top: 10%;
-  left: 10%;
   height: 35px;
   flex-direction: row-reverse;
   font-family:'arial'
