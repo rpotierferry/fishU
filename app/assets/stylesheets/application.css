@@ -23,9 +23,10 @@ body {
 .screen{
   display:grid;
   background-color: #476846;
-  grid-template-columns: repeat(10,1fr);
-  grid-template-rows: repeat(10,1fr);
+  grid-template-columns: repeat(10,10%);
+  grid-template-rows: repeat(10,10%);
   overflow: scroll;
+  grid-auto-columns: 10%;
 }
 
 .screendisplay{
@@ -41,6 +42,16 @@ body {
   grid-column: 1/-1;
   text-decoration: none;
   color: black;
+}
+
+.bowl{
+  background-image: url(fishu/bocal.png);
+  grid-row: 1/-1;
+  grid-column: 1/-1;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  margin: 5px;
 }
 
 
@@ -191,8 +202,6 @@ p{
 .bulle{
   display: flex;
   align-items: flex-start;
-  height: 52px;
-  width: 100px;
   position: relative;
 }
 
@@ -299,22 +308,10 @@ p{
 
 
 .tank {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 70%;
-  width: 100%;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
+  background: #000;
 }
 
 .buttons{
-  height:320px;
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -681,28 +678,42 @@ font-family:'Public Pixel', sans-serif;
   background-size: cover;
 }
 
-/* .fish1 {
-  width: 55%;
-} */
-
-.fish2 {
-  width: 50%;
-
-}
-.fish3 {
-  width: 30%;
-
-}
-.fish4 {
-  width: 20%;
+.name{
+  grid-row: 4;
+  grid-column: 4;
+  align-items: center;
+  justify-content: center;
+  animation:Swim 1s linear infinite
 }
 
-.sac {
-  height: 500px;
-  background-image: url('sac.png');
-  background-size: cover;
-  width: 500px;
+.fishi1{
+  background-image: url(fishu/fishi.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  animation: Swim 1s linear infinite;
 }
+
+.fishi2 {
+background-image: url(fishu/fishi2.png);
+background-size: contain;
+background-repeat: no-repeat;
+}
+.sick{
+  background-image: url(fishu/sick.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  animation: Swim 1s linear infinite;
+
+}
+.sick2{
+  background-image: url(fishu/sick2.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+
+}
+
 
 .newfish{
   width: 100%;
@@ -718,9 +729,10 @@ font-family:'Public Pixel', sans-serif;
     height: 100%;
   }
 }
-.plantes {
-  width: 100%;
-  height: 100%;
+.plant {
+  background-image: url(fishu/plant.png);
+  background-size: contain;
+
 }
 
 .plant1 {
