@@ -15,6 +15,7 @@ Rails.application.routes.draw do
       post 'increase_tank_size'
       post 'new_day'
       post 'reset_all'
+      get 'details_death'
     end
   end
 end

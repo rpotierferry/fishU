@@ -34,7 +34,7 @@
     transform: translateX(0);
   }
   50% {
-    transform: translateX(40px); /* Mouvement vers la droite */
+    transform: translateX(70px); /* Mouvement vers la droite */
   }
   100% {
     transform: translateX(0);
@@ -78,19 +78,19 @@
 }
 
 .fish1 {
-  width: 200px;
+  width: 55%;
 }
 
 .fish2 {
-  width: 150px;
+  width: 50%;
 
 }
 .fish3 {
-  width: 100px;
+  width: 30%;
 
 }
 .fish4 {
-  width: 80px;
+  width: 20%;
 }
 
 .sac {

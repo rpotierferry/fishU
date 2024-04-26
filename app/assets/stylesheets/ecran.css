@@ -10,6 +10,7 @@
   box-shadow: -1px -1px 1px #000;
   justify-content: space-between;
   width: 50%;
+  overflow: scroll;
 }
 
 .underline {
@@ -40,4 +41,39 @@
   display: flex;
   flex-direction: column;
   padding-left: 5px;
+}
+
+.nb {
+  /* font-family: 'Public Pixel', sans-serif; */
+  font-family: Arial, Helvetica, sans-serif;
+  /* font-size: 10px; */
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.item-fish {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  justify-content: space-between;
+}
+
+.flex{
+  display:flex;
+  flex-direction: column;
+}
+
+.trous{
+  display: flex;
+}
+.trou{
+  height: 3px;
+  width: 3px;
+  background: #2b2b2b;
+  box-shadow: -1px -1px 1px #000;
+  border-radius: 50%;
 }

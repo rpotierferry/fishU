@@ -1,13 +1,3 @@
-<% if @tank.fish.count == 0 %>
-<div class="navbar" style="justify-content: center;position: absolute;top: 0%;">
-  <div class="logo">
-      <%= image_tag 'fishu/logo.png' %>
-  </div>
-</div>
-<div class="index">
-  <%= link_to "Creer un nouveau poisson", new_tank_fish_path(@tank), class:"lien" %>
-  </div>
-<% else %>
 
 <div class="navbar">
   <div class="logo">
@@ -16,8 +6,7 @@
       <% end %>
   </div>
 </div>
-
-<div class="day <%= "to_day" if params[:to_day].present? %>">
+<div class="screen <%= "to_day" if params[:to_day].present? %>">
   <audio id="popSound" src="<%= image_path("fishu/pop.mp3") %>"></audio>
   <audio id="flushSound" src="<%= image_path("https://res.cloudinary.com/detoat4si/video/upload/v1710273036/v983j86nqrjtvd8w2kqv.mp3") %>"></audio>
     <div class="bulle">
@@ -28,105 +17,111 @@
         <span class="new-points">+ <%= params[:bubble] %></span>
       <% end %>
     </div>
-    <% if @tank.liters < 20 %>
-      <div class="tank" style="background-image: url('<%= image_path('fishu/bocal.png') %>');">
-    <% end %>
-    <div class="fish">
-      <div class="fish-container">
+
         <% @tank.fish.each_with_index do |f, i| %>
           <% if @tank.fish.last.alive? %>
               <% if @tank.liters < 20 %>
+                <div class="bowl">
+                </div>
                 <% t = 20 %>
                 <% l = 25 %>
-              <% else %>
-                <% t = rand(9..70) %>
-                <% l = rand(0..60) %>
-              <% end %>
-              <% if @tank.liters < 20 %>
-                <% fish = "fish1"%>
                 <% length = "Swim" %>
               <% elsif @tank.liters >= 20 && @tank.liters < 50 %>
-                <% fish = "fish2"%>
+              <div class="tank" style="grid-row: 1/-1;grid-column-start: 1;"></div>
+                <div class="tank" style="grid-row: 1/-1;grid-column-start: 10;"></div>
+                <% t = rand(9..70) %>
+                <% l = rand(0..60) %>
                 <% length = "Swim2" %>
               <% elsif @tank.liters >= 50 && @tank.liters < 80 %>
-                <% fish = "fish3"%>
+               <div class="tank" style="grid-row: 1/-1;grid-column-start: 1;"></div>
+                <div class="tank" style="grid-row: 1/-1;grid-column-start: 10;"></div>
+                <% t = rand(9..70) %>
+                <% l = rand(0..150) %>
                 <% length = "Swim3" %>
               <% else %>
-                <% fish = "fish4"%>
+               <div class="tank" style="grid-row: 1/-1;grid-column-start: 1;"></div>
+                <div class="tank" style="grid-row: 1/-1;grid-column-start: 10;"></div>
+                <% t = rand(9..70) %>
+                <% l = rand(0..300) %>
                 <% length = "Swim4" %>
               <%end %>
-              <% if i.odd? %>
+              <% if (i+1).odd? %>
                 <% if @tank.fish.last.sick? %>
-                  <% speed = rand(4..5) %>
-                  <%= image_tag 'fishu/sick.png', class:"#{fish}", style:"position: absolute; background-position: center; top: #{t}%; left: #{l}%; animation: #{length} #{speed}s ease-in-out infinite;" %>
+                  <% speed = rand(5..6) %>
+                  <div class="sick" style="grid-row: 4/8;grid-column: 4/8;"></div>
+                  <p><%=f.name%></p>
                 <% else %>
-                  <% speed = rand(2..3) %>
-                  <%= image_tag 'fishu/fishi.png', class:"#{fish}", style:"position: absolute; background-position: center; top: #{t}%; left: #{l}%; animation: #{length} #{speed}s ease-in-out infinite;"%>
+                  <% speed = rand(2..4) %>
+                  <div class="fishi1" style="grid-row: 4/8;grid-column: 4/8;"></div>
+                  <p><%=f.name%></p>
                 <% end %>
               <% else %>
                 <% if @tank.fish.last.sick? %>
-                  <% speed = rand(4..5) %>
-                  <%= image_tag 'fishu/sick2.png', class:"#{fish}", style:"position: absolute; background-position: center; top: #{t}%; left: #{l}%; animation: #{length} #{speed}s ease-in-out infinite;" %>
-                <% else %>
-                  <% speed = rand(1..3) %>
-                  <%= image_tag 'fishu/fishi2.png', class:"#{fish}", style:"position: absolute; background-position: center; top: #{t}%; left: #{l}%; animation: #{length} #{speed}s ease-in-out infinite;" %>
+                  <% speed = rand(5..6) %>
+                 <div class="sick2"></div>
+                 <p><%=f.name%></p>
+                 <% else %>
+                  <% speed = rand(2..4) %>
+                  <div class="fishi2"></div>
+                  <p><%=f.name%></p>
                 <% end %>
               <% end %>
           <% else %>
-            <div class="tomb">
-              <%= image_tag 'fishu/rip.png', style:"width: #{50}%;" %>
-            </div>
+            <%=link_to details_death_tank_path(@tank), class:"tomb" do %>
+              <%= image_tag 'fishu/rip.png', style:"width: #{45}%;" %>
+              <div class="causeofdeath" style="top: 65%;"> </div>
+              <div class="causeofdeath" style="top: 68%;"></div>
+              <div class="causeofdeath" style="top: 70%;"></div>
+              <% end %>
           <% end %>
         <% end %>
-      </div>
-    </div>
 
-    <div class="plantes">
-      <div class="plante-container">
+
         <% if @tank.plants.count > 0 %>
           <%@tank.plants.each do |plant| %>
           <% if @tank.liters < 20 %>
             <% left = "#{rand(25..60)}%" %>
             <% bottom = "5%" %>
-          <% else %>
-            <% left = "#{rand(0..95)}%" %>
-            <% bottom = "#{rand(0..10)}%" %>
-          <% end %>
-          <% if @tank.liters < 20 %>
             <%plant = "plant1"%>
           <% elsif @tank.liters >= 20 && @tank.liters < 50%>
+            <% left = "#{rand(0..95)}%" %>
+            <% bottom = "#{rand(0..10)}%" %>
             <% plant = "plant2"%>
           <% elsif @tank.liters >= 50 && @tank.liters < 80%>
+            <% left = "#{rand(0..150)}%" %>
+            <% bottom = "#{rand(0..15)}%" %>
             <%plant = "plant3"%>
           <% else %>
+            <% left = "#{rand(0..320)}%" %>
+            <% bottom = "#{rand(0..15)}%" %>
             <%plant = "plant4"%>
           <%end %>
-          <%= image_tag 'fishu/plant.png', class:"#{plant}", style:"position: absolute; bottom: #{bottom}; left: #{left};" %>
+          <div class="plant"></div>
         <%end%>
         <%end %>
-      </div>
-    </div>
 
-    <div class="poops" data-controller="poop">
-      <div class="poop-container">
+
+
+    <%# data-controller="poop" %>
         <% if @tank.nitrate > 0 %>
           <% n = @tank.nitrate %>
           <% poops = (1..n).to_a %>
           <% poops.each do |poop| %>
-            <%if @tank.liters < 20 %>
+            <% if @tank.liters < 20 %>
               <% top = "#{rand(10..75)}%" %>
               <% left = "#{rand(20..70)}% " %>
-            <% else %>
-              <% top = "#{rand(10..95)}% " %>
-              <% left = "#{rand(5..95)}% " %>
-            <%end %>
-            <% if @tank.liters < 20 %>
               <% poopimage = "poop-image1"%>
             <% elsif @tank.liters >= 20 && @tank.liters < 50%>
+              <% top = "#{rand(10..95)}% " %>
+              <% left = "#{rand(0..95)}% " %>
               <% poopimage = "poop-image2"%>
             <% elsif @tank.liters > 50 && @tank.liters < 80%>
+              <% top = "#{rand(10..95)}% " %>
+              <% left = "#{rand(0..150)}% " %>
               <% poopimage = "poop-image3"%>
             <% else %>
+              <% top = "#{rand(10..95)}% " %>
+              <% left = "#{rand(0..320)}% " %>
               <% poopimage = "poop-image4"%>
               <%end %>
             <%= image_tag 'fishu/poop.png',
@@ -134,12 +129,9 @@
                           style:"position: absolute; background-position: center; top: #{top}; left: #{left};" %>
           <% end %>
         <% end %>
-      </div>
-    </div>
-    <% if @tank.liters < 20 %>
-    </div>
-    <% end %>
-</div>
+
+  </div>
+
 <div class="buttons" data-controller="button">
   <div class="set-up">
     <div class="eat-button">
@@ -187,7 +179,6 @@
   </div>
 
   <div class="dashboard">
-      <div class="fish-info">
       <%if @tank.fish.count == 1 %>
       <% poisson = "poisson" %>
       <%else %>
@@ -195,62 +186,38 @@
       <%end %>
 
       <span class="underline"> <%= poisson %> </span>
-      <div class="fish-list">
         <% @tank.fish.each do |fish| %>
-          <span>
-            <%=fish.name%> | <%=fish.size%>cm
+          <span class="item-fish">
+            <%=fish.name%>
+            <div class="size"><div class="nb"><%=fish.size%></div>cm
+            </div>
           </span>
         <% end %>
-      </div>
-      </div>
 
-      <div class="tank-info">
         <span class="underline">
-          Paramètres
+          Parametres
         </span>
-        <div class="details-info">
-          <span>
-            Plantes: <%= @tank.plants.count %>
+          <div class="item">
+              Plantes : <span class="nb"><%= @tank.plants.count %></span>
+          </div>
+
+          <div class="item">
+            NO3 : <div class="nb"><%= @tank.nitrate %></div>mg/L
+          </div>
+
+          <span class="item">
+            Volume : <div class="nb"><%= @tank.liters %></div>L
           </span>
 
-          <span>
-            NO3: <%= @tank.nitrate %>mg/L
+          <span class="item">
+            Jour : <div class="nb"><%= @tank.age %></div>
           </span>
-
-          <span>
-            Volume: <%= @tank.liters %>L
-          </span>
-
-          <span>
-            jour <%= @tank.age %>
-          </span>
-        </div>
-      </div>
     </div>
 
-<div id="" class="regles <%= "first" if params[:rules].present? %>">
-  <div class="regles_content">
-    <div class="typewriter">
-    <h1>Règles du jeu</h1>
-    <h2>Maintiens ton <%= image_tag "fishu/fishi.png", class:"icon" %> en vie!</h2>
 
-      <br>
-      <p> * Il a besoin de manger <%= image_tag "fishu/food.png", class:"icon" %> 1 fois par jour <%= image_tag "fishu/moon.png", class:"icon"%></p>
-      <p> * Quand il mange <%= image_tag "fishu/food.png", class:"icon" %> il produit du nitrate (NO3-) <%= image_tag "fishu/poop.png", class:"icon" %> </p>
-      <p> * Les plantes <%= image_tag "fishu/leaf.png", class:"icon" %> réduisent les nitrates (NO3-) <%= image_tag "fishu/poop.png", class:"icon" %> </p>
-      <p> * Les plantes <%= image_tag "fishu/leaf.png", class:"icon" %> ont besoin de lumière <%= image_tag "fishu/bulb.png", class:"icon" %></p>
-      <p> * + il mange <%= image_tag "fishu/food.png", class:"icon" %> + il grandit + il a besoin d'espace <%= image_tag "fishu/drop.png", class:"icon" %> </p>
-      <p> * Utilise tes bubulles <%= image_tag 'fishu/bulles.png', class:"icon" %> pour faire de nouveaux achats </p>
-      <p> * Tu gagnes 20 bubulles <%= image_tag 'fishu/bulles.png', class:"icon" %> par jour <%= image_tag "fishu/moon.png", class:"icon"%> </p>
-    <a href="#" class="regles_close" data-turbo="false"></a>
-    </div>
-  </div>
-</div>
 
   <div class="day-button" data-controller="night">
-  <div style="display: flex;
-flex-direction: column-reverse;
-gap: 10px;">
+  <div style="display: flex; flex-direction: column-reverse;gap: 10px;">
   <% if @tank.fish.last.alive? == false %>
     <div class="">
       <%= button_to reset_all_tank_path(@tank),
@@ -264,12 +231,19 @@ gap: 10px;">
   <% end %>
     <a class="btndroite lien" href="#popup" data-turbo="false" class="pop">?</a>
     </div>
+    <div class="flex">
+    <div class="trous">
+    <div class="trou"></div>
+    <div class="trou"></div>
+    <div class="trou"></div>
+    </div>
     <%= button_to new_day_tank_path(@tank), class:"btndroite", data: { action: "#{@tank.fish.last.fed? ? "click->night#nightAnimation" : "click->night#notFed"}" } do %>
       <%= image_tag "fishu/moon.png", class:"btn-img"%>
     <% end %>
+    </div>
   </div>
   </div>
-<% end %>
+
 
   <div class="regles_button">
     <div id="popup" class="regles">

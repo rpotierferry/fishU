@@ -1,5 +1,5 @@
 class TanksController < ApplicationController
-  before_action :set_tank, only: %i[reset_all show feed add_lamp add_plant increase_tank_size new_day]
+  before_action :set_tank, only: %i[reset_all show feed add_lamp add_plant increase_tank_size new_day details_death]
   before_action :set_user, only: %i[index show]
   before_action :authenticate_user!
 
@@ -10,7 +10,7 @@ class TanksController < ApplicationController
     plant_nitrate_decrease: 1,
     lamp_price: 20,
     tank_increase_price: 10,
-    tank_increase_liters: 5,
+    tank_increase_liters: 10,
     win_bubble_amount: 20
   }.freeze
 
@@ -32,7 +32,7 @@ class TanksController < ApplicationController
     @tank = Tank.new
     @tank.user = @user
     @tank.save
-    redirect_to tank_path(@tank)
+    redirect_to new_tank_fish_path(@tank)
   end
 
   # user actions
@@ -44,13 +44,13 @@ class TanksController < ApplicationController
 
   def feed
     @tank.fish.each do |f|
-      f.size += CONFIG[:fish_growth]
+      f.size += CONFIG[:fish_growth] if f.size < 20
       f.fed = true
       f.save
       @tank.nitrate += f.size * CONFIG[:food_nitrate_increase]
     end
-    @tank.save
-    redirect_to tank_path(@tank)
+      @tank.save
+      redirect_to tank_path(@tank)
   end
 
   def add_plant
@@ -95,6 +95,9 @@ class TanksController < ApplicationController
     else
       redirect_to tank_path(@tank), alert: "Nourris le poisson pour passer au jour suivant."
     end
+  end
+
+  def details_death
   end
 
   private
