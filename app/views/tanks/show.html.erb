@@ -6,8 +6,7 @@
       <% end %>
   </div>
 </div>
-
-<div class="day <%= "to_day" if params[:to_day].present? %>">
+<div class="screen <%= "to_day" if params[:to_day].present? %>">
   <audio id="popSound" src="<%= image_path("fishu/pop.mp3") %>"></audio>
   <audio id="flushSound" src="<%= image_path("https://res.cloudinary.com/detoat4si/video/upload/v1710273036/v983j86nqrjtvd8w2kqv.mp3") %>"></audio>
     <div class="bulle">
@@ -18,50 +17,53 @@
         <span class="new-points">+ <%= params[:bubble] %></span>
       <% end %>
     </div>
-    <% if @tank.liters < 20 %>
-      <div class="tank">
-      <%= image_tag 'fishu/bocal.png' %>
-    <% end %>
-    <div class="fish">
-      <div class="fish-container">
+
         <% @tank.fish.each_with_index do |f, i| %>
           <% if @tank.fish.last.alive? %>
               <% if @tank.liters < 20 %>
+                <div class="bowl">
+                </div>
                 <% t = 20 %>
                 <% l = 25 %>
-                <% fish = "fish1"%>
                 <% length = "Swim" %>
               <% elsif @tank.liters >= 20 && @tank.liters < 50 %>
-               <% t = rand(9..70) %>
+              <div class="tank" style="grid-row: 1/-1;grid-column-start: 1;"></div>
+                <div class="tank" style="grid-row: 1/-1;grid-column-start: 10;"></div>
+                <% t = rand(9..70) %>
                 <% l = rand(0..60) %>
-                <% fish = "fish2"%>
                 <% length = "Swim2" %>
               <% elsif @tank.liters >= 50 && @tank.liters < 80 %>
+               <div class="tank" style="grid-row: 1/-1;grid-column-start: 1;"></div>
+                <div class="tank" style="grid-row: 1/-1;grid-column-start: 10;"></div>
                 <% t = rand(9..70) %>
                 <% l = rand(0..150) %>
-                <% fish = "fish3"%>
                 <% length = "Swim3" %>
               <% else %>
+               <div class="tank" style="grid-row: 1/-1;grid-column-start: 1;"></div>
+                <div class="tank" style="grid-row: 1/-1;grid-column-start: 10;"></div>
                 <% t = rand(9..70) %>
                 <% l = rand(0..300) %>
-                <% fish = "fish4"%>
                 <% length = "Swim4" %>
               <%end %>
-              <% if i.odd? %>
+              <% if (i+1).odd? %>
                 <% if @tank.fish.last.sick? %>
                   <% speed = rand(5..6) %>
-                  <%= image_tag 'fishu/sick2.png', class:"#{fish}", style:"position: absolute; background-position: center; top: #{t}%; left: #{l}%; animation: #{length} #{speed}s ease-in-out infinite;" %>
+                  <div class="sick" style="grid-row: 4/8;grid-column: 4/8;"></div>
+                  <p><%=f.name%></p>
                 <% else %>
                   <% speed = rand(2..4) %>
-                  <%= image_tag 'fishu/fishi2.png', class:"#{fish}", style:"position: absolute; background-position: center; top: #{t}%; left: #{l}%; animation: #{length} #{speed}s ease-in-out infinite;"%>
+                  <div class="fishi1" style="grid-row: 4/8;grid-column: 4/8;"></div>
+                  <p><%=f.name%></p>
                 <% end %>
               <% else %>
                 <% if @tank.fish.last.sick? %>
                   <% speed = rand(5..6) %>
-                  <%= image_tag 'fishu/sick.png', class:"#{fish}", style:"position: absolute; background-position: center; top: #{t}%; left: #{l}%; animation: #{length} #{speed}s ease-in-out infinite;" %>
-                <% else %>
+                 <div class="sick2"></div>
+                 <p><%=f.name%></p>
+                 <% else %>
                   <% speed = rand(2..4) %>
-                  <%= image_tag 'fishu/fishi.png', class:"#{fish}", style:"position: absolute; background-position: center; top: #{t}%; left: #{l}%; animation: #{length} #{speed}s ease-in-out infinite;" %>
+                  <div class="fishi2"></div>
+                  <p><%=f.name%></p>
                 <% end %>
               <% end %>
           <% else %>
@@ -73,11 +75,8 @@
               <% end %>
           <% end %>
         <% end %>
-      </div>
-    </div>
 
-    <div class="plantes">
-      <div class="plante-container">
+
         <% if @tank.plants.count > 0 %>
           <%@tank.plants.each do |plant| %>
           <% if @tank.liters < 20 %>
@@ -97,14 +96,13 @@
             <% bottom = "#{rand(0..15)}%" %>
             <%plant = "plant4"%>
           <%end %>
-          <%= image_tag 'fishu/plant.png', class:"#{plant}", style:"position: absolute; bottom: #{bottom}; left: #{left};" %>
+          <div class="plant"></div>
         <%end%>
         <%end %>
-      </div>
-    </div>
 
-    <div class="poops" data-controller="poop">
-      <div class="poop-container">
+
+
+    <%# data-controller="poop" %>
         <% if @tank.nitrate > 0 %>
           <% n = @tank.nitrate %>
           <% poops = (1..n).to_a %>
@@ -131,12 +129,9 @@
                           style:"position: absolute; background-position: center; top: #{top}; left: #{left};" %>
           <% end %>
         <% end %>
-      </div>
-    </div>
-    <% if @tank.liters < 20 %>
-    </div>
-    <% end %>
-</div>
+
+  </div>
+
 <div class="buttons" data-controller="button">
   <div class="set-up">
     <div class="eat-button">
@@ -184,7 +179,6 @@
   </div>
 
   <div class="dashboard">
-      <div class="fish-info">
       <%if @tank.fish.count == 1 %>
       <% poisson = "poisson" %>
       <%else %>
@@ -192,7 +186,6 @@
       <%end %>
 
       <span class="underline"> <%= poisson %> </span>
-      <div class="fish-list">
         <% @tank.fish.each do |fish| %>
           <span class="item-fish">
             <%=fish.name%>
@@ -200,14 +193,10 @@
             </div>
           </span>
         <% end %>
-      </div>
-      </div>
 
-      <div class="tank-info">
         <span class="underline">
-          Paramètres
+          Parametres
         </span>
-        <div class="details-info">
           <div class="item">
               Plantes : <span class="nb"><%= @tank.plants.count %></span>
           </div>
@@ -223,8 +212,6 @@
           <span class="item">
             Jour : <div class="nb"><%= @tank.age %></div>
           </span>
-        </div>
-      </div>
     </div>
 
 
