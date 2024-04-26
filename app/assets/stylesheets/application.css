@@ -5,6 +5,7 @@
   border: solid 1px #f90000;
 } */
 
+
 body {
   /* font-family: 'Public Pixel', sans-serif; */
   font-family: 'Pixer';
@@ -30,6 +31,7 @@ body {
   border-left: solid 1px #2b2b2b;
   box-shadow: -1px -1px 1px #000;
   border-radius: 10px;
+
 }
 
 .screendisplay{
@@ -691,6 +693,7 @@ font-family:'Public Pixel', sans-serif;
   justify-content: center;
   animation:Swim 1s linear infinite
 }
+
 
 .fishi1{
   background-image: url(fishu/fishi.png);
