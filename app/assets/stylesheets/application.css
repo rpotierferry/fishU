@@ -10,26 +10,30 @@ body {
   /* font-family: 'Public Pixel', sans-serif; */
   font-family: 'Pixer';
   display: grid;
-  grid-template-rows: 10% 1fr;
   height: 100vh;
   margin: 0;
   box-sizing: border-box;
-  padding: 25px;
+  padding: 2%;
   background-color: rgb(170, 170, 170);
   overflow: hidden;
-  grid-template-columns: 50% 50%;
 }
 
 @media (orientation: landscape) {
   body {
-    grid-template-rows: 10% 1fr;
-    grid-template-columns: 50% 50%;
+    grid-template-rows: 1fr;
+    grid-template-columns: 6% 1fr 1fr;
+    padding-left:0;
+    padding: 1%
+  }
+  .logo{
+    transform: rotate(260deg);
   }
 }
 @media (orientation: portrait) {
   body {
-    grid-template-rows: 10% 1fr 1fr;
+    grid-template-rows: 6% 1fr 1fr;
     grid-template-columns: 1fr;
+    padding-top: 0;
   }
 }
 
@@ -215,7 +219,6 @@ p{
   height: 100%;
   align-items: center;
   width: 100%;
-  grid-column: 1/-1;
   justify-content: center;
 }
 
@@ -278,14 +281,10 @@ p{
 }
 
 .logo{
-  margin-bottom: 10px;
   display: flex;
   align-items: center;
 }
 
-.logo img {
-  width: 100px;
-}
 
 .to_night {
   animation: to_night 1s linear forwards;
@@ -339,14 +338,14 @@ p{
   display: flex;
   justify-content: space-between;
   box-sizing: border-box;
-  padding-top: 25px;
+  padding: 2%;
 }
 
 .set-up{
   display: flex;
-flex-direction: column;
-gap: 15px;
-flex-wrap: wrap;
+  flex-direction: column;
+  gap: 3%;
+  justify-content: space-around;
 }
 
  .btn-index {
