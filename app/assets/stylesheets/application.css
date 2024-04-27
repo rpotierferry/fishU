@@ -20,6 +20,20 @@ body {
   grid-template-columns: 50% 50%;
 }
 
+@media (orientation: landscape) {
+  body {
+    grid-template-rows: 10% 1fr;
+    grid-template-columns: 50% 50%;
+  }
+}
+@media (orientation: portrait) {
+  body {
+    grid-template-rows: 10% 1fr 1fr;
+    grid-template-columns: 1fr;
+  }
+}
+
+
 .screen{
   display: grid;
   background-color: #476846;
