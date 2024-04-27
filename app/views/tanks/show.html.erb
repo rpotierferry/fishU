@@ -2,7 +2,7 @@
 <div class="navbar">
   <div class="logo">
     <%= link_to tanks_path do %>
-      <%= image_tag 'fishu/logo.png' %>
+      <%= image_tag 'fishu/logo.png', style:"width: 80px"; %>
       <% end %>
   </div>
 </div>
@@ -144,24 +144,24 @@
               <%  column_s = "#{rand(3..8)}" %>
               <%  column_e = "#{(column_s.to_i + 1)}" %>
             <% elsif @tank.liters >= 20 && @tank.liters < 50%>
-              <% row_s = "#{rand(1..10)}" %>
+              <% row_s = "#{rand(2..10)}" %>
               <% row_e = "#{(row_s.to_i + 1)} " %>
               <%  column_s = "#{rand(1..10)}" %>
               <%  column_e = "#{(column_s.to_i + 1)}" %>
             <% elsif @tank.liters > 50 && @tank.liters < 80%>
-              <% row_s = "#{rand(1..10)}" %>
+              <% row_s = "#{rand(2..10)}" %>
               <% row_e = "#{(row_s.to_i + 1)} " %>
               <% column_s = "#{rand(1..24)}" %>
               <% column_e = "#{(column_s.to_i + 1)}" %>
             <% elsif @tank.liters > 80 && @tank.liters < 150%>
-              <% row_s = "#{rand(1..10)}" %>
+              <% row_s = "#{rand(2..10)}" %>
               <% row_e = "#{(row_s.to_i + 1)} " %>
               <% column_s = "#{rand(1..49)}" %>
               <% column_e = "#{(column_s.to_i + 1)}" %>
                <%else %>
               <% row_s = "#{rand(1..10)}" %>
               <% row_e = "#{(row_s.to_i + 1)}" %>
-              <% column_s = "#{rand(1..99)}" %>
+              <% column_s = "#{rand(2..99)}" %>
               <% column_e = "#{(column_s.to_i + 1)}" %>
               <%end %>
               <%position = %w[center left right bottom].sample %>
