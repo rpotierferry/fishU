@@ -331,6 +331,7 @@ p{
 
 .tank {
   background: #000;
+  width:20%
 }
 
 .buttons{
@@ -675,17 +676,9 @@ font-family:'Public Pixel', sans-serif;
   }
 }
 
-.fish {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-}
 
-.fish img {
-  background-size: cover;
-}
+
+
 
 .tomb {
   display: flex;
@@ -701,11 +694,9 @@ font-family:'Public Pixel', sans-serif;
 }
 
 .name{
-  grid-row: 4;
-  grid-column: 4;
+
   align-items: center;
   justify-content: center;
-  animation:Swim 1s linear infinite
 }
 
 
@@ -713,8 +704,6 @@ font-family:'Public Pixel', sans-serif;
   background-image: url(fishu/fishi.png);
   background-size: contain;
   background-repeat: no-repeat;
-  background-position: center;
-  animation: Swim 1s linear infinite;
 }
 
 .fishi2 {
@@ -726,8 +715,6 @@ background-repeat: no-repeat;
   background-image: url(fishu/sick.png);
   background-size: contain;
   background-repeat: no-repeat;
-  background-position: center;
-  animation: Swim 1s linear infinite;
 
 }
 .sick2{
@@ -745,62 +732,22 @@ background-repeat: no-repeat;
   top: 0;
   left: 0;
 }
-.plante-container {
-  .poop-container {
-    position: relative;
-    width: 100%;
-    height: 100%;
-  }
-}
+
 .plant {
   background-image: url(fishu/plant.png);
   background-size: contain;
+  background-repeat: no-repeat;
 
 }
 
-.plant1 {
-  width: 70px;
+.poop {
+  width: 35%;
+  background-image: url(fishu/poop.png);
+  background-size: contain ;
+  background-position: bottom;
+  background-repeat: no-repeat;
 }
 
-.plant2 {
-  width: 50px;
-}
-
-.plant3 {
-  width: 30px;
-}
-.plant4 {
-  width: 20px;
-}
-
-.poops {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-
-.poop-container {
-  position: relative;
-  width: 100%;
-  height: 100%;
-}
-
-.poop-image1 {
-  width: 44px;
-  height: 40px;
-}
-.poop-image2 {
-  width: 34px;
-}
-.poop-image3 {
-  width: 24px;
-}
-
-.poop-image4 {
-  width: 14px;
-}
 
 .causeofdeath{
   background-color: #000;

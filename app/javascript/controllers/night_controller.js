@@ -9,7 +9,7 @@ export default class extends Controller {
   nightAnimation(event) {
     event.preventDefault()
     const form = event.currentTarget.closest(".button_to")
-    document.querySelector(".day").classList.add("to_night")
+    document.querySelector(".screen").classList.add("to_night")
 
 
     setTimeout(() => {
