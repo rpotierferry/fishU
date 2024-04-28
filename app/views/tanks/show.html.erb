@@ -78,12 +78,16 @@
                   <p class ="name" style="grid-row-start: <%="#{row_s}"%>;grid-column-end: <%="#{column_e}"%>; animation: <%="#{length} #{speed}s linear infinite"%> "><%=f.name%></p>
                 <% end %>
               <% end %>
-          <% else %>
-            <%=link_to details_death_tank_path(@tank), class:"tomb" do %>
-              <%= image_tag 'fishu/rip.png', style:"width: #{45}%;" %>
-              <div class="causeofdeath" style="top: 65%;"> </div>
-              <div class="causeofdeath" style="top: 68%;"></div>
-              <div class="causeofdeath" style="top: 70%;"></div>
+          <% elsif @tank.liters < 20 %>
+            <div class="bowl">
+            </div>
+            <%=link_to details_death_tank_path(@tank), style:"grid-column: 4/8;grid-row: 6/11" do %>
+              <div class="tomb">
+              <div class="causeofdeath" style="grid-row: 4/5;"> </div>
+              <div class="causeofdeath" style="grid-row: 3/4;"></div>
+              <div class="causeofdeath" style="grid-row: 2/3;"></div>
+              
+              </div>
               <% end %>
           <% end %>
         <% end %>
@@ -241,6 +245,9 @@
         </span>
           <div class="item">
               Plantes : <span class="nb"><%= @tank.plants.count %></span>
+          </div>
+          <div class="item">
+              Lampe : <%= @tank.has_lamp ? "oui" : "on" %>
           </div>
 
           <div class="item">

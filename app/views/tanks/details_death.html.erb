@@ -1,41 +1,42 @@
 <div class="navbar">
   <div class="logo">
     <%= link_to tanks_path do %>
-      <%= image_tag 'fishu/logo.png' %>
+      <%= image_tag 'fishu/logo.png', style:"width:80px" %>
       <% end %>
   </div>
 </div>
 
-<div class="day">
- <div class="zoomtumb">
- <h1 id="zoomtumb">RIP</h1>
- <% if @tank.fish.count > 1 %>
-    <% fishiz = @tank.fish.map do |fish|%>
-      <%if fish == @tank.fish.first %>
-        <% fish.name %>
-      <%elsif fish == @tank.fish.last %>
-        <% " et #{fish.name}" %>
-      <% else %>
-        <%", #{fish.name}" %>
+<div class="screen">
+  <audio id="flushSound" src="<%= image_path("https://res.cloudinary.com/detoat4si/video/upload/v1710273036/v983j86nqrjtvd8w2kqv.mp3") %>"></audio>
+
+    <div id="zoomtumb"></div>
+    <% if @tank.fish.count > 1 %>
+        <% fishiz = @tank.fish.map do |fish|%>
+          <%if fish == @tank.fish.first %>
+            <% fish.name %>
+          <%elsif fish == @tank.fish.last %>
+            <% " et #{fish.name}" %>
+          <% else %>
+            <%", #{fish.name}" %>
+          <%end %>
+        <%end %>
+          <p class="epitaph"><%="Ci-gisent #{fishiz.join("")}."%></p>
+          <p>Ils sont morts à cause d'une intoxication aux nitrites.
+          La pollution aux nitrites est le resultats de la décomposition des matières organiques dans l'aquarium comme les excréments des poissons, des restes de nourriture ou encore des plantes mortes.
+          Pour réduire la concentration en nitrite, on peut les diluer en adaptant le volume de l'aquarium à la taille des poissons et à leur nombre.
+          Ajouter des plantes permet également de limiter la pollution car elles se nourrissent en partie des déchets et permettent de filtrer l'eau.</p>
+
+      <%else %>
+        <p class="epitaph">Ci-gît <%="#{@tank.fish.first.name}"%>.<br/><br/>
+        Il est mort à cause d'une intoxication aux nitrites.
+        La pollution aux nitrites est le resultats de la décomposition des matières organiques dans l'aquarium comme les excréments des poissons, des restes de nourriture ou encore des plantes mortes.
+          Pour réduire la concentration en nitrite, on peut les diluer en adaptant le volume de l'aquarium à la taille des poissons et à leur nombre.
+          Ajouter des plantes permet également de limiter la pollution car elles se nourrissent en partie des déchets et permettent de filtrer l'eau.</p>
+
       <%end %>
-    <%end %>
-      <p><%="Ci-gisent #{fishiz.join("")}."%></p>
-       <p>Ils sont morts à cause d'une intoxication aux nitrites.
-       La pollution aux nitrites est le resultats de la décomposition des matières organiques dans l'aquarium comme les excréments des poissons, des restes de nourriture ou encore des plantes mortes.
-       Pour réduire la concentration en nitrite, on peut les diluer en adaptant le volume de l'aquarium à la taille des poissons et à leur nombre.
-       Ajouter des plantes permet également de limiter la pollution car elles se nourrissent en partie des déchets et permettent de filtrer l'eau.</p>
-
-  <%else %>
-    <p>Ci-gît <%="#{@tank.fish.first.name}"%>.</p>
-    <p>Il est mort à cause d'une intoxication aux nitrites.
-    La pollution aux nitrites est le resultats de la décomposition des matières organiques dans l'aquarium comme les excréments des poissons, des restes de nourriture ou encore des plantes mortes.
-       Pour réduire la concentration en nitrite, on peut les diluer en adaptant le volume de l'aquarium à la taille des poissons et à leur nombre.
-       Ajouter des plantes permet également de limiter la pollution car elles se nourrissent en partie des déchets et permettent de filtrer l'eau.</p>
-
-  <%end %>
+  <p class="retour"><%=link_to "retour", tank_path(@tank), class:"retourlink"%></p>
 
 </div>
-    </div>
 
 <div class="buttons" data-controller="button">
   <div class="set-up">
