@@ -12,7 +12,7 @@ class FishController < ApplicationController
         redirect_to tank_path(@tank, rules: true)
       else
         render :new, status: :unprocessable_entity
-    end
+      end
   end
 
   private

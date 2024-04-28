@@ -70,6 +70,16 @@ class TanksController < ApplicationController
     redirect_to tank_path(@tank)
   end
 
+  def lamp_broken
+    set_tank
+    if rand(1..10) <= 3 # 30% chance of lamp breaking
+      @tank.has_lamp = false
+      @tank.save
+    end
+    redirect_to tank_path(@tank)
+  end
+
+
   def increase_tank_size
     if spend_bubble(CONFIG[:tank_increase_price]) == 'paid'
       @tank.liters += CONFIG[:tank_increase_liters]
@@ -155,9 +165,10 @@ class TanksController < ApplicationController
   def rip
     set_tank
     set_user
-    @fish = @tank.fish.last
-    @fish.alive = false
-    @fish.save
+    @tank.fish.each do |f|
+      f.alive = false
+      f.save
+    end
     @user.currency = 0
     @user.save
   end

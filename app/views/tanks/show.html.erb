@@ -78,9 +78,77 @@
                   <p class ="name" style="grid-row-start: <%="#{row_s}"%>;grid-column-end: <%="#{column_e}"%>; animation: <%="#{length} #{speed}s linear infinite"%> "><%=f.name%></p>
                 <% end %>
               <% end %>
+              <%@tank.plants.each do |plant| %>
+              <% if @tank.liters < 20 %>
+                <% row_s = "8" %>
+                <% row_e = "10" %>
+                <% column_s = "#{rand(4..7)}" %>
+                <% column_e = "#{(column_s.to_i + 1)}" %>
+              <% elsif @tank.liters >= 20 && @tank.liters < 50%>
+                <% row_s = "#{rand(8..10)}" %>
+                <% row_e = "11" %>
+                <% column_s = "#{rand(1..9)}" %>
+                <% column_e = "#{(column_s.to_i + 2)}" %>
+
+              <% elsif @tank.liters >= 50 && @tank.liters < 80%>
+                <% row_s = "#{rand(7..10)}" %>
+                <% row_e = "11" %>
+                <% column_s = "#{rand(1..23)}" %>
+                <% column_e = "#{(column_s.to_i + 3)}" %>
+              <% elsif @tank.liters >= 80 && @tank.liters < 150%>
+                <% row_s = "#{rand(7..10)}" %>
+                  <% row_e = "11" %>
+                  <% column_s = "#{rand(1..47)}" %>
+                  <% column_e = "#{(column_s.to_i + 3)}" %>
+              <%else %>
+                <% row_s = "#{rand(7..10)}" %>
+                <% row_e = "11" %>
+                <% column_s = "#{rand(1..97)}" %>
+                <% column_e = "#{(column_s.to_i + 3)}" %>
+              <%end %>
+              <%position = %w[center left right bottom].sample %>
+
+              <div class="plant" style="grid-row: <%="#{row_s}/#{row_e}"%>;grid-column: <%="#{column_s}/#{column_e}"%>; background-position:<%="#{position}"%>"></div>
+            <%end%>
+
+            <% if @tank.nitrate > 0 %>
+              <% n = @tank.nitrate %>
+              <% poops = (1..n).to_a %>
+              <% poops.each do |poop| %>
+                <% if @tank.liters < 20 %>
+                  <% row_s = "#{rand(3..8)}" %>
+                  <% row_e = "#{(row_s.to_i + 1)} " %>
+                  <%  column_s = "#{rand(3..8)}" %>
+                  <%  column_e = "#{(column_s.to_i + 1)}" %>
+                <% elsif @tank.liters >= 20 && @tank.liters < 50%>
+                  <% row_s = "#{rand(2..10)}" %>
+                  <% row_e = "#{(row_s.to_i + 1)} " %>
+                  <%  column_s = "#{rand(1..10)}" %>
+                  <%  column_e = "#{(column_s.to_i + 1)}" %>
+                <% elsif @tank.liters > 50 && @tank.liters < 80%>
+                  <% row_s = "#{rand(2..10)}" %>
+                  <% row_e = "#{(row_s.to_i + 1)} " %>
+                  <% column_s = "#{rand(1..24)}" %>
+                  <% column_e = "#{(column_s.to_i + 1)}" %>
+                <% elsif @tank.liters > 80 && @tank.liters < 150%>
+                  <% row_s = "#{rand(2..10)}" %>
+                  <% row_e = "#{(row_s.to_i + 1)} " %>
+                  <% column_s = "#{rand(1..49)}" %>
+                  <% column_e = "#{(column_s.to_i + 1)}" %>
+                  <%else %>
+                  <% row_s = "#{rand(1..10)}" %>
+                  <% row_e = "#{(row_s.to_i + 1)}" %>
+                  <% column_s = "#{rand(2..99)}" %>
+                  <% column_e = "#{(column_s.to_i + 1)}" %>
+                  <%end %>
+                  <%position = %w[center left right bottom].sample %>
+
+                  <div class="poop" style="grid-row: <%="#{row_s}/#{row_e}"%>;grid-column: <%="#{column_s}/#{column_e}"%>; background-position:<%="#{position}"%>"></div>
+
+                <% end %>
+            <% end %>
           <% else %>
-            <div class="bowl">
-            </div>
+
             <%=link_to details_death_tank_path(@tank), style:"grid-column: 4/8;grid-row: 6/11" do %>
               <div class="tomb">
               <div class="causeofdeath" style="grid-row: 4/5;"> </div>
@@ -93,80 +161,10 @@
         <% end %>
 
 
-        <% if @tank.plants.count > 0 %>
-          <%@tank.plants.each do |plant| %>
-          <% if @tank.liters < 20 %>
-            <% row_s = "8" %>
-            <% row_e = "10" %>
-            <% column_s = "#{rand(4..7)}" %>
-            <% column_e = "#{(column_s.to_i + 1)}" %>
-          <% elsif @tank.liters >= 20 && @tank.liters < 50%>
-            <% row_s = "#{rand(8..10)}" %>
-            <% row_e = "11" %>
-            <% column_s = "#{rand(1..9)}" %>
-            <% column_e = "#{(column_s.to_i + 2)}" %>
-
-          <% elsif @tank.liters >= 50 && @tank.liters < 80%>
-            <% row_s = "#{rand(7..10)}" %>
-            <% row_e = "11" %>
-            <% column_s = "#{rand(1..23)}" %>
-            <% column_e = "#{(column_s.to_i + 3)}" %>
-          <% elsif @tank.liters >= 80 && @tank.liters < 150%>
-             <% row_s = "#{rand(7..10)}" %>
-              <% row_e = "11" %>
-              <% column_s = "#{rand(1..47)}" %>
-              <% column_e = "#{(column_s.to_i + 3)}" %>
-          <%else %>
-            <% row_s = "#{rand(7..10)}" %>
-            <% row_e = "11" %>
-            <% column_s = "#{rand(1..97)}" %>
-            <% column_e = "#{(column_s.to_i + 3)}" %>
-          <%end %>
-          <%position = %w[center left right bottom].sample %>
-
-          <div class="plant" style="grid-row: <%="#{row_s}/#{row_e}"%>;grid-column: <%="#{column_s}/#{column_e}"%>; background-position:<%="#{position}"%>"></div>
-        <%end%>
-        <%end %>
 
 
 
     <%# data-controller="poop" %>
-        <% if @tank.nitrate > 0 %>
-          <% n = @tank.nitrate %>
-          <% poops = (1..n).to_a %>
-          <% poops.each do |poop| %>
-            <% if @tank.liters < 20 %>
-              <% row_s = "#{rand(3..8)}" %>
-              <% row_e = "#{(row_s.to_i + 1)} " %>
-              <%  column_s = "#{rand(3..8)}" %>
-              <%  column_e = "#{(column_s.to_i + 1)}" %>
-            <% elsif @tank.liters >= 20 && @tank.liters < 50%>
-              <% row_s = "#{rand(2..10)}" %>
-              <% row_e = "#{(row_s.to_i + 1)} " %>
-              <%  column_s = "#{rand(1..10)}" %>
-              <%  column_e = "#{(column_s.to_i + 1)}" %>
-            <% elsif @tank.liters > 50 && @tank.liters < 80%>
-              <% row_s = "#{rand(2..10)}" %>
-              <% row_e = "#{(row_s.to_i + 1)} " %>
-              <% column_s = "#{rand(1..24)}" %>
-              <% column_e = "#{(column_s.to_i + 1)}" %>
-            <% elsif @tank.liters > 80 && @tank.liters < 150%>
-              <% row_s = "#{rand(2..10)}" %>
-              <% row_e = "#{(row_s.to_i + 1)} " %>
-              <% column_s = "#{rand(1..49)}" %>
-              <% column_e = "#{(column_s.to_i + 1)}" %>
-               <%else %>
-              <% row_s = "#{rand(1..10)}" %>
-              <% row_e = "#{(row_s.to_i + 1)}" %>
-              <% column_s = "#{rand(2..99)}" %>
-              <% column_e = "#{(column_s.to_i + 1)}" %>
-              <%end %>
-              <%position = %w[center left right bottom].sample %>
-
-              <div class="poop" style="grid-row: <%="#{row_s}/#{row_e}"%>;grid-column: <%="#{column_s}/#{column_e}"%>; background-position:<%="#{position}"%>"></div>
-
-            <% end %>
-        <% end %>
 
   </div>
 
