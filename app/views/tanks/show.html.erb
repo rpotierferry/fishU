@@ -78,7 +78,7 @@
                   <p class ="name" style="grid-row-start: <%="#{row_s}"%>;grid-column-end: <%="#{column_e}"%>; animation: <%="#{length} #{speed}s linear infinite"%> "><%=f.name%></p>
                 <% end %>
               <% end %>
-          <% elsif @tank.liters < 20 %>
+          <% else %>
             <div class="bowl">
             </div>
             <%=link_to details_death_tank_path(@tank), style:"grid-column: 4/8;grid-row: 6/11" do %>
@@ -86,7 +86,7 @@
               <div class="causeofdeath" style="grid-row: 4/5;"> </div>
               <div class="causeofdeath" style="grid-row: 3/4;"></div>
               <div class="causeofdeath" style="grid-row: 2/3;"></div>
-              
+
               </div>
               <% end %>
           <% end %>
