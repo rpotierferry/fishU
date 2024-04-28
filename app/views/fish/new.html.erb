@@ -21,4 +21,5 @@
     <%= f.text_field :name, class:'input' %>
     <%= f.submit "Nomme ton poisson", class:'btn-index' %>
   <% end %>
+  <%= button_to "logout", destroy_user_session_path, method: :delete  %>
 </div>
