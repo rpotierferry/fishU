@@ -9,14 +9,7 @@
 <div class="screen <%= "to_day" if params[:to_day].present? %>">
   <audio id="popSound" src="<%= image_path("fishu/pop.mp3") %>"></audio>
   <audio id="flushSound" src="<%= image_path("https://res.cloudinary.com/detoat4si/video/upload/v1710273036/v983j86nqrjtvd8w2kqv.mp3") %>"></audio>
-    <div class="bulle">
-      <p class="points"><%= @user.currency %>
-      <span><%= image_tag 'fishu/bulles.png' %></span>
-      </p>
-      <% if params[:bubble].present? %>
-        <span class="new-points">+ <%= params[:bubble] %></span>
-      <% end %>
-    </div>
+
 
         <% @tank.fish.each_with_index do |f, i| %>
           <% if @tank.fish.last.alive? %>
@@ -220,6 +213,14 @@
   </div>
 
   <div class="dashboard">
+    <div class="bulle">
+      <p class="points"><%= @user.currency %>
+      <span><%= image_tag 'fishu/bulles.png' %></span>
+      </p>
+      <% if params[:bubble].present? %>
+        <span class="new-points">+ <%= params[:bubble] %></span>
+      <% end %>
+    </div>
       <%if @tank.fish.count == 1 %>
       <% poisson = "poisson" %>
       <%else %>
