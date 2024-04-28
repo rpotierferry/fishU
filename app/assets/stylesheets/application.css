@@ -37,6 +37,21 @@ body {
   }
 }
 
+.session{
+  grid-column: 2/3;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  gap:2%;
+}
+
+h2{
+  grid-column: 1/-1;
+  grid-row: 1/-1;
+  justify-self: center;
+  align-self: center;
+  font-size: 4em;
+}
 
 .screen{
   display: grid;
@@ -69,6 +84,7 @@ body {
   grid-column: 1/-1;
   text-decoration: none;
   color: black;
+  font-size: 2em;
 }
 
 .bowl{
