@@ -142,7 +142,7 @@ p{
 .dashboard {
   background-color: #476846;
   border-radius: 10px;
-  padding: 16px;
+  padding: 2%;
   display: flex;
   gap: 2%;
   flex-direction: column;
@@ -238,6 +238,8 @@ p{
   background-position: center;
   animation: Swim 1s linear infinite;
 }
+
+
 .navbar {
   box-sizing: border-box;
   display: flex;
@@ -727,6 +729,13 @@ font-family:'Public Pixel', sans-serif;
 
   align-items: center;
   justify-content: center;
+}
+
+.betta{
+  background-image: url(fishu/betta.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+
 }
 
 
