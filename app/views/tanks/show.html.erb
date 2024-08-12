@@ -158,9 +158,9 @@
               <% column_e = "#{(column_s.to_i + 1)}" %>
               <%end %>
               <%position = %w[center left right bottom].sample %>
-
+              <%= turbo_frame_tag "poops" do %>
               <div class="poop" style="grid-row: <%="#{row_s}/#{row_e}"%>;grid-column: <%="#{column_s}/#{column_e}"%>; background-position:<%="#{position}"%>"></div>
-
+              <% end %>
             <% end %>
         <% end %>
 
@@ -172,7 +172,8 @@
       <%= button_to feed_tank_path(@tank),
                     class:"btn",
                     data: {
-                      action: "click->poop#playPopSound"
+                      action: "click->poop#playPopSound",
+                      turbo_frame: "poops"
                     } do %>
         <%= image_tag "fishu/food.png", class:"btn-img" %>
       <% end %>
